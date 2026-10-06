@@ -1,0 +1,16 @@
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v3.6.0
+      - uses: actions/setup-node@abc123def456abc123def456abc123def456abc1
+      - uses: ./local-action
+      - uses: docker://ubuntu@sha256:abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890ab
+      - run: echo done
+  call:
+    uses: ./.github/workflows/reusable.yml
+  expr:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: ${{ inputs.action-ref }}

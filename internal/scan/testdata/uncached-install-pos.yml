@@ -1,0 +1,23 @@
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - run: npm ci
+      - run: npm run build
+  python:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.0'
+      - run: pip install -r requirements.txt
+  gomod:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22.5'
+          cache: 'false'
+      - run: go mod download

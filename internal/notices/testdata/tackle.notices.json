@@ -1,0 +1,2289 @@
+{
+  "schema": 1,
+  "repo": "schuettc/tackle",
+  "since": "2026-09-01T00:00:00Z",
+  "until": "2026-09-29T18:00:00Z",
+  "groups": [
+    {
+      "signature": "\"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https:/\u003cpath\u003e\"",
+      "example": "\"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\"",
+      "level": "notice",
+      "count": 59,
+      "first_seen": "2026-09-21T18:28:26Z",
+      "last_seen": "2026-09-29T17:40:17Z",
+      "sources": [
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/35638539994/job/106461914247",
+          "run_id": 35638539994,
+          "job_id": 106461914247,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 106461914247 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/35638539994/job/106462105325",
+          "run_id": 35638539994,
+          "job_id": 106462105325,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 106462105325 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/35638539994/job/106462105339",
+          "run_id": 35638539994,
+          "job_id": 106462105339,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 106462105339 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36174090871/job/108200373812",
+          "run_id": 36174090871,
+          "job_id": 108200373812,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108200373812 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36174090871/job/108200506937",
+          "run_id": 36174090871,
+          "job_id": 108200506937,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108200506937 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36174090871/job/108200506972",
+          "run_id": 36174090871,
+          "job_id": 108200506972,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108200506972 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36175062428/job/108203546130",
+          "run_id": 36175062428,
+          "job_id": 108203546130,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108203546130 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36175062428/job/108203754434",
+          "run_id": 36175062428,
+          "job_id": 108203754434,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108203754434 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36175062428/job/108203754553",
+          "run_id": 36175062428,
+          "job_id": 108203754553,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108203754553 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36176161839/job/108207162489",
+          "run_id": 36176161839,
+          "job_id": 108207162489,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108207162489 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36176161839/job/108207307556",
+          "run_id": 36176161839,
+          "job_id": 108207307556,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108207307556 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36176161839/job/108207307640",
+          "run_id": 36176161839,
+          "job_id": 108207307640,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108207307640 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36188880704/job/108248912482",
+          "run_id": 36188880704,
+          "job_id": 108248912482,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108248912482 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36188880704/job/108249023456",
+          "run_id": 36188880704,
+          "job_id": 108249023456,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108249023456 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36188880704/job/108249023522",
+          "run_id": 36188880704,
+          "job_id": 108249023522,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108249023522 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36191543416/job/108257580492",
+          "run_id": 36191543416,
+          "job_id": 108257580492,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108257580492 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36191543416/job/108257696387",
+          "run_id": 36191543416,
+          "job_id": 108257696387,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108257696387 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36191543416/job/108257696450",
+          "run_id": 36191543416,
+          "job_id": 108257696450,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108257696450 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36287169856/job/108530006330",
+          "run_id": 36287169856,
+          "job_id": 108530006330,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108530006330 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36287169856/job/108530075537",
+          "run_id": 36287169856,
+          "job_id": 108530075537,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108530075537 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36287169856/job/108530075568",
+          "run_id": 36287169856,
+          "job_id": 108530075568,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108530075568 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36347765701/job/108700367368",
+          "run_id": 36347765701,
+          "job_id": 108700367368,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108700367368 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36347765701/job/108700435549",
+          "run_id": 36347765701,
+          "job_id": 108700435549,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108700435549 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36347765701/job/108700435611",
+          "run_id": 36347765701,
+          "job_id": 108700435611,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108700435611 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36368742555/job/108760345483",
+          "run_id": 36368742555,
+          "job_id": 108760345483,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108760345483 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36368742555/job/108760413228",
+          "run_id": 36368742555,
+          "job_id": 108760413228,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108760413228 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36368742555/job/108760413346",
+          "run_id": 36368742555,
+          "job_id": 108760413346,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108760413346 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375572289/job/108780594586",
+          "run_id": 36375572289,
+          "job_id": 108780594586,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108780594586 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375572289/job/108780670577",
+          "run_id": 36375572289,
+          "job_id": 108780670577,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108780670577 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375572289/job/108780670615",
+          "run_id": 36375572289,
+          "job_id": 108780670615,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108780670615 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375576681/job/108780606505",
+          "run_id": 36375576681,
+          "job_id": 108780606505,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108780606505 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375577744/job/108780609358",
+          "run_id": 36375577744,
+          "job_id": 108780609358,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108780609358 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375700313/job/108780966864",
+          "run_id": 36375700313,
+          "job_id": 108780966864,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108780966864 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375700313/job/108781137749",
+          "run_id": 36375700313,
+          "job_id": 108781137749,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108781137749 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375700313/job/108781137772",
+          "run_id": 36375700313,
+          "job_id": 108781137772,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108781137772 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36378122632/job/108788026117",
+          "run_id": 36378122632,
+          "job_id": 108788026117,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108788026117 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36378122632/job/108788112039",
+          "run_id": 36378122632,
+          "job_id": 108788112039,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108788112039 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36378122632/job/108788112090",
+          "run_id": 36378122632,
+          "job_id": 108788112090,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108788112090 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36429842900/job/108952902055",
+          "run_id": 36429842900,
+          "job_id": 108952902055,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108952902055 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36429842900/job/108953097871",
+          "run_id": 36429842900,
+          "job_id": 108953097871,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108953097871 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36429842900/job/108953098189",
+          "run_id": 36429842900,
+          "job_id": 108953098189,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108953098189 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36489210958/job/109153476839",
+          "run_id": 36489210958,
+          "job_id": 109153476839,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109153476839 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36489210958/job/109153675129",
+          "run_id": 36489210958,
+          "job_id": 109153675129,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109153675129 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36489210958/job/109153675175",
+          "run_id": 36489210958,
+          "job_id": 109153675175,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109153675175 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36495231526/job/109173134071",
+          "run_id": 36495231526,
+          "job_id": 109173134071,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109173134071 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519371266/job/109248648857",
+          "run_id": 36519371266,
+          "job_id": 109248648857,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109248648857 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519371266/job/109248753066",
+          "run_id": 36519371266,
+          "job_id": 109248753066,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109248753066 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519371266/job/109248753072",
+          "run_id": 36519371266,
+          "job_id": 109248753072,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109248753072 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519377267/job/109248666543",
+          "run_id": 36519377267,
+          "job_id": 109248666543,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109248666543 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519377470/job/109248667111",
+          "run_id": 36519377470,
+          "job_id": 109248667111,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109248667111 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519519290/job/109249100224",
+          "run_id": 36519519290,
+          "job_id": 109249100224,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109249100224 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519519290/job/109249171950",
+          "run_id": 36519519290,
+          "job_id": 109249171950,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109249171950 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519519290/job/109249171972",
+          "run_id": 36519519290,
+          "job_id": 109249171972,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109249171972 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36602234210/job/109522219790",
+          "run_id": 36602234210,
+          "job_id": 109522219790,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109522219790 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36602234210/job/109522409111",
+          "run_id": 36602234210,
+          "job_id": 109522409111,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109522409111 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36602234210/job/109522409340",
+          "run_id": 36602234210,
+          "job_id": 109522409340,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109522409340 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36606502567/job/109536777253",
+          "run_id": 36606502567,
+          "job_id": 109536777253,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109536777253 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36606502567/job/109536964498",
+          "run_id": 36606502567,
+          "job_id": 109536964498,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109536964498 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36606502567/job/109536964588",
+          "run_id": 36606502567,
+          "job_id": 109536964588,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109536964588 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        }
+      ]
+    },
+    {
+      "signature": "Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times.",
+      "example": "Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times.",
+      "level": "notice",
+      "count": 16,
+      "first_seen": "2026-09-28T21:57:23Z",
+      "last_seen": "2026-09-29T17:42:29Z",
+      "sources": [
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36489212508/job/109153475476",
+          "run_id": 36489212508,
+          "job_id": 109153475476,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109153475476 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519027257/job/109247633756",
+          "run_id": 36519027257,
+          "job_id": 109247633756,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109247633756 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519189986/job/109248121091",
+          "run_id": 36519189986,
+          "job_id": 109248121091,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109248121091 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519371926/job/109248646822",
+          "run_id": 36519371926,
+          "job_id": 109248646822,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109248646822 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519381619/job/109248676067",
+          "run_id": 36519381619,
+          "job_id": 109248676067,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109248676067 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519519813/job/109249098613",
+          "run_id": 36519519813,
+          "job_id": 109249098613,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109249098613 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519523746/job/109249111299",
+          "run_id": 36519523746,
+          "job_id": 109249111299,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109249111299 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519531486/job/109249135137",
+          "run_id": 36519531486,
+          "job_id": 109249135137,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109249135137 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519539899/job/109249160669",
+          "run_id": 36519539899,
+          "job_id": 109249160669,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109249160669 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36598251204/job/109508639454",
+          "run_id": 36598251204,
+          "job_id": 109508639454,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109508639454 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36601986694/job/109521388767",
+          "run_id": 36601986694,
+          "job_id": 109521388767,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109521388767 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36602236488/job/109522223859",
+          "run_id": 36602236488,
+          "job_id": 109522223859,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109522223859 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36602249509/job/109522262394",
+          "run_id": 36602249509,
+          "job_id": 109522262394,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109522262394 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36605951092/job/109534872417",
+          "run_id": 36605951092,
+          "job_id": 109534872417,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109534872417 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36606504105/job/109536775384",
+          "run_id": 36606504105,
+          "job_id": 109536775384,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109536775384 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086",
+          "run_id": 36606519472,
+          "job_id": 109536828086,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109536828086 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        }
+      ]
+    },
+    {
+      "signature": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout\u003cv\u003e, actions/setup-go\u003cv\u003e, aws-actions/configure-aws-credentials\u003cv\u003e. For mor",
+      "example": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5, aws-actions/configure-aws-credentials@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+      "level": "warning",
+      "count": 5,
+      "first_seen": "2026-09-01T04:54:37Z",
+      "last_seen": "2026-09-04T13:17:03Z",
+      "sources": [
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33471504932/job/99742029057",
+          "run_id": 33471504932,
+          "job_id": 99742029057,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 99742029057 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5, aws-actions/configure-aws-credentials@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33471505475/job/99742030607",
+          "run_id": 33471505475,
+          "job_id": 99742030607,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 99742030607 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5, aws-actions/configure-aws-credentials@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33657162236/job/100338463981",
+          "run_id": 33657162236,
+          "job_id": 100338463981,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 100338463981 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5, aws-actions/configure-aws-credentials@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33833688608/job/100901750468",
+          "run_id": 33833688608,
+          "job_id": 100901750468,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 100901750468 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5, aws-actions/configure-aws-credentials@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33877051463/job/101036413099",
+          "run_id": 33877051463,
+          "job_id": 101036413099,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101036413099 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5, aws-actions/configure-aws-credentials@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        }
+      ]
+    },
+    {
+      "signature": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout\u003cv\u003e, actions/setup-go\u003cv\u003e. For more information see: https:/\u003cpath\u003e\u003cdate\u003e-dep",
+      "example": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+      "level": "warning",
+      "count": 10,
+      "first_seen": "2026-09-02T04:27:23Z",
+      "last_seen": "2026-09-04T13:15:51Z",
+      "sources": [
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33590838183/job/100124331518",
+          "run_id": 33590838183,
+          "job_id": 100124331518,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 100124331518 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33590839545/job/100124336135",
+          "run_id": 33590839545,
+          "job_id": 100124336135,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 100124336135 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33591886352/job/100127397253",
+          "run_id": 33591886352,
+          "job_id": 100127397253,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 100127397253 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33592083247/job/100127966860",
+          "run_id": 33592083247,
+          "job_id": 100127966860,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 100127966860 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33833532726/job/100901300897",
+          "run_id": 33833532726,
+          "job_id": 100901300897,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 100901300897 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33868080100/job/101007394073",
+          "run_id": 33868080100,
+          "job_id": 101007394073,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101007394073 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33872781952/job/101022486087",
+          "run_id": 33872781952,
+          "job_id": 101022486087,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101022486087 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33873076520/job/101023469373",
+          "run_id": 33873076520,
+          "job_id": 101023469373,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101023469373 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33876870304/job/101035837585",
+          "run_id": 33876870304,
+          "job_id": 101035837585,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101035837585 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33877014294/job/101036299704",
+          "run_id": 33877014294,
+          "job_id": 101036299704,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101036299704 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        }
+      ]
+    },
+    {
+      "signature": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact\u003cv\u003e. For more information see: https:/\u003cpath\u003e\u003cdate\u003e-deprecation-of-no",
+      "example": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+      "level": "warning",
+      "count": 31,
+      "first_seen": "2026-09-04T03:32:07Z",
+      "last_seen": "2026-09-29T17:40:04Z",
+      "sources": [
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33833532275/job/100901302054",
+          "run_id": 33833532275,
+          "job_id": 100901302054,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 100901302054 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33873074802/job/101023469527",
+          "run_id": 33873074802,
+          "job_id": 101023469527,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101023469527 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33877013295/job/101036304016",
+          "run_id": 33877013295,
+          "job_id": 101036304016,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101036304016 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33878519544/job/101041191499",
+          "run_id": 33878519544,
+          "job_id": 101041191499,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101041191499 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33931733774/job/101211544276",
+          "run_id": 33931733774,
+          "job_id": 101211544276,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101211544276 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33941078185/job/101238508698",
+          "run_id": 33941078185,
+          "job_id": 101238508698,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101238508698 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33946193974/job/101252607839",
+          "run_id": 33946193974,
+          "job_id": 101252607839,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101252607839 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/34004980793/job/101410408398",
+          "run_id": 34004980793,
+          "job_id": 101410408398,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101410408398 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/34063697921/job/101568660374",
+          "run_id": 34063697921,
+          "job_id": 101568660374,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101568660374 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/34181026476/job/101920006970",
+          "run_id": 34181026476,
+          "job_id": 101920006970,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101920006970 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/34399910674/job/102628945115",
+          "run_id": 34399910674,
+          "job_id": 102628945115,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 102628945115 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/34702765204/job/103577326306",
+          "run_id": 34702765204,
+          "job_id": 103577326306,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 103577326306 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/34703065065/job/103578125155",
+          "run_id": 34703065065,
+          "job_id": 103578125155,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 103578125155 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/35638539994/job/106461914247",
+          "run_id": 35638539994,
+          "job_id": 106461914247,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 106461914247 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36174090871/job/108200373812",
+          "run_id": 36174090871,
+          "job_id": 108200373812,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108200373812 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36175062428/job/108203546130",
+          "run_id": 36175062428,
+          "job_id": 108203546130,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108203546130 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36176161839/job/108207162489",
+          "run_id": 36176161839,
+          "job_id": 108207162489,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108207162489 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36188880704/job/108248912482",
+          "run_id": 36188880704,
+          "job_id": 108248912482,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108248912482 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36191543416/job/108257580492",
+          "run_id": 36191543416,
+          "job_id": 108257580492,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108257580492 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36287169856/job/108530006330",
+          "run_id": 36287169856,
+          "job_id": 108530006330,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108530006330 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36347765701/job/108700367368",
+          "run_id": 36347765701,
+          "job_id": 108700367368,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108700367368 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36368742555/job/108760345483",
+          "run_id": 36368742555,
+          "job_id": 108760345483,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108760345483 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375572289/job/108780594586",
+          "run_id": 36375572289,
+          "job_id": 108780594586,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108780594586 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375700313/job/108780966864",
+          "run_id": 36375700313,
+          "job_id": 108780966864,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108780966864 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36378122632/job/108788026117",
+          "run_id": 36378122632,
+          "job_id": 108788026117,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108788026117 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36429842900/job/108952902055",
+          "run_id": 36429842900,
+          "job_id": 108952902055,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108952902055 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36489210958/job/109153476839",
+          "run_id": 36489210958,
+          "job_id": 109153476839,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 109153476839 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519371266/job/109248648857",
+          "run_id": 36519371266,
+          "job_id": 109248648857,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 109248648857 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519519290/job/109249100224",
+          "run_id": 36519519290,
+          "job_id": 109249100224,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 109249100224 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36602234210/job/109522219790",
+          "run_id": 36602234210,
+          "job_id": 109522219790,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 109522219790 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36606502567/job/109536777253",
+          "run_id": 36606502567,
+          "job_id": 109536777253,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 109536777253 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        }
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "id": "advance-notice",
+      "waste": [
+        "W10"
+      ],
+      "severity": "info",
+      "summary": "notice seen ×59 since 2026-09-21: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\"",
+      "evidence": [
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/35638539994/job/106461914247",
+          "run_id": 35638539994,
+          "job_id": 106461914247,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 106461914247 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/35638539994/job/106462105325",
+          "run_id": 35638539994,
+          "job_id": 106462105325,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 106462105325 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/35638539994/job/106462105339",
+          "run_id": 35638539994,
+          "job_id": 106462105339,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 106462105339 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36174090871/job/108200373812",
+          "run_id": 36174090871,
+          "job_id": 108200373812,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108200373812 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36174090871/job/108200506937",
+          "run_id": 36174090871,
+          "job_id": 108200506937,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108200506937 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36174090871/job/108200506972",
+          "run_id": 36174090871,
+          "job_id": 108200506972,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108200506972 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36175062428/job/108203546130",
+          "run_id": 36175062428,
+          "job_id": 108203546130,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108203546130 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36175062428/job/108203754434",
+          "run_id": 36175062428,
+          "job_id": 108203754434,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108203754434 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36175062428/job/108203754553",
+          "run_id": 36175062428,
+          "job_id": 108203754553,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108203754553 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36176161839/job/108207162489",
+          "run_id": 36176161839,
+          "job_id": 108207162489,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108207162489 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36176161839/job/108207307556",
+          "run_id": 36176161839,
+          "job_id": 108207307556,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108207307556 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36176161839/job/108207307640",
+          "run_id": 36176161839,
+          "job_id": 108207307640,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108207307640 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36188880704/job/108248912482",
+          "run_id": 36188880704,
+          "job_id": 108248912482,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108248912482 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36188880704/job/108249023456",
+          "run_id": 36188880704,
+          "job_id": 108249023456,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108249023456 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36188880704/job/108249023522",
+          "run_id": 36188880704,
+          "job_id": 108249023522,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108249023522 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36191543416/job/108257580492",
+          "run_id": 36191543416,
+          "job_id": 108257580492,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108257580492 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36191543416/job/108257696387",
+          "run_id": 36191543416,
+          "job_id": 108257696387,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108257696387 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36191543416/job/108257696450",
+          "run_id": 36191543416,
+          "job_id": 108257696450,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108257696450 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36287169856/job/108530006330",
+          "run_id": 36287169856,
+          "job_id": 108530006330,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108530006330 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36287169856/job/108530075537",
+          "run_id": 36287169856,
+          "job_id": 108530075537,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108530075537 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36287169856/job/108530075568",
+          "run_id": 36287169856,
+          "job_id": 108530075568,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108530075568 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36347765701/job/108700367368",
+          "run_id": 36347765701,
+          "job_id": 108700367368,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108700367368 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36347765701/job/108700435549",
+          "run_id": 36347765701,
+          "job_id": 108700435549,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108700435549 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36347765701/job/108700435611",
+          "run_id": 36347765701,
+          "job_id": 108700435611,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108700435611 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36368742555/job/108760345483",
+          "run_id": 36368742555,
+          "job_id": 108760345483,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108760345483 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36368742555/job/108760413228",
+          "run_id": 36368742555,
+          "job_id": 108760413228,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108760413228 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36368742555/job/108760413346",
+          "run_id": 36368742555,
+          "job_id": 108760413346,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108760413346 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375572289/job/108780594586",
+          "run_id": 36375572289,
+          "job_id": 108780594586,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108780594586 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375572289/job/108780670577",
+          "run_id": 36375572289,
+          "job_id": 108780670577,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108780670577 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375572289/job/108780670615",
+          "run_id": 36375572289,
+          "job_id": 108780670615,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108780670615 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375576681/job/108780606505",
+          "run_id": 36375576681,
+          "job_id": 108780606505,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108780606505 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375577744/job/108780609358",
+          "run_id": 36375577744,
+          "job_id": 108780609358,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108780609358 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375700313/job/108780966864",
+          "run_id": 36375700313,
+          "job_id": 108780966864,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108780966864 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375700313/job/108781137749",
+          "run_id": 36375700313,
+          "job_id": 108781137749,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108781137749 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375700313/job/108781137772",
+          "run_id": 36375700313,
+          "job_id": 108781137772,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108781137772 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36378122632/job/108788026117",
+          "run_id": 36378122632,
+          "job_id": 108788026117,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108788026117 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36378122632/job/108788112039",
+          "run_id": 36378122632,
+          "job_id": 108788112039,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108788112039 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36378122632/job/108788112090",
+          "run_id": 36378122632,
+          "job_id": 108788112090,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108788112090 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36429842900/job/108952902055",
+          "run_id": 36429842900,
+          "job_id": 108952902055,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108952902055 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36429842900/job/108953097871",
+          "run_id": 36429842900,
+          "job_id": 108953097871,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108953097871 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36429842900/job/108953098189",
+          "run_id": 36429842900,
+          "job_id": 108953098189,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 108953098189 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36489210958/job/109153476839",
+          "run_id": 36489210958,
+          "job_id": 109153476839,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109153476839 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36489210958/job/109153675129",
+          "run_id": 36489210958,
+          "job_id": 109153675129,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109153675129 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36489210958/job/109153675175",
+          "run_id": 36489210958,
+          "job_id": 109153675175,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109153675175 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36495231526/job/109173134071",
+          "run_id": 36495231526,
+          "job_id": 109173134071,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109173134071 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519371266/job/109248648857",
+          "run_id": 36519371266,
+          "job_id": 109248648857,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109248648857 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519371266/job/109248753066",
+          "run_id": 36519371266,
+          "job_id": 109248753066,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109248753066 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519371266/job/109248753072",
+          "run_id": 36519371266,
+          "job_id": 109248753072,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109248753072 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519377267/job/109248666543",
+          "run_id": 36519377267,
+          "job_id": 109248666543,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109248666543 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519377470/job/109248667111",
+          "run_id": 36519377470,
+          "job_id": 109248667111,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109248667111 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519519290/job/109249100224",
+          "run_id": 36519519290,
+          "job_id": 109249100224,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109249100224 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519519290/job/109249171950",
+          "run_id": 36519519290,
+          "job_id": 109249171950,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109249171950 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519519290/job/109249171972",
+          "run_id": 36519519290,
+          "job_id": 109249171972,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109249171972 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36602234210/job/109522219790",
+          "run_id": 36602234210,
+          "job_id": 109522219790,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109522219790 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36602234210/job/109522409111",
+          "run_id": 36602234210,
+          "job_id": 109522409111,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109522409111 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36602234210/job/109522409340",
+          "run_id": 36602234210,
+          "job_id": 109522409340,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109522409340 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36606502567/job/109536777253",
+          "run_id": 36606502567,
+          "job_id": 109536777253,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109536777253 annotation 2: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36606502567/job/109536964498",
+          "run_id": 36606502567,
+          "job_id": 109536964498,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109536964498 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36606502567/job/109536964588",
+          "run_id": 36606502567,
+          "job_id": 109536964588,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109536964588 annotation 1: \"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        }
+      ]
+    },
+    {
+      "id": "advance-notice",
+      "waste": [
+        "W10"
+      ],
+      "severity": "info",
+      "summary": "notice seen ×16 since 2026-09-28: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times.",
+      "evidence": [
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36489212508/job/109153475476",
+          "run_id": 36489212508,
+          "job_id": 109153475476,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109153475476 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519027257/job/109247633756",
+          "run_id": 36519027257,
+          "job_id": 109247633756,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109247633756 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519189986/job/109248121091",
+          "run_id": 36519189986,
+          "job_id": 109248121091,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109248121091 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519371926/job/109248646822",
+          "run_id": 36519371926,
+          "job_id": 109248646822,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109248646822 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519381619/job/109248676067",
+          "run_id": 36519381619,
+          "job_id": 109248676067,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109248676067 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519519813/job/109249098613",
+          "run_id": 36519519813,
+          "job_id": 109249098613,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109249098613 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519523746/job/109249111299",
+          "run_id": 36519523746,
+          "job_id": 109249111299,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109249111299 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519531486/job/109249135137",
+          "run_id": 36519531486,
+          "job_id": 109249135137,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109249135137 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519539899/job/109249160669",
+          "run_id": 36519539899,
+          "job_id": 109249160669,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109249160669 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36598251204/job/109508639454",
+          "run_id": 36598251204,
+          "job_id": 109508639454,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109508639454 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36601986694/job/109521388767",
+          "run_id": 36601986694,
+          "job_id": 109521388767,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109521388767 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36602236488/job/109522223859",
+          "run_id": 36602236488,
+          "job_id": 109522223859,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109522223859 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36602249509/job/109522262394",
+          "run_id": 36602249509,
+          "job_id": 109522262394,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109522262394 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36605951092/job/109534872417",
+          "run_id": 36605951092,
+          "job_id": 109534872417,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109534872417 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36606504105/job/109536775384",
+          "run_id": 36606504105,
+          "job_id": 109536775384,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109536775384 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086",
+          "run_id": 36606519472,
+          "job_id": 109536828086,
+          "path": ".github",
+          "line": 1,
+          "note": "check run 109536828086 annotation 1: Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times."
+        }
+      ]
+    },
+    {
+      "id": "advance-notice",
+      "waste": [
+        "W10"
+      ],
+      "severity": "warn",
+      "summary": "warning seen ×5 since 2026-09-01: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5, aws-actions/configure-aws-credentials@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+      "evidence": [
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33471504932/job/99742029057",
+          "run_id": 33471504932,
+          "job_id": 99742029057,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 99742029057 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5, aws-actions/configure-aws-credentials@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33471505475/job/99742030607",
+          "run_id": 33471505475,
+          "job_id": 99742030607,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 99742030607 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5, aws-actions/configure-aws-credentials@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33657162236/job/100338463981",
+          "run_id": 33657162236,
+          "job_id": 100338463981,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 100338463981 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5, aws-actions/configure-aws-credentials@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33833688608/job/100901750468",
+          "run_id": 33833688608,
+          "job_id": 100901750468,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 100901750468 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5, aws-actions/configure-aws-credentials@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33877051463/job/101036413099",
+          "run_id": 33877051463,
+          "job_id": 101036413099,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101036413099 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5, aws-actions/configure-aws-credentials@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        }
+      ]
+    },
+    {
+      "id": "advance-notice",
+      "waste": [
+        "W10"
+      ],
+      "severity": "warn",
+      "summary": "warning seen ×10 since 2026-09-02: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+      "evidence": [
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33590838183/job/100124331518",
+          "run_id": 33590838183,
+          "job_id": 100124331518,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 100124331518 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33590839545/job/100124336135",
+          "run_id": 33590839545,
+          "job_id": 100124336135,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 100124336135 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33591886352/job/100127397253",
+          "run_id": 33591886352,
+          "job_id": 100127397253,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 100127397253 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33592083247/job/100127966860",
+          "run_id": 33592083247,
+          "job_id": 100127966860,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 100127966860 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33833532726/job/100901300897",
+          "run_id": 33833532726,
+          "job_id": 100901300897,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 100901300897 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33868080100/job/101007394073",
+          "run_id": 33868080100,
+          "job_id": 101007394073,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101007394073 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33872781952/job/101022486087",
+          "run_id": 33872781952,
+          "job_id": 101022486087,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101022486087 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33873076520/job/101023469373",
+          "run_id": 33873076520,
+          "job_id": 101023469373,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101023469373 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33876870304/job/101035837585",
+          "run_id": 33876870304,
+          "job_id": 101035837585,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101035837585 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33877014294/job/101036299704",
+          "run_id": 33877014294,
+          "job_id": 101036299704,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101036299704 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-go@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        }
+      ]
+    },
+    {
+      "id": "advance-notice",
+      "waste": [
+        "W10"
+      ],
+      "severity": "warn",
+      "summary": "warning seen ×31 since 2026-09-04: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+      "evidence": [
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33833532275/job/100901302054",
+          "run_id": 33833532275,
+          "job_id": 100901302054,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 100901302054 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33873074802/job/101023469527",
+          "run_id": 33873074802,
+          "job_id": 101023469527,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101023469527 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33877013295/job/101036304016",
+          "run_id": 33877013295,
+          "job_id": 101036304016,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101036304016 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33878519544/job/101041191499",
+          "run_id": 33878519544,
+          "job_id": 101041191499,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101041191499 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33931733774/job/101211544276",
+          "run_id": 33931733774,
+          "job_id": 101211544276,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101211544276 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33941078185/job/101238508698",
+          "run_id": 33941078185,
+          "job_id": 101238508698,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101238508698 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/33946193974/job/101252607839",
+          "run_id": 33946193974,
+          "job_id": 101252607839,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101252607839 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/34004980793/job/101410408398",
+          "run_id": 34004980793,
+          "job_id": 101410408398,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101410408398 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/34063697921/job/101568660374",
+          "run_id": 34063697921,
+          "job_id": 101568660374,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101568660374 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/34181026476/job/101920006970",
+          "run_id": 34181026476,
+          "job_id": 101920006970,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 101920006970 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/34399910674/job/102628945115",
+          "run_id": 34399910674,
+          "job_id": 102628945115,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 102628945115 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/34702765204/job/103577326306",
+          "run_id": 34702765204,
+          "job_id": 103577326306,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 103577326306 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/34703065065/job/103578125155",
+          "run_id": 34703065065,
+          "job_id": 103578125155,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 103578125155 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/35638539994/job/106461914247",
+          "run_id": 35638539994,
+          "job_id": 106461914247,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 106461914247 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36174090871/job/108200373812",
+          "run_id": 36174090871,
+          "job_id": 108200373812,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108200373812 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36175062428/job/108203546130",
+          "run_id": 36175062428,
+          "job_id": 108203546130,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108203546130 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36176161839/job/108207162489",
+          "run_id": 36176161839,
+          "job_id": 108207162489,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108207162489 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36188880704/job/108248912482",
+          "run_id": 36188880704,
+          "job_id": 108248912482,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108248912482 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36191543416/job/108257580492",
+          "run_id": 36191543416,
+          "job_id": 108257580492,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108257580492 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36287169856/job/108530006330",
+          "run_id": 36287169856,
+          "job_id": 108530006330,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108530006330 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36347765701/job/108700367368",
+          "run_id": 36347765701,
+          "job_id": 108700367368,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108700367368 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36368742555/job/108760345483",
+          "run_id": 36368742555,
+          "job_id": 108760345483,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108760345483 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375572289/job/108780594586",
+          "run_id": 36375572289,
+          "job_id": 108780594586,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108780594586 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36375700313/job/108780966864",
+          "run_id": 36375700313,
+          "job_id": 108780966864,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108780966864 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36378122632/job/108788026117",
+          "run_id": 36378122632,
+          "job_id": 108788026117,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108788026117 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36429842900/job/108952902055",
+          "run_id": 36429842900,
+          "job_id": 108952902055,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 108952902055 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36489210958/job/109153476839",
+          "run_id": 36489210958,
+          "job_id": 109153476839,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 109153476839 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519371266/job/109248648857",
+          "run_id": 36519371266,
+          "job_id": 109248648857,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 109248648857 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36519519290/job/109249100224",
+          "run_id": 36519519290,
+          "job_id": 109249100224,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 109249100224 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36602234210/job/109522219790",
+          "run_id": 36602234210,
+          "job_id": 109522219790,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 109522219790 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "kind": "annotation",
+          "url": "https://github.com/schuettc/tackle/actions/runs/36606502567/job/109536777253",
+          "run_id": 36606502567,
+          "job_id": 109536777253,
+          "path": ".github",
+          "line": 2,
+          "note": "check run 109536777253 annotation 1: Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        }
+      ]
+    }
+  ],
+  "unavailable": []
+}

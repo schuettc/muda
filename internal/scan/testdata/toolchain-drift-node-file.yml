@@ -1,0 +1,10 @@
+on: push
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v4.1.0
+        with:
+          node-version-file: .nvmrc
+      - run: npm run lint

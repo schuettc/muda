@@ -1,0 +1,23 @@
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: make build
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    steps:
+      - run: ./deploy.sh ${{ needs.build.outputs.artifact }}
+  gate:
+    needs: [build]
+    runs-on: ubuntu-24.04
+    if: ${{ needs.build.outputs.ready == 'true' }}
+    steps:
+      - run: echo deploying
+  env-dep:
+    needs: [build]
+    runs-on: ubuntu-24.04
+    environment: ${{ needs.build.outputs.target-env }}
+    steps:
+      - run: echo env

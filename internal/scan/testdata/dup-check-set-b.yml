@@ -1,0 +1,11 @@
+name: CI B
+on:
+  push:
+    branches: [main, develop]
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - run: npm ci
+      - run: npm run lint

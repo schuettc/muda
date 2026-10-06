@@ -1,0 +1,17 @@
+# .tools family standard: a PR into the release branch must raise VERSION (or
+# carry the no-release label), or the merge silently releases nothing.
+name: version-guard
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, labeled, unlabeled, edited]
+permissions:
+  contents: read
+jobs:
+  version-guard:
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: schuettc/tools-actions/version-guard@v0.10.4

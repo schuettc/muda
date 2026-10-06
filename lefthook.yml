@@ -1,0 +1,12 @@
+# .tools family standard: identical in every family repo. Run `just hooks`
+# once per clone to install them.
+pre-commit:
+  commands:
+    gofmt:
+      glob: "*.go"
+      run: |
+        test -z "$(gofmt -l {staged_files})" || { gofmt -l {staged_files}; echo "gofmt needed; run just fmt"; exit 1; }
+pre-push:
+  commands:
+    verify:
+      run: just verify

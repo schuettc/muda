@@ -1,0 +1,5 @@
+{
+  "name": "muda",
+  "owner": { "name": "muda maintainers" },
+  "plugins": [{ "name": "muda", "source": "./" }]
+}

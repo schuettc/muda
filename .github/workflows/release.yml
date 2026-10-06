@@ -1,0 +1,73 @@
+name: release
+
+# Merge to main = release, through the family release actions
+# (schuettc/tools-actions: release-version + go-release). The VERSION file is
+# the knob: when a merge lands on main and no tag v<VERSION> exists yet, the
+# release is cut, signed and notarized (Developer ID), stamp-checked, published
+# to GitHub and to muda.tools/dl (moving /dl/muda/latest). A merge that doesn't
+# bump VERSION releases nothing; version-guard.yml makes that impossible to do
+# by accident.
+#
+# workflow_dispatch does two things, chosen by whether `tag` is given:
+#   - tag set    -> rebuild assets for that EXISTING release (backfill/repair).
+#   - tag empty  -> cut a PRE-RELEASE from the branch you dispatch on, tagged
+#                   v<VERSION>-rc.<run>: the dev channel. It publishes its
+#                   versioned /dl paths but never becomes "Latest".
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing release tag to rebuild assets for. Leave EMPTY to cut a pre-release from this branch."
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  # OIDC: go-release assumes the tools-ops Release role to write to the
+  # muda.tools Downloads bucket. Trust is this repo's `release` environment.
+  id-token: write
+
+jobs:
+  release:
+    # macOS: codesign and notarytool exist nowhere else. Linux targets are
+    # cross-compiled here too, so every artifact comes from one build.
+    runs-on: macos-26
+    # The signing and /dl secrets live in this protected environment.
+    environment: release
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: ${{ inputs.tag }}
+      - id: rel
+        uses: schuettc/tools-actions/release-version@v0.10.4
+        with:
+          mode: version-file
+          dispatch-tag: ${{ inputs.tag }}
+      - if: steps.rel.outputs.skip != 'true'
+        uses: schuettc/tools-actions/go-release@v0.10.4
+        with:
+          binaries: |
+            muda=./cmd/muda
+          ldflags: >-
+            -X github.com/schuettc/muda/internal/version.version={version}
+            -X github.com/schuettc/muda/internal/version.commit={commit}
+            -X github.com/schuettc/muda/internal/version.date={date}
+          stamp-check: muda
+          tag: ${{ steps.rel.outputs.tag }}
+          version: ${{ steps.rel.outputs.version }}
+          commit: ${{ steps.rel.outputs.commit }}
+          date: ${{ steps.rel.outputs.date }}
+          create: ${{ steps.rel.outputs.create }}
+          prerelease: ${{ steps.rel.outputs.prerelease }}
+          release-title: muda ${{ steps.rel.outputs.tag }}
+          apple-developer-id-p12: ${{ secrets.APPLE_DEVELOPER_ID_P12 }}
+          apple-developer-id-p12-password: ${{ secrets.APPLE_DEVELOPER_ID_P12_PASSWORD }}
+          apple-notary-key: ${{ secrets.APPLE_NOTARY_KEY }}
+          apple-notary-key-id: ${{ secrets.APPLE_NOTARY_KEY_ID }}
+          apple-notary-issuer-id: ${{ secrets.APPLE_NOTARY_ISSUER_ID }}
+          dl-tool: muda
+          dl-role-arn: ${{ secrets.MUDA_RELEASE_ROLE_ARN }}
+          dl-bucket: ${{ secrets.MUDA_DOWNLOADS_BUCKET }}
+          dl-distribution-id: ${{ secrets.MUDA_DISTRIBUTION_ID }}

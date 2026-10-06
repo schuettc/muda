@@ -1,0 +1,12 @@
+on:
+  push:
+    tags: ['v*']
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: astral-sh/setup-uv@v6.0.1
+        with:
+          version: '0.8.17'
+      - run: uv build

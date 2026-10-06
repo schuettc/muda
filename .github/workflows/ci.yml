@@ -1,0 +1,51 @@
+# .tools family standard: identical in every family repo except the branch
+# list and the gate's OS list. The same checks `just verify` runs locally.
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  gate:
+    strategy:
+      matrix:
+        # muda ships for darwin and linux; its tests run on both.
+        os: [ubuntu-26.04, macos-26]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-go@v7.0.0
+        with:
+          go-version-file: go.mod
+      - uses: extractions/setup-just@v4.0.0
+      - run: just prepare
+      - uses: schuettc/tools-actions/go-ci@v0.10.4
+        with:
+          setup-go: "false"
+  extra:
+    runs-on: ubuntu-26.04
+    env:
+      ACTIONLINT_VERSION: "1.7.12"
+      ACTIONLINT_SHA256: "8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8"
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-go@v7.0.0
+        with:
+          go-version-file: go.mod
+          # extra builds nothing: only `gate` may save the shared setup-go key,
+          # or a near-empty entry wins the save race and every run builds cold.
+          cache: false
+      - uses: extractions/setup-just@v4.0.0
+      - name: Install pinned actionlint
+        run: |
+          set -euo pipefail
+          url="https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz"
+          curl -fsSL "$url" -o actionlint.tar.gz
+          echo "${ACTIONLINT_SHA256}  actionlint.tar.gz" | sha256sum -c -
+          tar -xzf actionlint.tar.gz actionlint
+          sudo install -m 0755 actionlint /usr/local/bin/actionlint
+          rm -f actionlint.tar.gz actionlint
+          actionlint -version
+      - run: just verify-extra

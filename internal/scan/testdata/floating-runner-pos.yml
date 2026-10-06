@@ -1,0 +1,10 @@
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hello
+  check:
+    runs-on: macos-latest
+    steps:
+      - run: echo world

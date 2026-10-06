@@ -1,0 +1,522 @@
+﻿2026-09-29T17:39:56.9117030Z Current runner version: '2.337.0'
+2026-09-29T17:39:56.9180490Z ##[group]Runner Image Provisioner
+2026-09-29T17:39:56.9181180Z Hosted Compute Agent
+2026-09-29T17:39:56.9181600Z Version: 20260828.587
+2026-09-29T17:39:56.9182120Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-29T17:39:56.9182680Z Build Date: 2026-08-28T16:44:25Z
+2026-09-29T17:39:56.9183190Z Worker ID: {a87781a1-2961-4e1f-94ce-7668733827dd}
+2026-09-29T17:39:56.9183710Z Azure Region: westus
+2026-09-29T17:39:56.9184210Z ##[endgroup]
+2026-09-29T17:39:56.9185350Z ##[group]Operating System
+2026-09-29T17:39:56.9185810Z macOS
+2026-09-29T17:39:56.9186180Z 26.6.2
+2026-09-29T17:39:56.9186620Z 25G83
+2026-09-29T17:39:56.9187050Z ##[endgroup]
+2026-09-29T17:39:56.9187470Z ##[group]Runner Image
+2026-09-29T17:39:56.9187890Z Image: macos-26-arm64
+2026-09-29T17:39:56.9188320Z Version: 20260907.0351.1
+2026-09-29T17:39:56.9189280Z Included Software: https://github.com/actions/runner-images/blob/macos-26-arm64/20260907.0351/images/macos/macos-26-arm64-Readme.md
+2026-09-29T17:39:56.9190410Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-26-arm64%2F20260907.0351
+2026-09-29T17:39:56.9191310Z ##[endgroup]
+[redacted credential line]
+2026-09-29T17:39:56.9193650Z Contents: write
+2026-09-29T17:39:56.9194110Z Metadata: read
+2026-09-29T17:39:56.9194540Z ##[endgroup]
+[redacted credential line]
+2026-09-29T17:39:56.9196890Z Cache mode: write
+2026-09-29T17:39:56.9197470Z Prepare workflow directory
+2026-09-29T17:39:56.9939460Z Prepare all required actions
+2026-09-29T17:39:57.0013560Z Getting action download info
+2026-09-29T17:39:57.4936170Z Download action repository 'actions/checkout@v7.0.1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-09-29T17:39:57.9642820Z Download action repository 'schuettc/tools-actions@v0.2.2' (SHA:c305f6953871e43edcd0b3dd9b37e25df473a436)
+2026-09-29T17:39:58.6395420Z Getting action download info
+2026-09-29T17:39:58.8252770Z Download action repository 'actions/setup-go@v7.0.0' (SHA:b7ad1dad31e06c5925ef5d2fc7ad053ef454303e)
+2026-09-29T17:39:59.4886350Z Download action repository 'aws-actions/configure-aws-credentials@v6.3.0' (SHA:e1253824e5c10ff9df46874f81ed3ec929e19cfd)
+2026-09-29T17:40:00.0637610Z Complete job name: release
+2026-09-29T17:40:00.2008770Z ##[group]Run actions/checkout@v7.0.1
+2026-09-29T17:40:00.2009870Z with:
+2026-09-29T17:40:00.2010510Z   repository: schuettc/tackle
+[redacted credential line]
+2026-09-29T17:40:00.2023470Z   ssh-strict: true
+2026-09-29T17:40:00.2025060Z   ssh-user: git
+2026-09-29T17:40:00.2026660Z   persist-credentials: true
+2026-09-29T17:40:00.2028370Z   clean: true
+2026-09-29T17:40:00.2030010Z   sparse-checkout-cone-mode: true
+2026-09-29T17:40:00.2031890Z   fetch-depth: 1
+2026-09-29T17:40:00.2033400Z   fetch-tags: false
+2026-09-29T17:40:00.2034960Z   show-progress: true
+2026-09-29T17:40:00.2036550Z   lfs: false
+2026-09-29T17:40:00.2038040Z   submodules: false
+2026-09-29T17:40:00.2039620Z   set-safe-directory: true
+2026-09-29T17:40:00.2041520Z   allow-unsafe-pr-checkout: false
+2026-09-29T17:40:00.2048680Z ##[endgroup]
+2026-09-29T17:40:01.1822070Z Syncing repository: schuettc/tackle
+2026-09-29T17:40:01.1939440Z ##[group]Getting Git version info
+2026-09-29T17:40:01.1944940Z Working directory is '/Users/runner/work/tackle/tackle'
+2026-09-29T17:40:01.1949700Z [command]/opt/homebrew/bin/git version
+2026-09-29T17:40:01.2524160Z git version 2.55.0
+2026-09-29T17:40:01.2545050Z ##[endgroup]
+2026-09-29T17:40:01.2559300Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/7b38dcc3-4f8a-48aa-9085-4a4712228c4f/.gitconfig'
+2026-09-29T17:40:01.2564810Z Temporarily overriding HOME='/Users/runner/work/_temp/7b38dcc3-4f8a-48aa-9085-4a4712228c4f' before making global git config changes
+2026-09-29T17:40:01.2569490Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-29T17:40:01.2573660Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/tackle/tackle
+2026-09-29T17:40:01.2868190Z Deleting the contents of '/Users/runner/work/tackle/tackle'
+2026-09-29T17:40:01.2875840Z ##[group]Determining repository object format
+2026-09-29T17:40:01.2879560Z ##[endgroup]
+2026-09-29T17:40:01.2882280Z ##[group]Initializing the repository
+2026-09-29T17:40:01.2888630Z [command]/opt/homebrew/bin/git init /Users/runner/work/tackle/tackle
+2026-09-29T17:40:01.3299650Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-29T17:40:01.3305570Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-29T17:40:01.3309860Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-29T17:40:01.3315300Z hint: call:
+2026-09-29T17:40:01.3317030Z hint:
+2026-09-29T17:40:01.3319090Z hint: 	git config --global init.defaultBranch <name>
+2026-09-29T17:40:01.3322820Z hint:
+2026-09-29T17:40:01.3325290Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-29T17:40:01.3328550Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-29T17:40:01.3332060Z hint:
+2026-09-29T17:40:01.3334200Z hint: 	git branch -m <name>
+2026-09-29T17:40:01.3340700Z hint:
+2026-09-29T17:40:01.3347550Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-29T17:40:01.3350290Z Initialized empty Git repository in /Users/runner/work/tackle/tackle/.git/
+2026-09-29T17:40:01.3354740Z [command]/opt/homebrew/bin/git remote add origin https://github.com/schuettc/tackle
+2026-09-29T17:40:01.3493640Z ##[endgroup]
+2026-09-29T17:40:01.3503150Z ##[group]Disabling automatic garbage collection
+2026-09-29T17:40:01.3507690Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+2026-09-29T17:40:01.3670360Z ##[endgroup]
+2026-09-29T17:40:01.3673030Z ##[group]Setting up auth
+2026-09-29T17:40:01.3674960Z Removing SSH command configuration
+2026-09-29T17:40:01.3680730Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-29T17:40:01.3824870Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-29T17:40:01.5755680Z Removing HTTP extra header
+2026-09-29T17:40:01.5758630Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-29T17:40:01.5866240Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-29T17:40:01.7524110Z Removing includeIf entries pointing to credentials config files
+2026-09-29T17:40:01.7530080Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-29T17:40:01.7683270Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+[redacted credential line]
+2026-09-29T17:40:02.0665380Z [command]/opt/homebrew/bin/git config --local includeIf.gitdir:/Users/runner/work/tackle/tackle/.git.path /Users/runner/work/_temp/git-credentials-68f8b963-7e38-4a7c-a29d-8daed8c56054.config
+2026-09-29T17:40:02.0846220Z [command]/opt/homebrew/bin/git config --local includeIf.gitdir:/Users/runner/work/tackle/tackle/.git/worktrees/*.path /Users/runner/work/_temp/git-credentials-68f8b963-7e38-4a7c-a29d-8daed8c56054.config
+2026-09-29T17:40:02.0916190Z [command]/opt/homebrew/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-68f8b963-7e38-4a7c-a29d-8daed8c56054.config
+2026-09-29T17:40:02.0938790Z [command]/opt/homebrew/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-68f8b963-7e38-4a7c-a29d-8daed8c56054.config
+2026-09-29T17:40:02.0949450Z ##[endgroup]
+2026-09-29T17:40:02.0952180Z ##[group]Fetching the repository
+2026-09-29T17:40:02.0954550Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/tags/proj/v0.6.1:refs/tags/proj/v0.6.1
+2026-09-29T17:40:03.0112380Z From https://github.com/schuettc/tackle
+2026-09-29T17:40:03.0117330Z  * [new tag]         proj/v0.6.1 -> proj/v0.6.1
+2026-09-29T17:40:03.0172980Z [command]/opt/homebrew/bin/git tag --list proj/v0.6.1
+2026-09-29T17:40:03.0341930Z proj/v0.6.1
+2026-09-29T17:40:03.0353350Z [command]/opt/homebrew/bin/git rev-parse refs/tags/proj/v0.6.1^{commit}
+2026-09-29T17:40:03.0507970Z 95233a74f7372d331b9ae65bcac7d70a0c6ed883
+2026-09-29T17:40:03.0512450Z ##[endgroup]
+2026-09-29T17:40:03.0513880Z ##[group]Determining the checkout info
+2026-09-29T17:40:03.0515750Z ##[endgroup]
+2026-09-29T17:40:03.0517440Z [command]/opt/homebrew/bin/git sparse-checkout disable
+2026-09-29T17:40:03.0874880Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-29T17:40:03.0998160Z ##[group]Checking out the ref
+2026-09-29T17:40:03.1005170Z [command]/opt/homebrew/bin/git checkout --progress --force refs/tags/proj/v0.6.1
+2026-09-29T17:40:03.2019690Z HEAD is now at 95233a7 Merge pull request #42 from schuettc/feat/proj-fixed-layout
+2026-09-29T17:40:03.2056170Z ##[endgroup]
+2026-09-29T17:40:03.2198680Z [command]/opt/homebrew/bin/git log -1 --format=%H
+2026-09-29T17:40:03.2357400Z 95233a74f7372d331b9ae65bcac7d70a0c6ed883
+2026-09-29T17:40:03.2922370Z ##[group]Run schuettc/tools-actions/release-version@v0.2.2
+2026-09-29T17:40:03.2922710Z with:
+2026-09-29T17:40:03.2922970Z   mode: prefixed-tag
+2026-09-29T17:40:03.2923170Z   version-file: VERSION
+[redacted credential line]
+2026-09-29T17:40:03.2925600Z ##[endgroup]
+2026-09-29T17:40:03.2986400Z ##[start-action display=Run bash "$GITHUB_ACTION_PATH/resolve.sh";id=rel.resolve]
+2026-09-29T17:40:03.3111500Z ##[group]Run bash "$GITHUB_ACTION_PATH/resolve.sh"
+2026-09-29T17:40:03.3111970Z [36;1mbash "$GITHUB_ACTION_PATH/resolve.sh"[0m
+2026-09-29T17:40:03.3224660Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-29T17:40:03.3225810Z env:
+2026-09-29T17:40:03.3226470Z   MODE: prefixed-tag
+2026-09-29T17:40:03.3227270Z   VERSION_FILE: VERSION
+2026-09-29T17:40:03.3227980Z   DISPATCH_TAG:
+2026-09-29T17:40:03.3228790Z   EVENT: push
+[redacted credential line]
+2026-09-29T17:40:03.3235960Z ##[endgroup]
+2026-09-29T17:40:03.4437360Z release-version: tag=proj/v0.6.1 version=0.6.1 create=true prerelease=false skip=false tool=proj
+2026-09-29T17:40:03.4466090Z ##[end-action id=rel.resolve;outcome=success;conclusion=success;duration_ms=147]
+2026-09-29T17:40:03.4808850Z ##[group]Run schuettc/tools-actions/go-release@v0.2.2
+2026-09-29T17:40:03.4809330Z with:
+2026-09-29T17:40:03.4809540Z   binaries: proj=./cmd/proj
+2026-09-29T17:40:03.4810250Z   ldflags: -X github.com/schuettc/tackle/internal/version.version={version} -X github.com/schuettc/tackle/internal/version.commit={commit} -X github.com/schuettc/tackle/internal/version.date={date}
+2026-09-29T17:40:03.4811020Z   stamp-check: proj
+2026-09-29T17:40:03.4812220Z   tag: proj/v0.6.1
+2026-09-29T17:40:03.4812930Z   version: 0.6.1
+2026-09-29T17:40:03.4813600Z   commit: 95233a7
+2026-09-29T17:40:03.4814450Z   date: 2026-09-29
+2026-09-29T17:40:03.4815080Z   create: true
+2026-09-29T17:40:03.4815810Z   prerelease: false
+2026-09-29T17:40:03.4816530Z   release-title: proj 0.6.1
+2026-09-29T17:40:03.4846100Z   apple-developer-id-p12: ***
+2026-09-29T17:40:03.4851770Z   apple-notary-key: ***
+2026-09-29T17:40:03.4852210Z   apple-notary-key-id: ***
+2026-09-29T17:40:03.4852640Z   apple-notary-issuer-id: ***
+2026-09-29T17:40:03.4853140Z   dl-tool: proj
+2026-09-29T17:40:03.4853580Z   dl-role-arn: ***
+2026-09-29T17:40:03.4853940Z   dl-bucket: ***
+2026-09-29T17:40:03.4854390Z   dl-distribution-id: E1W6J149JZCAEG
+2026-09-29T17:40:03.4855320Z   targets: darwin/arm64 darwin/amd64 linux/amd64 linux/arm64
+2026-09-29T17:40:03.4856440Z   setup-go: true
+2026-09-29T17:40:03.4857130Z   go-version-file: go.mod
+2026-09-29T17:40:03.4858200Z   sign: true
+2026-09-29T17:40:03.4858460Z   aws-region: us-east-1
+[redacted credential line]
+2026-09-29T17:40:03.4861590Z ##[endgroup]
+2026-09-29T17:40:03.4875670Z ##[start-action display=Run actions/setup-go@v7.0.0;id=__schuettc_tools-actions.__actions_setup-go]
+2026-09-29T17:40:03.4964180Z ##[group]Run actions/setup-go@v7.0.0
+2026-09-29T17:40:03.4964470Z with:
+2026-09-29T17:40:03.4964670Z   go-version-file: go.mod
+2026-09-29T17:40:03.4964890Z   check-latest: false
+[redacted credential line]
+2026-09-29T17:40:03.4967240Z   cache: true
+2026-09-29T17:40:03.4967570Z ##[endgroup]
+2026-09-29T17:40:03.6992410Z Setup go version spec 1.26.4
+2026-09-29T17:40:03.7024170Z Attempting to download 1.26.4...
+2026-09-29T17:40:04.3857600Z matching 1.26.4...
+2026-09-29T17:40:04.3986880Z Acquiring 1.26.4 from https://github.com/actions/go-versions/releases/download/1.26.4-26891772857/go-1.26.4-darwin-arm64.tar.gz
+2026-09-29T17:40:05.3063360Z Extracting Go...
+2026-09-29T17:40:05.3246960Z [command]/usr/bin/tar xz -C /Users/runner/work/_temp/69654864-681c-4338-9f4a-574241ae4cb1 -f /Users/runner/work/_temp/63698d40-131e-44d2-98a9-4aa1c16a42e5
+2026-09-29T17:40:09.9578880Z Successfully extracted go to /Users/runner/work/_temp/69654864-681c-4338-9f4a-574241ae4cb1
+2026-09-29T17:40:09.9672900Z Adding to the cache ...
+2026-09-29T17:40:24.7255590Z Successfully cached go to /Users/runner/hostedtoolcache/go/1.26.4/arm64
+2026-09-29T17:40:24.7257460Z Added go to the path
+2026-09-29T17:40:24.7257890Z Successfully set up Go version 1.26.4
+2026-09-29T17:40:24.9410620Z [command]/Users/runner/hostedtoolcache/go/1.26.4/arm64/bin/go env GOCACHE
+2026-09-29T17:40:24.9433560Z [command]/Users/runner/hostedtoolcache/go/1.26.4/arm64/bin/go env GOMODCACHE
+2026-09-29T17:40:24.9514520Z /Users/runner/Library/Caches/go-build
+2026-09-29T17:40:24.9561530Z /Users/runner/go/pkg/mod
+2026-09-29T17:40:25.2573930Z Cache is not found
+2026-09-29T17:40:25.2699850Z go version go1.26.4 darwin/arm64
+2026-09-29T17:40:25.2700580Z
+2026-09-29T17:40:25.2701650Z ##[group]go env
+2026-09-29T17:40:27.6944320Z AR='ar'
+2026-09-29T17:40:27.6944900Z CC='clang'
+2026-09-29T17:40:27.6945570Z CGO_CFLAGS='-O2 -g'
+2026-09-29T17:40:27.6946170Z CGO_CPPFLAGS=''
+2026-09-29T17:40:27.6946570Z CGO_CXXFLAGS='-O2 -g'
+2026-09-29T17:40:27.6946980Z CGO_ENABLED='1'
+2026-09-29T17:40:27.6947480Z CGO_FFLAGS='-O2 -g'
+2026-09-29T17:40:27.6948060Z CGO_LDFLAGS='-O2 -g'
+2026-09-29T17:40:27.6948520Z CXX='clang++'
+2026-09-29T17:40:27.6948800Z GCCGO='gccgo'
+2026-09-29T17:40:27.6949280Z GO111MODULE=''
+2026-09-29T17:40:27.6949700Z GOARCH='arm64'
+2026-09-29T17:40:27.6951210Z GOARM64='v8.0'
+2026-09-29T17:40:27.6951530Z GOAUTH='netrc'
+2026-09-29T17:40:27.6951990Z GOBIN=''
+2026-09-29T17:40:27.6952370Z GOCACHE='/Users/runner/Library/Caches/go-build'
+2026-09-29T17:40:27.6952810Z GOCACHEPROG=''
+2026-09-29T17:40:27.6953060Z GODEBUG=''
+2026-09-29T17:40:27.6953420Z GOENV='/Users/runner/Library/Application Support/go/env'
+2026-09-29T17:40:27.6953810Z GOEXE=''
+2026-09-29T17:40:27.6954110Z GOEXPERIMENT=''
+2026-09-29T17:40:27.6954410Z GOFIPS140='off'
+2026-09-29T17:40:27.6954640Z GOFLAGS=''
+2026-09-29T17:40:27.6957650Z GOGCCFLAGS='-fPIC -arch arm64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -ffile-prefix-map=/var/folders/36/tjdph2t965j8snz9_vkdnw0r0000gn/T/go-build1472734250=/tmp/go-build -gno-record-gcc-switches -fno-common'
+2026-09-29T17:40:27.6960740Z GOHOSTARCH='arm64'
+2026-09-29T17:40:27.6961830Z GOHOSTOS='darwin'
+2026-09-29T17:40:27.6962560Z GOINSECURE=''
+2026-09-29T17:40:27.6963580Z GOMOD='/Users/runner/work/tackle/tackle/go.mod'
+2026-09-29T17:40:27.6964790Z GOMODCACHE='/Users/runner/go/pkg/mod'
+2026-09-29T17:40:27.6965800Z GONOPROXY=''
+2026-09-29T17:40:27.6966480Z GONOSUMDB=''
+2026-09-29T17:40:27.6967360Z GOOS='darwin'
+2026-09-29T17:40:27.6968250Z GOPATH='/Users/runner/go'
+2026-09-29T17:40:27.6979340Z GOPRIVATE=''
+2026-09-29T17:40:27.6980280Z GOPROXY='https://proxy.golang.org,direct'
+2026-09-29T17:40:27.6981530Z GOROOT='/Users/runner/hostedtoolcache/go/1.26.4/arm64'
+2026-09-29T17:40:27.6982870Z GOSUMDB='sum.golang.org'
+2026-09-29T17:40:27.6983670Z GOTELEMETRY='local'
+2026-09-29T17:40:27.6984410Z GOTELEMETRYDIR='/Users/runner/Library/Application Support/go/telemetry'
+2026-09-29T17:40:27.6985340Z GOTMPDIR=''
+2026-09-29T17:40:27.6985970Z GOTOOLCHAIN='local'
+2026-09-29T17:40:27.6986840Z GOTOOLDIR='/Users/runner/hostedtoolcache/go/1.26.4/arm64/pkg/tool/darwin_arm64'
+2026-09-29T17:40:27.6987550Z GOVCS=''
+2026-09-29T17:40:27.6988280Z GOVERSION='go1.26.4'
+2026-09-29T17:40:27.6989450Z GOWORK=''
+2026-09-29T17:40:27.6990630Z PKG_CONFIG='pkg-config'
+2026-09-29T17:40:27.6991280Z
+2026-09-29T17:40:27.6992810Z ##[endgroup]
+2026-09-29T17:40:27.7102720Z ##[end-action id=__schuettc_tools-actions.__actions_setup-go;outcome=success;conclusion=success;duration_ms=24210]
+2026-09-29T17:40:27.7114660Z ##[start-action display=Import the Developer ID certificate;id=__schuettc_tools-actions.__run]
+2026-09-29T17:40:27.7147580Z ##[group]Run bash "$GITHUB_ACTION_PATH/sign-setup.sh"
+2026-09-29T17:40:27.7148190Z [36;1mbash "$GITHUB_ACTION_PATH/sign-setup.sh"[0m
+2026-09-29T17:40:27.7199890Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-29T17:40:27.7200360Z env:
+2026-09-29T17:40:27.7200760Z   GOTOOLCHAIN: local
+2026-09-29T17:40:27.7218830Z   P12: ***
+[redacted credential line]
+2026-09-29T17:40:27.7219520Z ##[endgroup]
+2026-09-29T17:40:28.0145010Z 1 identity imported.
+2026-09-29T17:40:28.2553370Z signing as: Developer ID Application: Court Schuett (9JA73SU683)
+2026-09-29T17:40:28.2812620Z ##[end-action id=__schuettc_tools-actions.__run;outcome=success;conclusion=success;duration_ms=569]
+2026-09-29T17:40:28.2824940Z ##[start-action display=Build (and sign) every target;id=__schuettc_tools-actions.__run_2]
+2026-09-29T17:40:28.2859530Z ##[group]Run bash "$GITHUB_ACTION_PATH/build.sh"
+2026-09-29T17:40:28.2860730Z [36;1mbash "$GITHUB_ACTION_PATH/build.sh"[0m
+2026-09-29T17:40:28.2953520Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-29T17:40:28.2954390Z env:
+2026-09-29T17:40:28.2955000Z   GOTOOLCHAIN: local
+2026-09-29T17:40:28.2955980Z   GO_RELEASE_KEYCHAIN: /Users/runner/work/_temp/go-release.keychain-db
+2026-09-29T17:40:28.2957280Z   GO_RELEASE_SIGN_IDENTITY: Developer ID Application: Court Schuett (9JA73SU683)
+2026-09-29T17:40:28.2958290Z   BINARIES: proj=./cmd/proj
+2026-09-29T17:40:28.2960050Z   LDFLAGS: -X github.com/schuettc/tackle/internal/version.version={version} -X github.com/schuettc/tackle/internal/version.commit={commit} -X github.com/schuettc/tackle/internal/version.date={date}
+2026-09-29T17:40:28.2962050Z   VERSION: 0.6.1
+2026-09-29T17:40:28.2963670Z   COMMIT: 95233a7
+2026-09-29T17:40:28.2964240Z   DATE: 2026-09-29
+2026-09-29T17:40:28.2964880Z   TARGETS: darwin/arm64 darwin/amd64 linux/amd64 linux/arm64
+2026-09-29T17:40:28.2965640Z   BUILD_TAGS:
+2026-09-29T17:40:28.2966160Z   SIGN: true
+2026-09-29T17:40:28.2966640Z ##[endgroup]
+2026-09-29T17:40:28.3911780Z go: downloading github.com/charmbracelet/bubbletea v1.3.10
+2026-09-29T17:40:28.4116100Z go: downloading github.com/schuettc/tools-common v0.8.2
+2026-09-29T17:40:28.6773920Z go: downloading github.com/BurntSushi/toml v1.6.0
+2026-09-29T17:40:28.6863620Z go: downloading github.com/charmbracelet/bubbles v1.0.0
+2026-09-29T17:40:28.8172030Z go: downloading github.com/charmbracelet/lipgloss v1.1.0
+2026-09-29T17:40:29.0226870Z go: downloading github.com/charmbracelet/x/ansi v0.11.6
+2026-09-29T17:40:29.0236560Z go: downloading github.com/charmbracelet/x/term v0.2.2
+2026-09-29T17:40:29.0454520Z go: downloading github.com/muesli/ansi v0.0.0-20230316100256-276c6243b2f6
+2026-09-29T17:40:29.0804840Z go: downloading github.com/muesli/cancelreader v0.2.2
+2026-09-29T17:40:29.1153500Z go: downloading github.com/atotto/clipboard v0.1.4
+2026-09-29T17:40:29.1190410Z go: downloading github.com/mattn/go-runewidth v0.0.19
+2026-09-29T17:40:29.1402220Z go: downloading github.com/rivo/uniseg v0.4.7
+2026-09-29T17:40:29.2200880Z go: downloading github.com/charmbracelet/x/cellbuf v0.0.15
+2026-09-29T17:40:29.2217230Z go: downloading github.com/muesli/termenv v0.16.0
+2026-09-29T17:40:29.3536910Z go: downloading golang.org/x/sys v0.47.0
+2026-09-29T17:40:29.3539310Z go: downloading github.com/clipperhouse/displaywidth v0.9.0
+2026-09-29T17:40:29.4127020Z go: downloading github.com/clipperhouse/uax29/v2 v2.5.0
+2026-09-29T17:40:29.4277210Z go: downloading github.com/lucasb-eyer/go-colorful v1.3.0
+2026-09-29T17:40:29.5455500Z go: downloading github.com/charmbracelet/colorprofile v0.4.1
+2026-09-29T17:40:29.6247760Z go: downloading github.com/aymanbagabas/go-osc52/v2 v2.0.1
+2026-09-29T17:40:29.6325160Z go: downloading github.com/mattn/go-isatty v0.0.24
+2026-09-29T17:40:29.7391980Z go: downloading github.com/clipperhouse/stringish v0.1.1
+2026-09-29T17:40:29.7440120Z go: downloading github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e
+2026-09-29T17:40:44.5048500Z dist/proj_darwin_arm64/proj: replacing existing signature
+2026-09-29T17:40:44.7421030Z built dist/proj_darwin_arm64/proj
+2026-09-29T17:40:59.1792350Z built dist/proj_darwin_amd64/proj
+2026-09-29T17:41:12.1438460Z built dist/proj_linux_amd64/proj
+2026-09-29T17:41:26.1683840Z built dist/proj_linux_arm64/proj
+2026-09-29T17:41:26.1755740Z ##[end-action id=__schuettc_tools-actions.__run_2;outcome=success;conclusion=success;duration_ms=57863]
+2026-09-29T17:41:26.1769960Z ##[start-action display=Check the version stamp on the native binary;id=__schuettc_tools-actions.__run_3]
+2026-09-29T17:41:26.1865030Z ##[group]Run bash "$GITHUB_ACTION_PATH/stamp-check.sh"
+2026-09-29T17:41:26.1865690Z [36;1mbash "$GITHUB_ACTION_PATH/stamp-check.sh"[0m
+2026-09-29T17:41:26.1934370Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-29T17:41:26.1934800Z env:
+2026-09-29T17:41:26.1935230Z   GOTOOLCHAIN: local
+2026-09-29T17:41:26.1936000Z   GO_RELEASE_KEYCHAIN: /Users/runner/work/_temp/go-release.keychain-db
+2026-09-29T17:41:26.1936780Z   GO_RELEASE_SIGN_IDENTITY: Developer ID Application: Court Schuett (9JA73SU683)
+2026-09-29T17:41:26.1937200Z   STAMP_CHECK: proj
+2026-09-29T17:41:26.1937530Z   VERSION: 0.6.1
+2026-09-29T17:41:26.1937940Z   COMMIT: 95233a7
+2026-09-29T17:41:26.1938390Z   DATE: 2026-09-29
+2026-09-29T17:41:26.1938670Z ##[endgroup]
+2026-09-29T17:41:26.3136040Z stamp ok: proj 0.6.1 (95233a7, 2026-09-29)
+2026-09-29T17:41:26.3163870Z ##[end-action id=__schuettc_tools-actions.__run_3;outcome=success;conclusion=success;duration_ms=139]
+2026-09-29T17:41:26.3239440Z ##[start-action display=Notarize the macOS binaries;id=__schuettc_tools-actions.__run_4]
+2026-09-29T17:41:26.3273490Z ##[group]Run bash "$GITHUB_ACTION_PATH/notarize.sh"
+2026-09-29T17:41:26.3281890Z [36;1mbash "$GITHUB_ACTION_PATH/notarize.sh"[0m
+2026-09-29T17:41:26.3318730Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-29T17:41:26.3319220Z env:
+2026-09-29T17:41:26.3319620Z   GOTOOLCHAIN: local
+2026-09-29T17:41:26.3320130Z   GO_RELEASE_KEYCHAIN: /Users/runner/work/_temp/go-release.keychain-db
+2026-09-29T17:41:26.3320640Z   GO_RELEASE_SIGN_IDENTITY: Developer ID Application: Court Schuett (9JA73SU683)
+2026-09-29T17:41:26.3322910Z   NOTARY_KEY: ***
+2026-09-29T17:41:26.3323290Z   NOTARY_KEY_ID: ***
+2026-09-29T17:41:26.3323700Z   NOTARY_ISSUER_ID: ***
+2026-09-29T17:41:26.3323890Z ##[endgroup]
+2026-09-29T17:41:27.9695460Z Conducting pre-submission checks for notarize.zip and initiating connection to the Apple notary service...
+2026-09-29T17:41:28.4699730Z Submission ID received
+2026-09-29T17:41:28.4700340Z   id: bbc658f8-b14e-411c-a299-8193e0074ef0
+2026-09-29T17:41:29.3409880Z Successfully uploaded file
+2026-09-29T17:41:29.3410400Z   id: bbc658f8-b14e-411c-a299-8193e0074ef0
+2026-09-29T17:41:29.3410930Z   path: /Users/runner/work/_temp/notarize.zip
+2026-09-29T17:41:29.3411430Z Waiting for processing to complete. Wait timeout is set to 1800.0 second(s).
+2026-09-29T17:41:34.6808250Z
+2026-09-29T17:41:39.8842070Z Current status: In Progress...
+2026-09-29T17:41:45.0850610Z Current status: In Progress....
+2026-09-29T17:41:50.2813880Z Current status: In Progress.....
+2026-09-29T17:41:50.2814760Z Current status: Accepted......Processing complete
+2026-09-29T17:41:50.2815550Z   id: bbc658f8-b14e-411c-a299-8193e0074ef0
+2026-09-29T17:41:50.2816180Z   status: Accepted
+2026-09-29T17:41:50.2833950Z
+2026-09-29T17:41:50.3271380Z ##[end-action id=__schuettc_tools-actions.__run_4;outcome=success;conclusion=success;duration_ms=23991]
+2026-09-29T17:41:50.3277730Z ##[start-action display=Package;id=__schuettc_tools-actions.__run_5]
+2026-09-29T17:41:50.3348030Z ##[group]Run bash "$GITHUB_ACTION_PATH/package.sh"
+2026-09-29T17:41:50.3349120Z [36;1mbash "$GITHUB_ACTION_PATH/package.sh"[0m
+2026-09-29T17:41:50.3728140Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-29T17:41:50.3728490Z env:
+2026-09-29T17:41:50.3728820Z   GOTOOLCHAIN: local
+2026-09-29T17:41:50.3729220Z   GO_RELEASE_KEYCHAIN: /Users/runner/work/_temp/go-release.keychain-db
+2026-09-29T17:41:50.3729780Z   GO_RELEASE_SIGN_IDENTITY: Developer ID Application: Court Schuett (9JA73SU683)
+2026-09-29T17:41:50.3730180Z   EXTRA_ASSETS:
+2026-09-29T17:41:50.3730460Z ##[endgroup]
+2026-09-29T17:41:52.5040430Z packaged:
+2026-09-29T17:41:52.5108210Z dist/checksums.txt
+2026-09-29T17:41:52.5123670Z dist/proj_darwin_amd64.tar.gz
+2026-09-29T17:41:52.5129090Z dist/proj_darwin_arm64.tar.gz
+2026-09-29T17:41:52.5132910Z dist/proj_linux_amd64.tar.gz
+2026-09-29T17:41:52.5160860Z dist/proj_linux_arm64.tar.gz
+2026-09-29T17:41:52.5187150Z ##[end-action id=__schuettc_tools-actions.__run_5;outcome=success;conclusion=success;duration_ms=2189]
+2026-09-29T17:41:52.5198160Z ##[start-action display=GitHub release;id=__schuettc_tools-actions.__run_6]
+2026-09-29T17:41:52.5239410Z ##[group]Run bash "$GITHUB_ACTION_PATH/github-release.sh"
+2026-09-29T17:41:52.5240670Z [36;1mbash "$GITHUB_ACTION_PATH/github-release.sh"[0m
+2026-09-29T17:41:52.5303510Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-29T17:41:52.5304090Z env:
+2026-09-29T17:41:52.5304370Z   GOTOOLCHAIN: local
+2026-09-29T17:41:52.5304870Z   GO_RELEASE_KEYCHAIN: /Users/runner/work/_temp/go-release.keychain-db
+2026-09-29T17:41:52.5305640Z   GO_RELEASE_SIGN_IDENTITY: Developer ID Application: Court Schuett (9JA73SU683)
+2026-09-29T17:41:52.5306140Z   TAG: proj/v0.6.1
+2026-09-29T17:41:52.5321070Z   CREATE: true
+2026-09-29T17:41:52.5321280Z   PRERELEASE: false
+2026-09-29T17:41:52.5321700Z   TITLE: proj 0.6.1
+2026-09-29T17:41:52.5321990Z   EXTRA_ASSETS:
+[redacted credential line]
+2026-09-29T17:41:52.5324680Z ##[endgroup]
+2026-09-29T17:41:54.1136410Z https://github.com/schuettc/tackle/releases/tag/proj/v0.6.1
+2026-09-29T17:41:56.1515210Z ##[end-action id=__schuettc_tools-actions.__run_6;outcome=success;conclusion=success;duration_ms=3628]
+2026-09-29T17:41:56.1519380Z ##[start-action display=Configure AWS credentials (downloads);id=__schuettc_tools-actions.__aws-actions_configure-aws-credentials]
+2026-09-29T17:41:56.1614280Z ##[group]Run aws-actions/configure-aws-credentials@v6.3.0
+2026-09-29T17:41:56.1614640Z with:
+2026-09-29T17:41:56.1615170Z   role-to-assume: ***
+2026-09-29T17:41:56.1615370Z   aws-region: us-east-1
+2026-09-29T17:41:56.1615610Z   audience: sts.amazonaws.com
+2026-09-29T17:41:56.1615830Z env:
+2026-09-29T17:41:56.1616030Z   GOTOOLCHAIN: local
+2026-09-29T17:41:56.1616340Z   GO_RELEASE_KEYCHAIN: /Users/runner/work/_temp/go-release.keychain-db
+2026-09-29T17:41:56.1616850Z   GO_RELEASE_SIGN_IDENTITY: Developer ID Application: Court Schuett (9JA73SU683)
+2026-09-29T17:41:56.1617320Z ##[endgroup]
+2026-09-29T17:41:56.6799540Z Assuming role with OIDC
+2026-09-29T17:41:56.9425460Z Authenticated as assumedRoleId AROAQCDGO6Q6FXHRLXMST:GitHubActions
+2026-09-29T17:41:57.1960330Z ##[end-action id=__schuettc_tools-actions.__aws-actions_configure-aws-credentials;outcome=success;conclusion=success;duration_ms=1043]
+2026-09-29T17:41:57.1964110Z ##[start-action display=Publish to the download page;id=__schuettc_tools-actions.__run_7]
+2026-09-29T17:41:57.2021670Z ##[group]Run bash "$GITHUB_ACTION_PATH/publish-dl.sh"
+2026-09-29T17:41:57.2022080Z [36;1mbash "$GITHUB_ACTION_PATH/publish-dl.sh"[0m
+2026-09-29T17:41:57.2060610Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-29T17:41:57.2060930Z env:
+2026-09-29T17:41:57.2061130Z   GOTOOLCHAIN: local
+2026-09-29T17:41:57.2061410Z   GO_RELEASE_KEYCHAIN: /Users/runner/work/_temp/go-release.keychain-db
+2026-09-29T17:41:57.2061870Z   GO_RELEASE_SIGN_IDENTITY: Developer ID Application: Court Schuett (9JA73SU683)
+2026-09-29T17:41:57.2062230Z   AWS_DEFAULT_REGION: us-east-1
+2026-09-29T17:41:57.2062440Z   AWS_REGION: us-east-1
+2026-09-29T17:41:57.2062760Z   AWS_ACCESS_KEY_ID: ***
+[redacted credential line]
+[redacted credential line]
+2026-09-29T17:41:57.2067060Z   DL_TOOL: proj
+2026-09-29T17:41:57.2067320Z   BUCKET: ***
+2026-09-29T17:41:57.2067500Z   VERSION: 0.6.1
+2026-09-29T17:41:57.2067670Z   PROMOTE: true
+2026-09-29T17:41:57.2067860Z   DISTRIBUTION_ID: E1W6J149JZCAEG
+2026-09-29T17:41:57.2068110Z ##[endgroup]
+2026-09-29T17:41:59.3557710Z Completed 1.0 MiB/3.2 MiB (3.3 MiB/s) with 1 file(s) remaining
+2026-09-29T17:41:59.4267030Z Completed 2.0 MiB/3.2 MiB (2.8 MiB/s) with 1 file(s) remaining
+2026-09-29T17:41:59.6498960Z Completed 3.0 MiB/3.2 MiB (3.8 MiB/s) with 1 file(s) remaining
+2026-09-29T17:41:59.6500140Z Completed 3.2 MiB/3.2 MiB (3.2 MiB/s) with 1 file(s) remaining
+2026-09-29T17:41:59.6503410Z upload: dist/proj_darwin_amd64.tar.gz to s3://***/dl/proj/0.6.1/proj_darwin_amd64.tar.gz
+2026-09-29T17:42:00.6943190Z Completed 91 Bytes/91 Bytes (279 Bytes/s) with 1 file(s) remaining
+2026-09-29T17:42:00.6944230Z upload: dist/proj_darwin_amd64.tar.gz.sha256 to s3://***/dl/proj/0.6.1/proj_darwin_amd64.tar.gz.sha256
+2026-09-29T17:42:02.0192220Z Completed 1.0 MiB/2.9 MiB (3.9 MiB/s) with 1 file(s) remaining
+2026-09-29T17:42:02.1037190Z Completed 2.0 MiB/2.9 MiB (3.1 MiB/s) with 1 file(s) remaining
+2026-09-29T17:42:02.3472980Z Completed 2.9 MiB/2.9 MiB (3.9 MiB/s) with 1 file(s) remaining
+2026-09-29T17:42:02.3477170Z upload: dist/proj_darwin_arm64.tar.gz to s3://***/dl/proj/0.6.1/proj_darwin_arm64.tar.gz
+2026-09-29T17:42:03.3275700Z Completed 91 Bytes/91 Bytes (274 Bytes/s) with 1 file(s) remaining
+2026-09-29T17:42:03.3277010Z upload: dist/proj_darwin_arm64.tar.gz.sha256 to s3://***/dl/proj/0.6.1/proj_darwin_arm64.tar.gz.sha256
+2026-09-29T17:42:04.6002370Z Completed 1.0 MiB/3.1 MiB (3.9 MiB/s) with 1 file(s) remaining
+2026-09-29T17:42:04.6696200Z Completed 2.0 MiB/3.1 MiB (3.4 MiB/s) with 1 file(s) remaining
+2026-09-29T17:42:04.8783900Z Completed 3.0 MiB/3.1 MiB (4.5 MiB/s) with 1 file(s) remaining
+2026-09-29T17:42:04.8785310Z Completed 3.1 MiB/3.1 MiB (3.6 MiB/s) with 1 file(s) remaining
+2026-09-29T17:42:04.8792340Z upload: dist/proj_linux_amd64.tar.gz to s3://***/dl/proj/0.6.1/proj_linux_amd64.tar.gz
+2026-09-29T17:42:05.8560370Z Completed 90 Bytes/90 Bytes (271 Bytes/s) with 1 file(s) remaining
+2026-09-29T17:42:05.8574820Z upload: dist/proj_linux_amd64.tar.gz.sha256 to s3://***/dl/proj/0.6.1/proj_linux_amd64.tar.gz.sha256
+2026-09-29T17:42:07.6649480Z Completed 1.0 MiB/2.8 MiB (3.6 MiB/s) with 1 file(s) remaining
+2026-09-29T17:42:07.7319420Z Completed 2.0 MiB/2.8 MiB (2.0 MiB/s) with 1 file(s) remaining
+2026-09-29T17:42:07.9213180Z Completed 2.8 MiB/2.8 MiB (2.6 MiB/s) with 1 file(s) remaining
+2026-09-29T17:42:07.9316580Z upload: dist/proj_linux_arm64.tar.gz to s3://***/dl/proj/0.6.1/proj_linux_arm64.tar.gz
+2026-09-29T17:42:09.2325470Z Completed 90 Bytes/90 Bytes (267 Bytes/s) with 1 file(s) remaining
+2026-09-29T17:42:09.2427240Z upload: dist/proj_linux_arm64.tar.gz.sha256 to s3://***/dl/proj/0.6.1/proj_linux_arm64.tar.gz.sha256
+2026-09-29T17:42:11.2624610Z {
+2026-09-29T17:42:11.2626250Z     "Location": "https://cloudfront.amazonaws.com/2020-05-31/distribution/E1W6J149JZCAEG/invalidation/I9MW8Z80JLKB2Z2X2R5RJMZLN",
+2026-09-29T17:42:11.2627460Z     "Invalidation": {
+2026-09-29T17:42:11.2628010Z         "Id": "I9MW8Z80JLKB2Z2X2R5RJMZLN",
+2026-09-29T17:42:11.2637410Z         "Status": "InProgress",
+2026-09-29T17:42:11.2637950Z         "CreateTime": "2026-09-29T17:42:11.490000+00:00",
+2026-09-29T17:42:11.2638460Z         "InvalidationBatch": {
+2026-09-29T17:42:11.2638890Z             "Paths": {
+2026-09-29T17:42:11.2639330Z                 "Quantity": 1,
+2026-09-29T17:42:11.2639900Z                 "Items": [
+2026-09-29T17:42:11.2640490Z                     "/dl/proj/latest"
+2026-09-29T17:42:11.2640910Z                 ]
+2026-09-29T17:42:11.2641260Z             },
+2026-09-29T17:42:11.2641730Z             "CallerReference": "cli-1790703730-140175"
+2026-09-29T17:42:11.2642150Z         }
+2026-09-29T17:42:11.2642460Z     }
+2026-09-29T17:42:11.2642760Z }
+2026-09-29T17:42:11.4079460Z latest -> 0.6.1
+2026-09-29T17:42:11.4216410Z ##[end-action id=__schuettc_tools-actions.__run_7;outcome=success;conclusion=success;duration_ms=14217]
+2026-09-29T17:42:11.4234460Z ##[start-action display=Destroy the signing material;id=__schuettc_tools-actions.__run_8]
+2026-09-29T17:42:11.4321290Z ##[group]Run bash "$GITHUB_ACTION_PATH/cleanup.sh"
+2026-09-29T17:42:11.4322860Z [36;1mbash "$GITHUB_ACTION_PATH/cleanup.sh"[0m
+2026-09-29T17:42:11.4441300Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-29T17:42:11.4442190Z env:
+2026-09-29T17:42:11.4444170Z   GOTOOLCHAIN: local
+2026-09-29T17:42:11.4444860Z   GO_RELEASE_KEYCHAIN: /Users/runner/work/_temp/go-release.keychain-db
+2026-09-29T17:42:11.4446060Z   GO_RELEASE_SIGN_IDENTITY: Developer ID Application: Court Schuett (9JA73SU683)
+2026-09-29T17:42:11.4447620Z   AWS_DEFAULT_REGION: us-east-1
+2026-09-29T17:42:11.4448380Z   AWS_REGION: us-east-1
+2026-09-29T17:42:11.4449080Z   AWS_ACCESS_KEY_ID: ***
+[redacted credential line]
+[redacted credential line]
+2026-09-29T17:42:11.4459520Z ##[endgroup]
+2026-09-29T17:42:11.5664310Z ##[end-action id=__schuettc_tools-actions.__run_8;outcome=success;conclusion=success;duration_ms=142]
+2026-09-29T17:42:11.6100790Z Post job cleanup.
+2026-09-29T17:42:11.6113870Z ##[start-action display=Configure AWS credentials (downloads);id=__cbd9ac95-c572-48d8-9640-fa7e4df60b86.__aws-actions_configure-aws-credentials]
+2026-09-29T17:42:11.6236710Z Post job cleanup.
+2026-09-29T17:42:11.7987980Z ##[end-action id=__cbd9ac95-c572-48d8-9640-fa7e4df60b86.__aws-actions_configure-aws-credentials;outcome=success;conclusion=success;duration_ms=187]
+2026-09-29T17:42:11.7990620Z ##[start-action display=Run actions/setup-go@v7.0.0;id=__cbd9ac95-c572-48d8-9640-fa7e4df60b86.__actions_setup-go]
+2026-09-29T17:42:11.8063500Z Post job cleanup.
+2026-09-29T17:42:11.9890160Z [command]/Users/runner/hostedtoolcache/go/1.26.4/arm64/bin/go env GOMODCACHE
+2026-09-29T17:42:11.9916280Z [command]/Users/runner/hostedtoolcache/go/1.26.4/arm64/bin/go env GOCACHE
+2026-09-29T17:42:12.0091680Z /Users/runner/Library/Caches/go-build
+2026-09-29T17:42:12.0193370Z /Users/runner/go/pkg/mod
+2026-09-29T17:42:12.0629710Z [command]/opt/homebrew/bin/gtar --posix -cf cache.tzst --exclude cache.tzst -P -C /Users/runner/work/tackle/tackle --files-from manifest.txt --delay-directory-restore --use-compress-program zstdmt
+2026-09-29T17:42:18.4251010Z Sent 11206656 of 124563408 (9.0%), 10.7 MBs/sec
+2026-09-29T17:42:19.4261440Z Sent 63766528 of 124563408 (51.2%), 30.3 MBs/sec
+2026-09-29T17:42:20.4270800Z Sent 121044992 of 124563408 (97.2%), 38.4 MBs/sec
+2026-09-29T17:42:20.9109830Z Sent 124563408 of 124563408 (100.0%), 34.0 MBs/sec
+2026-09-29T17:42:21.3153770Z Cache saved with the key: setup-go-macOS-arm64-go-1.26.4-a68cf11e5643fe55eefeddc4e6970bf7ebdde799776a4c4edbe9abf1c11f0f90
+2026-09-29T17:42:21.3405790Z ##[end-action id=__cbd9ac95-c572-48d8-9640-fa7e4df60b86.__actions_setup-go;outcome=success;conclusion=success;duration_ms=9536]
+2026-09-29T17:42:21.3625090Z Post job cleanup.
+2026-09-29T17:42:21.7904600Z [command]/opt/homebrew/bin/git version
+2026-09-29T17:42:21.8331640Z git version 2.55.0
+2026-09-29T17:42:21.8381970Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/afdb5b15-3787-4130-ae1a-407fa81e0667/.gitconfig'
+2026-09-29T17:42:21.8399270Z Temporarily overriding HOME='/Users/runner/work/_temp/afdb5b15-3787-4130-ae1a-407fa81e0667' before making global git config changes
+2026-09-29T17:42:21.8400630Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-29T17:42:21.8406120Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/tackle/tackle
+2026-09-29T17:42:21.8554590Z Removing SSH command configuration
+2026-09-29T17:42:21.8560920Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-29T17:42:21.8707850Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-29T17:42:22.0865530Z Removing HTTP extra header
+2026-09-29T17:42:22.0870330Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-29T17:42:22.0989760Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-29T17:42:22.2747750Z Removing includeIf entries pointing to credentials config files
+2026-09-29T17:42:22.2849700Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-29T17:42:22.2949970Z includeif.gitdir:/Users/runner/work/tackle/tackle/.git.path
+2026-09-29T17:42:22.3053130Z includeif.gitdir:/Users/runner/work/tackle/tackle/.git/worktrees/*.path
+2026-09-29T17:42:22.3146160Z includeif.gitdir:/github/workspace/.git.path
+2026-09-29T17:42:22.3167940Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-29T17:42:22.3169780Z [command]/opt/homebrew/bin/git config --local --get-all includeif.gitdir:/Users/runner/work/tackle/tackle/.git.path
+2026-09-29T17:42:22.3170800Z /Users/runner/work/_temp/git-credentials-68f8b963-7e38-4a7c-a29d-8daed8c56054.config
+2026-09-29T17:42:22.3173120Z [command]/opt/homebrew/bin/git config --local --unset includeif.gitdir:/Users/runner/work/tackle/tackle/.git.path \/Users\/runner\/work\/_temp\/git\-credentials\-68f8b963\-7e38\-4a7c\-a29d\-8daed8c56054\.config
+2026-09-29T17:42:22.3174830Z [command]/opt/homebrew/bin/git config --local --get-all includeif.gitdir:/Users/runner/work/tackle/tackle/.git/worktrees/*.path
+2026-09-29T17:42:22.3175630Z /Users/runner/work/_temp/git-credentials-68f8b963-7e38-4a7c-a29d-8daed8c56054.config
+2026-09-29T17:42:22.3177190Z [command]/opt/homebrew/bin/git config --local --unset includeif.gitdir:/Users/runner/work/tackle/tackle/.git/worktrees/*.path \/Users\/runner\/work\/_temp\/git\-credentials\-68f8b963\-7e38\-4a7c\-a29d\-8daed8c56054\.config
+2026-09-29T17:42:22.3229850Z [command]/opt/homebrew/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-09-29T17:42:22.3299690Z /github/runner_temp/git-credentials-68f8b963-7e38-4a7c-a29d-8daed8c56054.config
+2026-09-29T17:42:22.3304750Z [command]/opt/homebrew/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-68f8b963\-7e38\-4a7c\-a29d\-8daed8c56054\.config
+2026-09-29T17:42:22.3384020Z [command]/opt/homebrew/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-29T17:42:22.3490130Z /github/runner_temp/git-credentials-68f8b963-7e38-4a7c-a29d-8daed8c56054.config
+2026-09-29T17:42:22.3505610Z [command]/opt/homebrew/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-68f8b963\-7e38\-4a7c\-a29d\-8daed8c56054\.config
+2026-09-29T17:42:22.3586920Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-29T17:42:22.5076070Z Removing credentials config '/Users/runner/work/_temp/git-credentials-68f8b963-7e38-4a7c-a29d-8daed8c56054.config'
+2026-09-29T17:42:22.5523590Z Cleaning up orphan processes

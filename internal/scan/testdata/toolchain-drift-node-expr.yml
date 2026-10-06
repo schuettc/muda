@@ -1,0 +1,13 @@
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        node: ['18.20.4', '22.4.0']
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v4.1.0
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm test

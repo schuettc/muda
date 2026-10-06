@@ -1,0 +1,33 @@
+on: push
+jobs:
+  node-exact:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18.17.1'
+  python-file:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: '.python-version'
+  go-exact:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22.5'
+  go-file:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: 'go.mod'
+  java-exact:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '21.0.4'
+          distribution: temurin

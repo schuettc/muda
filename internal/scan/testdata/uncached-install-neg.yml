@@ -1,0 +1,33 @@
+on: push
+jobs:
+  npm-cache-action:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('**/package-lock.json') }}
+      - run: npm ci
+  npm-setup-cache:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.11.0'
+          cache: npm
+      - run: npm ci
+  uv-setup:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: '0.5.18'
+      - run: uv sync
+  go-default-cache:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22.5'
+      - run: go mod download

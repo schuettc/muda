@@ -1,0 +1,495 @@
+{
+  "schema": 1,
+  "before": {
+    "since": "0001-01-01T00:00:00Z",
+    "until": "0001-01-01T00:00:00Z",
+    "run_ids": [
+      36606519472
+    ]
+  },
+  "after": {
+    "since": "0001-01-01T00:00:00Z",
+    "until": "0001-01-01T00:00:00Z",
+    "run_ids": [
+      36606519472
+    ]
+  },
+  "workflows": [
+    {
+      "workflow": ".github/workflows/release.yml",
+      "name": "",
+      "presence": "both",
+      "before": {
+        "runs": 1,
+        "p50_ns": 165000000000,
+        "p90_ns": 165000000000,
+        "evidence": [
+          {
+            "kind": "run",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472",
+            "run_id": 36606519472,
+            "note": "success in 2m45s (start to last job completed); push on proj/v0.6.1; attempt 1"
+          },
+          {
+            "kind": "run",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472",
+            "run_id": 36606519472,
+            "note": "p50 run duration sample (2m45s)"
+          },
+          {
+            "kind": "run",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472",
+            "run_id": 36606519472,
+            "note": "p90 run duration sample (2m45s)"
+          },
+          {
+            "kind": "job",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "note": "p50 job queue sample (11s)"
+          },
+          {
+            "kind": "job",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "note": "p90 job queue sample (11s)"
+          }
+        ]
+      },
+      "after": {
+        "runs": 1,
+        "p50_ns": 165000000000,
+        "p90_ns": 165000000000,
+        "evidence": [
+          {
+            "kind": "run",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472",
+            "run_id": 36606519472,
+            "note": "success in 2m45s (start to last job completed); push on proj/v0.6.1; attempt 1"
+          },
+          {
+            "kind": "run",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472",
+            "run_id": 36606519472,
+            "note": "p50 run duration sample (2m45s)"
+          },
+          {
+            "kind": "run",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472",
+            "run_id": 36606519472,
+            "note": "p90 run duration sample (2m45s)"
+          },
+          {
+            "kind": "job",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "note": "p50 job queue sample (11s)"
+          },
+          {
+            "kind": "job",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "note": "p90 job queue sample (11s)"
+          }
+        ]
+      },
+      "change_ns": 0,
+      "relative_percent": 0
+    }
+  ],
+  "steps": [
+    {
+      "workflow": ".github/workflows/release.yml",
+      "job": "release",
+      "name": "Complete job",
+      "occurrence": 1,
+      "presence": "both",
+      "before": {
+        "runs": 1,
+        "p50_ns": 2000000000,
+        "p90_ns": 2000000000,
+        "evidence": [
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:9:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Complete job",
+            "note": "p50 step duration sample (2s)"
+          },
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:9:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Complete job",
+            "note": "p90 step duration sample (2s)"
+          }
+        ]
+      },
+      "after": {
+        "runs": 1,
+        "p50_ns": 2000000000,
+        "p90_ns": 2000000000,
+        "evidence": [
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:9:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Complete job",
+            "note": "p50 step duration sample (2s)"
+          },
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:9:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Complete job",
+            "note": "p90 step duration sample (2s)"
+          }
+        ]
+      },
+      "change_ns": 0,
+      "relative_percent": 0
+    },
+    {
+      "workflow": ".github/workflows/release.yml",
+      "job": "release",
+      "name": "Post Run actions/checkout@v7.0.1",
+      "occurrence": 1,
+      "presence": "both",
+      "before": {
+        "runs": 1,
+        "p50_ns": 1000000000,
+        "p90_ns": 1000000000,
+        "evidence": [
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:8:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Post Run actions/checkout@v7.0.1",
+            "note": "p50 step duration sample (1s)"
+          },
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:8:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Post Run actions/checkout@v7.0.1",
+            "note": "p90 step duration sample (1s)"
+          }
+        ]
+      },
+      "after": {
+        "runs": 1,
+        "p50_ns": 1000000000,
+        "p90_ns": 1000000000,
+        "evidence": [
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:8:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Post Run actions/checkout@v7.0.1",
+            "note": "p50 step duration sample (1s)"
+          },
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:8:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Post Run actions/checkout@v7.0.1",
+            "note": "p90 step duration sample (1s)"
+          }
+        ]
+      },
+      "change_ns": 0,
+      "relative_percent": 0
+    },
+    {
+      "workflow": ".github/workflows/release.yml",
+      "job": "release",
+      "name": "Post Run schuettc/tools-actions/go-release@v0.2.2",
+      "occurrence": 1,
+      "presence": "both",
+      "before": {
+        "runs": 1,
+        "p50_ns": 10000000000,
+        "p90_ns": 10000000000,
+        "evidence": [
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:7:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Post Run schuettc/tools-actions/go-release@v0.2.2",
+            "note": "p50 step duration sample (10s)"
+          },
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:7:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Post Run schuettc/tools-actions/go-release@v0.2.2",
+            "note": "p90 step duration sample (10s)"
+          }
+        ]
+      },
+      "after": {
+        "runs": 1,
+        "p50_ns": 10000000000,
+        "p90_ns": 10000000000,
+        "evidence": [
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:7:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Post Run schuettc/tools-actions/go-release@v0.2.2",
+            "note": "p50 step duration sample (10s)"
+          },
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:7:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Post Run schuettc/tools-actions/go-release@v0.2.2",
+            "note": "p90 step duration sample (10s)"
+          }
+        ]
+      },
+      "change_ns": 0,
+      "relative_percent": 0
+    },
+    {
+      "workflow": ".github/workflows/release.yml",
+      "job": "release",
+      "name": "Run actions/checkout@v7.0.1",
+      "occurrence": 1,
+      "presence": "both",
+      "before": {
+        "runs": 1,
+        "p50_ns": 3000000000,
+        "p90_ns": 3000000000,
+        "evidence": [
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:2:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Run actions/checkout@v7.0.1",
+            "note": "p50 step duration sample (3s)"
+          },
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:2:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Run actions/checkout@v7.0.1",
+            "note": "p90 step duration sample (3s)"
+          }
+        ]
+      },
+      "after": {
+        "runs": 1,
+        "p50_ns": 3000000000,
+        "p90_ns": 3000000000,
+        "evidence": [
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:2:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Run actions/checkout@v7.0.1",
+            "note": "p50 step duration sample (3s)"
+          },
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:2:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Run actions/checkout@v7.0.1",
+            "note": "p90 step duration sample (3s)"
+          }
+        ]
+      },
+      "change_ns": 0,
+      "relative_percent": 0
+    },
+    {
+      "workflow": ".github/workflows/release.yml",
+      "job": "release",
+      "name": "Run schuettc/tools-actions/go-release@v0.2.2",
+      "occurrence": 1,
+      "presence": "both",
+      "before": {
+        "runs": 1,
+        "p50_ns": 128000000000,
+        "p90_ns": 128000000000,
+        "evidence": [
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:4:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Run schuettc/tools-actions/go-release@v0.2.2",
+            "note": "p50 step duration sample (2m8s)"
+          },
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:4:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Run schuettc/tools-actions/go-release@v0.2.2",
+            "note": "p90 step duration sample (2m8s)"
+          }
+        ]
+      },
+      "after": {
+        "runs": 1,
+        "p50_ns": 128000000000,
+        "p90_ns": 128000000000,
+        "evidence": [
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:4:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Run schuettc/tools-actions/go-release@v0.2.2",
+            "note": "p50 step duration sample (2m8s)"
+          },
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:4:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Run schuettc/tools-actions/go-release@v0.2.2",
+            "note": "p90 step duration sample (2m8s)"
+          }
+        ]
+      },
+      "change_ns": 0,
+      "relative_percent": 0
+    },
+    {
+      "workflow": ".github/workflows/release.yml",
+      "job": "release",
+      "name": "Run schuettc/tools-actions/release-version@v0.2.2",
+      "occurrence": 1,
+      "presence": "both",
+      "before": {
+        "runs": 1,
+        "p50_ns": 0,
+        "p90_ns": 0,
+        "evidence": [
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:3:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Run schuettc/tools-actions/release-version@v0.2.2",
+            "note": "p50 step duration sample (0s)"
+          },
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:3:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Run schuettc/tools-actions/release-version@v0.2.2",
+            "note": "p90 step duration sample (0s)"
+          }
+        ]
+      },
+      "after": {
+        "runs": 1,
+        "p50_ns": 0,
+        "p90_ns": 0,
+        "evidence": [
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:3:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Run schuettc/tools-actions/release-version@v0.2.2",
+            "note": "p50 step duration sample (0s)"
+          },
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:3:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Run schuettc/tools-actions/release-version@v0.2.2",
+            "note": "p90 step duration sample (0s)"
+          }
+        ]
+      },
+      "change_ns": 0,
+      "relative_percent": null
+    },
+    {
+      "workflow": ".github/workflows/release.yml",
+      "job": "release",
+      "name": "Set up job",
+      "occurrence": 1,
+      "presence": "both",
+      "before": {
+        "runs": 1,
+        "p50_ns": 4000000000,
+        "p90_ns": 4000000000,
+        "evidence": [
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:1:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Set up job",
+            "note": "p50 step duration sample (4s)"
+          },
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:1:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Set up job",
+            "note": "p90 step duration sample (4s)"
+          }
+        ]
+      },
+      "after": {
+        "runs": 1,
+        "p50_ns": 4000000000,
+        "p90_ns": 4000000000,
+        "evidence": [
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:1:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Set up job",
+            "note": "p50 step duration sample (4s)"
+          },
+          {
+            "kind": "step",
+            "url": "https://github.com/schuettc/tackle/actions/runs/36606519472/job/109536828086#step:1:1",
+            "run_id": 36606519472,
+            "job_id": 109536828086,
+            "step": "Set up job",
+            "note": "p90 step duration sample (4s)"
+          }
+        ]
+      },
+      "change_ns": 0,
+      "relative_percent": 0
+    }
+  ],
+  "gates": null,
+  "scan": null,
+  "before_unavailable": [],
+  "after_unavailable": []
+}

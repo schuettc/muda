@@ -1,0 +1,16 @@
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: make build
+  test:
+    needs: build
+    runs-on: ubuntu-24.04
+    steps:
+      - run: make test
+  lint:
+    needs: [build]
+    runs-on: ubuntu-24.04
+    steps:
+      - run: make lint
