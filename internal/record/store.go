@@ -457,7 +457,30 @@ func (s *Store) WriteBaselineJSON(b []byte) (err error) {
 }
 
 // Credential material is forbidden everywhere, even inside an expression.
-var secretPattern = regexp.MustCompile(`(?i)(gh[pousr]_[a-z0-9]{12,}|github_pat_[a-z0-9_]{12,}|-----BEGIN [A-Z ]*PRIVATE KEY-----|https?://[^\s/"']+:[^\s/@"']+@)`)
+var secretPattern = regexp.MustCompile(`(?i)(gh[pousr]_[a-z0-9]{12,}|github_pat_[a-z0-9_]{12,}|-----BEGIN [A-Z ]*PRIVATE KEY-----)`)
+
+// credentialURL is a URL carrying a password. The password may span a context
+// expression, spaces included, so a literal after one is still seen.
+var credentialURL = regexp.MustCompile(`(?i)https?://[^\s/"']+:((?:\$\{\{[^}]*\}\}|[^\s/@"'])+)@`)
+
+// shellReference is a whole shell variable reference, $NAME or ${NAME}.
+var shellReference = regexp.MustCompile(`^\$(?:[A-Za-z_][A-Za-z0-9_]*|\{[A-Za-z_][A-Za-z0-9_]*\})$`)
+
+// secretText reports credential-shaped text. A URL password that is a whole
+// shell or context reference holds no credential and is allowed.
+func secretText(b []byte) bool {
+	if secretPattern.Match(b) {
+		return true
+	}
+	for _, m := range credentialURL.FindAllSubmatch(b, -1) {
+		password := string(m[1])
+		if !shellReference.MatchString(password) && !credentialReference.MatchString(password) {
+			return true
+		}
+	}
+	return false
+}
+
 var credentialAssignment = regexp.MustCompile(`(?i)(?:["']|\b)(token|password|secret|authorization)(?:["']|\b)\s*[:=]\s*(?:"([^"]+)"|'([^']+)')`)
 
 // credentialReference is a single whole, unevaluated context reference. It
@@ -466,11 +489,11 @@ var credentialAssignment = regexp.MustCompile(`(?i)(?:["']|\b)(token|password|se
 var credentialReference = regexp.MustCompile(`^\$\{\{\s*(?:secrets|github|inputs|env|vars|needs|steps|matrix|jobs|runner|strategy)(?:\.[A-Za-z_][A-Za-z0-9_-]*)+\s*\}\}$`)
 
 // noSecrets refuses credential-shaped text and credential-named values that
-// are not a whole reference expression. secretPattern runs first and wins.
+// are not a whole reference expression. secretText runs first and wins.
 // The problem names the key and, for JSON, its path; never the value.
 func noSecrets(b []byte) error {
-	if loc := secretPattern.FindIndex(b); loc != nil {
-		return problem("secret-detected", "record", "credentials must not be recorded"+credentialWhere(b, "", func(s string) bool { return secretPattern.MatchString(s) }))
+	if secretText(b) {
+		return problem("secret-detected", "record", "credentials must not be recorded"+credentialWhere(b, "", func(s string) bool { return secretText([]byte(s)) }))
 	}
 	for _, match := range credentialAssignment.FindAllSubmatch(b, -1) {
 		value, quoted := match[2], true

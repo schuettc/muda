@@ -49,3 +49,26 @@ func TestCredentialLiteralVersusReference(t *testing.T) {
 		}
 	}
 }
+
+// A URL whose password is a whole shell or context reference names where a
+// credential comes from at run time; it holds none.
+func TestCredentialURLReference(t *testing.T) {
+	for i, url := range []string{"https://user:${TOKEN}@example.com/simple/", "https://user:$TOKEN@example.com", "https://user:${{ secrets.CI_TOKEN }}@example.com", "https://user:${{secrets.CI_TOKEN}}@example.com"} {
+		b, err := json.Marshal(map[string]any{"schema": 1, "run": `echo "url=` + url + `" >> "$GITHUB_OUTPUT"`})
+		if err != nil {
+			t.Fatal(err)
+		}
+		if err := noSecrets(b); err != nil {
+			t.Errorf("reference %d rejected: %v", i, err)
+		}
+	}
+	for i, url := range []string{"https://user:password@example.com", "https://user:${TOKEN}literal@example.com", "https://user:literal${TOKEN}@example.com", "https://user:${TOKEN@example.com", "https://user:${{ secrets.CI_TOKEN }}x@example.com", "https://user:${TOKEN}@example.com https://user:password@example.com"} {
+		b, err := json.Marshal(map[string]any{"schema": 1, "run": `echo "url=` + url + `"`})
+		if err != nil {
+			t.Fatal(err)
+		}
+		if err := noSecrets(b); err == nil {
+			t.Errorf("literal %d accepted", i)
+		}
+	}
+}
