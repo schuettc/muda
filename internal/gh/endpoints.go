@@ -472,6 +472,30 @@ func (c *Client) DefaultBranch(ctx context.Context, repo string) (string, error)
 	return result.DefaultBranch, nil
 }
 
+// FullName is the repository's current owner/name. GitHub redirects a renamed
+// or transferred repository's old name to it; the answer is never cached, so a
+// name later taken by another repository is seen as that repository.
+func (c *Client) FullName(ctx context.Context, repo string) (string, error) {
+	p, err := repoPath(repo)
+	if err != nil {
+		return "", err
+	}
+	body, _, err := c.get(ctx, c.endpoint(p, nil), nil, false)
+	if err != nil {
+		return "", err
+	}
+	var result struct {
+		FullName string `json:"full_name"`
+	}
+	if err := json.Unmarshal(body, &result); err != nil {
+		return "", err
+	}
+	if result.FullName == "" {
+		return "", fmt.Errorf("repo %s has no full_name", repo)
+	}
+	return result.FullName, nil
+}
+
 func (c *Client) BranchProtection(ctx context.Context, repo, branch string) (*Protection, error) {
 	p, err := repoPath(repo)
 	if err != nil {

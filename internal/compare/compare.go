@@ -92,7 +92,10 @@ type GateDiff struct {
 	// BeforeRef and BeforeSettings are set for a historical baseline: the
 	// recorded inventory read workflows at BeforeRef, while its repository
 	// settings were read later and are current (record.SettingsLabel).
-	BeforeRef      string `json:"before_ref,omitempty"`
+	BeforeRef string `json:"before_ref,omitempty"`
+	// BeforeRepo is the name the baseline was recorded under, when GitHub has
+	// since renamed or transferred the repository to the one compared.
+	BeforeRepo     string `json:"before_repo,omitempty"`
 	BeforeSettings string `json:"before_settings,omitempty"`
 }
 
@@ -814,6 +817,19 @@ func verifyGates(ctx context.Context, c *gh.Client, repo, path, ref string) *Gat
 	if err := json.Unmarshal(raw, &a); err != nil {
 		return failure(err)
 	}
+	from, err := renamedFrom(ctx, c, a.Repo, repo)
+	if err != nil {
+		return failure(err)
+	}
+	if from != "" {
+		if raw, err = renameRepo(raw, from, repo); err != nil {
+			return failure(err)
+		}
+		a = gates.Inventory{}
+		if err := json.Unmarshal(raw, &a); err != nil {
+			return failure(err)
+		}
+	}
 	if a.Schema != 1 || a.Repo != repo {
 		return failure(fmt.Errorf("baseline must have schema 1 and repo %s", repo))
 	}
@@ -842,6 +858,7 @@ func verifyGates(ctx context.Context, c *gh.Client, repo, path, ref string) *Gat
 	if hist != nil {
 		d.BeforeRef, d.BeforeSettings = hist.Ref, hist.Settings
 	}
+	d.BeforeRepo = from
 	return d
 }
 
