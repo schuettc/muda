@@ -473,3 +473,26 @@ func TestShowRefusesReceiptBodySecrets(t *testing.T) {
 		t.Fatal("body secret shown")
 	}
 }
+
+// Git keeps no empty directory, so a record cloned before its first receipt
+// has no receipts/ at all. That is a valid record with no receipts, and the
+// first receipt creates the directory.
+func TestClonedRecordWithoutReceiptsDir(t *testing.T) {
+	s := store(t)
+	if err := os.Remove(filepath.Join(s.Root, ".muda", "receipts")); err != nil {
+		t.Fatal(err)
+	}
+	if ps := s.Check(); len(ps) != 0 {
+		t.Fatal(ps)
+	}
+	id, err := s.AddFinding(finding())
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := s.WriteReceipt(id, validReceipt()); err != nil {
+		t.Fatal(err)
+	}
+	if ps := s.Check(); len(ps) != 0 {
+		t.Fatal(ps)
+	}
+}
