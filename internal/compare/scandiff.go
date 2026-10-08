@@ -33,6 +33,9 @@ type ScanDiff struct {
 	Unavailable string          `json:"unavailable,omitempty"`
 	// BeforeRef is the recorded commit a historical baseline's scan read.
 	BeforeRef string `json:"before_ref,omitempty"`
+	// BeforeRepo is the name the scan was recorded under, when GitHub has
+	// since renamed or transferred the repository to the one compared.
+	BeforeRepo string `json:"before_repo,omitempty"`
 }
 
 // UnavailableScan names why no scan comparison was possible; it never reads
@@ -211,6 +214,21 @@ func verifyScan(ctx context.Context, c *gh.Client, repo string, o Options) *Scan
 	if !ok {
 		return UnavailableScan(missingScan)
 	}
+	var head struct {
+		Repo string `json:"repo"`
+	}
+	if err = json.Unmarshal(raw, &head); err != nil {
+		return UnavailableScan(".muda/scan.json: " + err.Error())
+	}
+	from, err := renamedFrom(ctx, c, head.Repo, repo)
+	if err != nil {
+		return UnavailableScan(".muda/scan.json: " + err.Error())
+	}
+	if from != "" {
+		if raw, err = renameRepo(raw, from, repo); err != nil {
+			return UnavailableScan(".muda/scan.json: " + err.Error())
+		}
+	}
 	var stored scan.Report
 	dec := json.NewDecoder(bytes.NewReader(raw))
 	dec.DisallowUnknownFields()
@@ -229,5 +247,6 @@ func verifyScan(ctx context.Context, c *gh.Client, repo string, o Options) *Scan
 	if historical {
 		d.BeforeRef = hist.Ref
 	}
+	d.BeforeRepo = from
 	return d
 }

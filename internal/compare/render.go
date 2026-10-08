@@ -71,6 +71,9 @@ func RenderMarkdown(r *Result) string {
 		if d.BeforeRef != "" {
 			fmt.Fprintf(&b, "Before side: workflows at `%s`; %s.\n\n", d.BeforeRef, d.BeforeSettings)
 		}
+		if d.BeforeRepo != "" {
+			fmt.Fprintf(&b, "Before side: recorded under `%s`, which GitHub redirects to this repository.\n\n", d.BeforeRepo)
+		}
 		write := func(name string, gs []gates.Gate) {
 			if len(gs) == 0 {
 				return
@@ -107,6 +110,9 @@ func RenderMarkdown(r *Result) string {
 		fmt.Fprintf(&b, "\n## Scan: %s\n\n", d.Status)
 		if d.BeforeRef != "" {
 			fmt.Fprintf(&b, "Before side: scan at `%s`.\n\n", d.BeforeRef)
+		}
+		if d.BeforeRepo != "" {
+			fmt.Fprintf(&b, "Before side: recorded under `%s`, which GitHub redirects to this repository.\n\n", d.BeforeRepo)
 		}
 		if d.Status == ScanUnavailable {
 			fmt.Fprintf(&b, "Unavailable: %s\n", d.Unavailable)
