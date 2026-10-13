@@ -37,6 +37,13 @@ Verify in the real environment. Green PR status alone is never fixed. A
 skipped or "trusting…" job is a defect, never a pass. Record only through the
 record CLI.
 
+**Cheap evidence first:** read the real pipeline's runs and logs before
+building any proof; a bespoke proof is only for a risk they cannot show, sized
+to that risk. It never replaces the gate comparison. **Timebox:** about 30
+minutes of agent work per finding, and no single command over 10 minutes: poll,
+never block. Past either, stop and report what is known; never invent a new
+experiment. Every subagent brief carries this timebox.
+
 **Messages:** recommend, never survey: decide every answer (order, labels,
 approval). One line per checkpoint item: what, basis, key number,
 recommendation; full evidence and every recipe outcome go to a named,

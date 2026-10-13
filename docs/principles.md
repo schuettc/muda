@@ -38,6 +38,14 @@ records.
   *Why:* the real failure is green update PRs that nobody merges; a self-merging
   path on a trustworthy gate fixes it.
 
+- **D12: A change's proof is sized to its risk. For a small change, the real
+  pipeline's CI and its first post-merge run are the proof; a local or offline
+  reproduction is only for a risk the pipeline cannot show, and the gate
+  comparison never shrinks. Agent proof work is timeboxed.**
+  *Why:* verification effort beyond a change's blast radius is waste of its own:
+  one-line edits otherwise take an hour each to prove, on a machine that does
+  not show what CI does.
+
 ## Retiring risk
 
 - **D4: Tooling that encodes a dangerous pattern and is unused gets retired, not

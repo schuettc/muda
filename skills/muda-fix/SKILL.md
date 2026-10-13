@@ -41,6 +41,16 @@ revert undoes both, and approving the scope is not approving a merge of
 findings. Record only through the record CLI. A
 skipped or "trusting…" check is a defect, never a pass.
 
+**Proof sized to risk:** the plan names one check, sized to the change's risk.
+For a small change (a flag, a pin, a one-line edit), the PR's real CI and the
+first post-merge run are that check; reproduce locally or offline only for a
+risk CI cannot show. Read the real pipeline's logs before building any proof.
+This never replaces muda-verify's gate comparison.
+
+**Timebox:** about 30 minutes of agent work per change, and no single command
+over 10 minutes: poll, never block. Past either, stop and report what is known;
+never invent a new experiment. Every subagent brief carries this timebox.
+
 **Messages:** recommend, never survey: decide every answer (order, labels,
 approval). One line per checkpoint item: what, basis, key number,
 recommendation; full evidence and every recipe outcome go to a named,
@@ -90,7 +100,8 @@ Present:
 3. the risk, and which Traps apply;
 4. the gates it could affect: show the current inventory with
    `muda gates --format md` and name each required check, environment or
-   `needs:` edge the change touches.
+   `needs:` edge the change touches;
+5. the one check that proves it, sized to its risk.
 
 The expected after-inventory must be the same or stronger than before: a change
 that removes or loosens a gate must name what replaces the guarantee. If it would still be weaker, **STOP**

@@ -35,8 +35,9 @@ Before inspecting or changing delivery workflows:
 
 Measure before believing: a finding follows evidence, not a deadline. A
 teammate's number or cause is an attributed claim, never a measured estimate.
-A long step labelled Docker does not prove a rebuild. Record only through the
-record CLI; never hand-edit `.muda/`.
+A long step labelled Docker does not prove a rebuild. Read the real pipeline's
+logs before building any reproduction. Record only through the record CLI;
+never hand-edit `.muda/`.
 
 **Messages:** recommend, never survey: decide every answer (order, labels,
 approval). One line per checkpoint item: what, basis, key number,
