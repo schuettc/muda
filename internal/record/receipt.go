@@ -84,6 +84,9 @@ func (s *Store) WriteReceipt(id string, r Receipt) (err error) {
 	} else if !errors.Is(err, os.ErrNotExist) {
 		return err
 	}
+	if err = s.receiptsDir(); err != nil {
+		return err
+	}
 	front, err := encode(r)
 	if err != nil {
 		return err
@@ -113,6 +116,23 @@ func fixProblem(f Finding, body []byte, readErr error) error {
 	}
 	if r.PR != f.PR {
 		return problem("unverified-fix", "findings.toml", f.ID+": receipt pr does not match the finding's pr")
+	}
+	return nil
+}
+
+// receiptsDir creates receipts/ when a cloned record lacks it (git keeps no
+// empty directory).
+func (s *Store) receiptsDir() error {
+	r, err := s.root()
+	if err != nil {
+		return err
+	}
+	defer func() { _ = r.Close() }()
+	if err = safe(r, "receipts"); err != nil {
+		return err
+	}
+	if err = r.Mkdir("receipts", 0700); err != nil && !errors.Is(err, os.ErrExist) {
+		return err
 	}
 	return nil
 }

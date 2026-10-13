@@ -75,6 +75,11 @@ func (s *Store) receipts() (map[string]string, error) {
 		return nil, err
 	}
 	d, err := r.Open("receipts")
+	if errors.Is(err, os.ErrNotExist) {
+		// Git keeps no empty directory: a cloned record has none until
+		// its first receipt.
+		return map[string]string{}, nil
+	}
 	if err != nil {
 		return nil, err
 	}
