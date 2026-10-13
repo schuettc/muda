@@ -27,6 +27,10 @@ this standard supplies the stopping rule, waste catalog and exemption policy.
 7. **No data is not zero.** Missing logs, inaccessible protection settings,
    truncated listings and unobserved image jobs mean unavailable evidence, not
    zero builds, zero warnings or no gates. Report coverage and uncertainty.
+8. **Proof costs what it guards.** Size each change's proof to its risk: for a
+   small change, the real pipeline's CI and first post-merge run are the proof.
+   Read the pipeline's logs before building a reproduction. The gate comparison
+   is never what shrinks.
 
 ### Delivery principles D2–D6
 

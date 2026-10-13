@@ -518,9 +518,13 @@ func TestDiagnoseSkillContract(t *testing.T) {
 	// mergedAt check, paid for by the 2 words verify's guard gave back.
 	// The guided-message and merging rules (feat/guided) raised 1308 to 1427.
 	// One record PR for the baseline and findings raised 1427 to 1464; the PR
-	// body scratch-file rule to 1475.
-	if n := len(strings.Fields(text)); n > 1475 {
-		t.Errorf("muda-diagnose is %d words; keep it at most 1475", n)
+	// body scratch-file rule to 1475; reading the pipeline's logs first (#13)
+	// to 1485.
+	if n := len(strings.Fields(text)); n > 1485 {
+		t.Errorf("muda-diagnose is %d words; keep it at most 1485", n)
+	}
+	if !strings.Contains(norm(text), norm("Read the real pipeline's logs before building any reproduction")) {
+		t.Error("missing: read the pipeline's logs first (#13)")
 	}
 	for _, s := range []string{"provisional", "<<", "under renewal", "gets never"} {
 		if strings.Contains(strings.ToLower(norm(text)), s) {
@@ -573,9 +577,20 @@ func TestFixSkillContract(t *testing.T) {
 		}
 	}
 	// The guided-message and merging rules (feat/guided) raised 1000 to 1115;
-	// the PR body scratch-file rule to 1130.
-	if n := len(strings.Fields(text)); n > 1130 {
-		t.Errorf("muda-fix is %d words; keep it at most 1130", n)
+	// the PR body scratch-file rule to 1130; proof sized to risk and the
+	// timebox (#13) to 1240.
+	if n := len(strings.Fields(text)); n > 1240 {
+		t.Errorf("muda-fix is %d words; keep it at most 1240", n)
+	}
+	// #13: proof sized to risk, cheap evidence first, a timebox.
+	for _, s := range []string{"the plan names one check, sized to the change's risk",
+		"the PR's real CI and the first post-merge run are that check", "only for a risk CI cannot show",
+		"Read the real pipeline's logs before building any proof", "never replaces muda-verify's gate comparison",
+		"no single command over 10 minutes", "never invent a new experiment", "Every subagent brief carries this timebox",
+		"the one check that proves it, sized to its risk"} {
+		if !strings.Contains(norm(text), norm(s)) {
+			t.Error("missing", s)
+		}
 	}
 	for _, s := range []string{"provisional", "<<", "two independently reviewable commits", "expected, not measured", "reads the default branch"} {
 		if strings.Contains(strings.ToLower(norm(text)), s) {
@@ -717,9 +732,18 @@ func TestVerifySkillContract(t *testing.T) {
 	// 1312 for the record-PR rule pointer; the fix round lowered it to 1310.
 	// The guided-message and merging rules (feat/guided) raised 1310 to 1429.
 	// The live-run executed-work rule raised 1429 to 1468; the PR body
-	// scratch-file rule to 1483.
-	if n := len(strings.Fields(text)); n > 1483 {
-		t.Errorf("muda-verify is %d words; keep it at most 1483", n)
+	// scratch-file rule to 1483; cheap evidence first and the timebox (#13)
+	// to 1555.
+	if n := len(strings.Fields(text)); n > 1555 {
+		t.Errorf("muda-verify is %d words; keep it at most 1555", n)
+	}
+	// #13: cheap evidence first, a timebox, and the gate comparison stays.
+	for _, s := range []string{"read the real pipeline's runs and logs before building any proof",
+		"It never replaces the gate comparison", "no single command over 10 minutes",
+		"never invent a new experiment", "Every subagent brief carries this timebox"} {
+		if !strings.Contains(norm(text), norm(s)) {
+			t.Error("missing", s)
+		}
 	}
 	for _, s := range []string{"provisional", "<<", "green is green", "skipp|trusting", "waits on a settings/rebaseline command", "gate result waits for merge", "gates read the default branch", "relative `--since`",
 		// Decision 1: an unchanged workflow file no longer reads UNVERIFIED.
