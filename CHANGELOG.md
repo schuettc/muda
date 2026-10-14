@@ -1,8 +1,44 @@
 # Changelog
 
+## 0.1.10
+
+- Recipes R13 (key the dependency layer on third-party dependencies only) and R14 (deploy contracts first, then every stack at once), from one adopter's measured deploys.
+
 ## 0.1.9
 
 - `muda record finding add`, `finding set` and `exempt` check the `waste` they write against the standard's catalog or its candidate wastes (`candidate:<slug>`, with no recipe), and the `recipe` against the recipes (#21). Stored records are not re-judged, so removing a candidate or recipe later breaks no record. A location may now be `file:PATH`, for code outside workflows (#22).
+
+## 0.1.8
+
+- `compare --gates`: a ruleset read from another timezone compares by instant, so a timezone change no longer reads as a security change (#23).
+
+## 0.1.7
+
+- Recipe R12 (split a service rollout into phases before tuning it) and a CDK section in R5 for parallel image asset builds.
+
+## 0.1.6
+
+- The standard lists lingering expand as a candidate waste.
+
+## 0.1.5
+
+- Recipe submissions: diagnose and verify offer to draft one, with a public-text rule that keeps project details out; an issue form on the repository.
+
+## 0.1.4
+
+- Skills size proof to the change's risk, timebox agent work, and read the pipeline's logs before building a proof.
+
+## 0.1.3
+
+- `record`: a cloned record without `receipts/` is valid (#5).
+
+## 0.1.2
+
+- `compare`: a record made before a repository rename compares as the same repository (#3).
+
+## 0.1.1
+
+- `record`: a URL password that is a whole shell or context reference is not a detected secret (#1).
 
 ## 0.1.0
 
