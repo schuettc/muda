@@ -3,10 +3,17 @@ package content
 import (
 	"crypto/sha256"
 	"encoding/hex"
+	"regexp"
 	"slices"
 	"strings"
 	"unicode"
 )
+
+// Home is muda's own repository, where recipe submissions go. Shipped content
+// may name it exactly; any other use of its owner is still a project fact.
+const Home = "schuettc/muda"
+
+var homeRef = regexp.MustCompile(`(?i)\b` + regexp.QuoteMeta(Home) + `(?:$|[^A-Za-z0-9_-])`)
 
 // shippedFactHashes are SHA-256 digests (lowercase hex) of the lowercased
 // project words that must not appear in shipped content. Only digests are
@@ -43,7 +50,9 @@ var ProjectFacts = NewFactGuard(shippedFactHashes...)
 // Find returns the first word of text that is a project fact, or "". Words
 // are maximal runs of letters and digits, compared lowercased; a word that
 // matches after dropping one trailing "s" also counts, covering plurals.
+// An exact reference to Home is not a word.
 func (g *FactGuard) Find(text string) string {
+	text = homeRef.ReplaceAllString(text, " ")
 	for _, word := range strings.FieldsFunc(text, func(r rune) bool {
 		return !unicode.IsLetter(r) && !unicode.IsDigit(r)
 	}) {

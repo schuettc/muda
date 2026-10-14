@@ -431,3 +431,19 @@ func TestGoStack(t *testing.T) {
 		t.Fatalf("recipes with the go stack: %v", got)
 	}
 }
+
+// muda's own repository is where recipe submissions go, so shipped content may
+// name it; every other use of its owner stays a project fact.
+func TestProjectFactsAllowMudaHome(t *testing.T) {
+	for _, s := range []string{"gh issue create -R " + content.Home + " --label x", "https://github.com/" + content.Home + "/issues/new"} {
+		if m := content.ProjectFacts.Find(s); m != "" {
+			t.Errorf("%q flagged %q", s, m)
+		}
+	}
+	owner, _, _ := strings.Cut(content.Home, "/")
+	for _, s := range []string{owner + "/tackle", content.Home + "-private", content.Home + "x", "by " + owner} {
+		if content.ProjectFacts.Find(s) == "" {
+			t.Errorf("%q not flagged", s)
+		}
+	}
+}

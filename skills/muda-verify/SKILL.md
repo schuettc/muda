@@ -209,3 +209,7 @@ After the Your move merge ask, once merged:
   ```
 
 - Otherwise load the entry skill.
+
+**Recipe submission:** a measured fix that adds to its recipe (a stack it
+lacks, a different fix, a trap it does not name) is offered as a recipe
+submission as in muda-diagnose, with this receipt's before and after.

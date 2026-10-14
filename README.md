@@ -99,6 +99,16 @@ Python, Node and Go.
 Read them with `muda standard`, `muda standard W4`, `muda recipes` and
 `muda recipe R11 --stack go`.
 
+### Submitting a recipe
+
+Found a waste no recipe covers, or a fix or trap you measured? Open a
+[recipe submission](https://github.com/schuettc/muda/issues/new?template=recipe-submission.yml).
+The diagnose and verify skills offer to draft one for you, and post it only
+after you approve the text. Describe the pattern, never your project: no
+organisation, repository or service names, ids, URLs or pasted logs. Durations
+and ratios are what make it useful. Accepted submissions ship as recipes in the
+next release.
+
 ## How proof works
 
 - **Every number names its evidence:** a run, job, step, log line or file.
