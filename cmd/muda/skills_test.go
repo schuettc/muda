@@ -754,7 +754,7 @@ func TestVerifySkillContract(t *testing.T) {
 	if n := len(strings.Fields(text)); n > 1590 {
 		t.Errorf("muda-verify is %d words; keep it at most 1590", n)
 	}
-	if !strings.Contains(norm(text), norm("is offered as a recipe submission as in muda-diagnose, with this receipt's before and after")) {
+	if !strings.Contains(norm(text), norm("a measured fix that adds to its recipe (a stack it lacks, a different fix, a trap it does not name) is offered as a recipe submission as in muda-diagnose, with this receipt's before and after")) {
 		t.Error("missing: recipe submission offer")
 	}
 	// #13: cheap evidence first, a timebox, and the gate comparison stays.
