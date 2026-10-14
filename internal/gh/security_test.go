@@ -282,4 +282,7 @@ func TestSecurityTimestampNormalizationIsNarrow(t *testing.T) {
 	if eq(`{"updated_at":"2026-08-26T15:43:02.1234567891Z"}`, `{"updated_at":"2026-08-26T15:43:02.1234567892Z"}`) {
 		t.Error("timestamps beyond nanosecond precision collapsed")
 	}
+	if eq(`{"updated_at":"2026-08-26T15:43:02,1234567891Z"}`, `{"updated_at":"2026-08-26T15:43:02,1234567892Z"}`) {
+		t.Error("comma-fraction timestamps beyond nanosecond precision collapsed")
+	}
 }

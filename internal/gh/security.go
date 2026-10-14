@@ -219,7 +219,8 @@ func utcTimestamps(m map[string]any) {
 	}
 }
 func fractionDigits(s string) int {
-	i := strings.IndexByte(s, '.')
+	// time.Parse accepts a comma before the fraction as well as a period.
+	i := strings.IndexAny(s, ".,")
 	if i < 0 {
 		return 0
 	}
