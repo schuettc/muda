@@ -25,8 +25,16 @@ var recipeID = regexp.MustCompile(`^R[1-9][0-9]*$`)
 func Check(fsys fs.FS, knownCommand func(args []string) bool) []Problem {
 	var problems []Problem
 	add := func(p, msg string) { problems = append(problems, Problem{p, msg}) }
-	if _, err := fs.ReadFile(fsys, "standard/standard.md"); err != nil {
+	var catalog []string
+	if b, err := fs.ReadFile(fsys, "standard/standard.md"); err != nil {
 		add("standard/standard.md", fmt.Sprintf("read required standard: %v", err))
+	} else {
+		if catalog, err = wastes(string(b)); err != nil {
+			add("standard/standard.md", err.Error())
+		}
+		if _, err = candidates(string(b)); err != nil {
+			add("standard/standard.md", err.Error())
+		}
 	}
 	stacks, err := Stacks(fsys)
 	if err != nil {
@@ -42,7 +50,7 @@ func Check(fsys fs.FS, knownCommand func(args []string) bool) []Problem {
 			add(p, "invalid recipe ID")
 		}
 		for _, w := range r.Waste {
-			if !KnownWaste(w) {
+			if !contains(catalog, w) {
 				add(p, "unknown waste: "+w)
 			}
 		}

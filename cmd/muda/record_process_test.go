@@ -71,7 +71,7 @@ func TestConcurrentRecordCLIProcesses(t *testing.T) {
 	const count = 40
 	requests := make([]request, count)
 	for i := range requests {
-		requests[i] = request{[]string{"finding", "add"}, fmt.Sprintf(`{"waste":"waiting","location":"workflow:ci.yml/job:test","recipe":"slow-step","evidence":[{"kind":"file","path":"ci.yml"}],"basis":"suspected","estimate":"fact-%d","risk":"low"}`, i)}
+		requests[i] = request{[]string{"finding", "add"}, fmt.Sprintf(`{"waste":"W5","location":"workflow:ci.yml/job:test","recipe":"R5","evidence":[{"kind":"file","path":"ci.yml"}],"basis":"suspected","estimate":"fact-%d","risk":"low"}`, i)}
 	}
 	results := run(requests)
 	successes := map[string]string{}
@@ -112,7 +112,7 @@ func TestConcurrentRecordCLIProcesses(t *testing.T) {
 	// Multiple independent updates share findings.toml: each successful patch
 	// must survive, not just the last process's projection of the file.
 	for len(fs) < count {
-		if _, err := s.AddFinding(record.Finding{Waste: "waiting", Location: "workflow:ci.yml/job:test", Recipe: "slow-step", Evidence: []record.Evidence{{Kind: "file", Path: "ci.yml"}}, Basis: "suspected", Estimate: "seed", Risk: "low"}); err != nil {
+		if _, err := s.AddFinding(record.Finding{Waste: "W5", Location: "workflow:ci.yml/job:test", Recipe: "R5", Evidence: []record.Evidence{{Kind: "file", Path: "ci.yml"}}, Basis: "suspected", Estimate: "seed", Risk: "low"}); err != nil {
 			t.Fatal(err)
 		}
 		snapshot, err = s.Snapshot()
@@ -150,7 +150,7 @@ func TestConcurrentRecordCLIProcesses(t *testing.T) {
 	}
 	t.Logf("set processes: %d succeeded, %d busy, %d persisted", successCount, count-successCount, persistCount)
 	for i := range requests {
-		requests[i] = request{[]string{"exempt"}, fmt.Sprintf(`{"id":"E-%03d","waste":"waiting","location":"workflow:ci.yml/job:test","reason":"fact-%d","agreed-by":"owner","date":"2026-09-01","review-by":"2099-01-01"}`, i, i)}
+		requests[i] = request{[]string{"exempt"}, fmt.Sprintf(`{"id":"E-%03d","waste":"W5","location":"workflow:ci.yml/job:test","reason":"fact-%d","agreed-by":"owner","date":"2026-09-01","review-by":"2099-01-01"}`, i, i)}
 	}
 	results = run(requests)
 	snapshot, err = s.Snapshot()

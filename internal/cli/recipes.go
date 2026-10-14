@@ -41,8 +41,14 @@ func Recipes() tools.Command {
 				return usage("recipes takes no positional arguments")
 			}
 			w, s, stack := flagString(fs, "waste"), flagString(fs, "signal"), flagString(fs, "stack")
-			if w != "" && !content.KnownWaste(w) {
-				return usage("unknown waste: " + w)
+			if w != "" {
+				known, err := content.KnownWaste(muda.Content, w)
+				if err != nil {
+					return err
+				}
+				if !known {
+					return usage("unknown waste: " + w)
+				}
 			}
 			if s != "" && !signal.Known(s) {
 				return usage("unknown signal: " + s)

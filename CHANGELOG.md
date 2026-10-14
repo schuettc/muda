@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.9
+
+- `muda record` checks a finding's or exemption's `waste` against the standard's catalog or its candidate wastes (`candidate:<slug>`, with no recipe), and a finding's `recipe` against the recipes; a location may now be `file:PATH`, for code outside workflows.
+
 ## 0.1.0
 
 - First public release. muda finds where delivery pipelines waste time and fixes it with evidence: measure, diagnose, fix, verify.

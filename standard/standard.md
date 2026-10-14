@@ -73,16 +73,19 @@ W1 and W9 are agent diagnoses from logs and code, not stack-specific CLI parsing
 
 Suspicions stay unnumbered until a measured instance confirms them. Investigate
 or rule out each with evidence, rather than promoting assumptions into rules.
+A finding against a candidate records `candidate:<slug>` as its waste and no recipe.
 
-- Concurrency groups cancel deploys mid-flight.
-- Oversized container build contexts.
-- Post-deploy gates run regardless of what changed (preserve required coverage).
-- Network steps lack timeouts.
-- Artifact storage grows without lifecycle policies.
-- Automation PRs remain open for many days (distinguish operator approval waits).
-- A superseded resource stays deployed after a rename or replacement, with nothing
-  scheduled to remove it (lingering expand). Until measured, cover a rename with a
-  finding and a dated exemption.
+- `deploy-cancel`: Concurrency groups cancel deploys mid-flight.
+- `build-context`: Oversized container build contexts.
+- `unscoped-post-deploy`: Post-deploy gates run regardless of what changed
+  (preserve required coverage).
+- `network-timeout`: Network steps lack timeouts.
+- `artifact-lifecycle`: Artifact storage grows without lifecycle policies.
+- `stale-automation-pr`: Automation PRs remain open for many days (distinguish
+  operator approval waits).
+- `lingering-expand`: A superseded resource stays deployed after a rename or
+  replacement, with nothing scheduled to remove it (lingering expand). Until
+  measured, cover a rename with a finding and a dated exemption.
 
 ## Exemptions
 
@@ -92,7 +95,7 @@ all six fields:
 
 | Field | Meaning |
 |---|---|
-| waste | W-number covered. |
+| waste | W-number or `candidate:<slug>` covered. |
 | location | Stable semantic identity: file, workflow/job/check ID or named asset. |
 | reason | Why this specific cost or gate change is justified, with evidence. |
 | agreed-by | Person who approved the decision. |

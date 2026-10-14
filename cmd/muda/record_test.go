@@ -22,7 +22,7 @@ func TestRecordDispatch(t *testing.T) {
 	}
 	t.Chdir(sub)
 	settings := `{"schema":1,"roles":{"ci.yml":"verify"},"stacks":["go"],"window":{"since":"2026-09-01","until":"2026-09-15"},"muda-version":"dev"}`
-	f := `{"waste":"waiting","location":"workflow:ci.yml/job:test","recipe":"slow-step","evidence":[{"kind":"file","path":"ci.yml"}],"basis":"suspected","estimate":"2m","risk":"low"}`
+	f := `{"waste":"W5","location":"workflow:ci.yml/job:test","recipe":"R5","evidence":[{"kind":"file","path":"ci.yml"}],"basis":"suspected","estimate":"2m","risk":"low"}`
 	dispatch := func(args []string, input string, want int) string {
 		t.Helper()
 		file, err := os.CreateTemp(t.TempDir(), "stdin")
@@ -67,7 +67,7 @@ func TestRecordDispatch(t *testing.T) {
 	}
 	dispatch([]string{"record", "finding", "set", "F-001"}, `{"status":"approved","pr":"https://github.com/o/r/pull/1"}`, 0)
 	dispatch([]string{"record", "finding", "set", "F-001"}, `{"status":"fixed"}`, 1)
-	dispatch([]string{"record", "exempt"}, `{"id":"E-001","waste":"waiting","location":"workflow:ci.yml/job:test","reason":"deliberate","agreed-by":"owner","date":"2026-09-01","review-by":"2099-01-01"}`, 0)
+	dispatch([]string{"record", "exempt"}, `{"id":"E-001","waste":"W5","location":"workflow:ci.yml/job:test","reason":"deliberate","agreed-by":"owner","date":"2026-09-01","review-by":"2099-01-01"}`, 0)
 	dispatch([]string{"record", "finding", "set", "F-001"}, `{"status":"exempt","exemption-id":"E-001"}`, 0)
 	dispatch([]string{"record", "receipt", "F-001"}, `{"schema":1,"pr":"https://github.com/o/r/pull/1","before":"2m","after":"1m","run-links":["https://github.com/o/r/actions/runs/1"],"gate-status":"VERIFIED","gate-result":"unchanged"}`, 0)
 	show := dispatch([]string{"record", "show"}, "", 0)
@@ -118,9 +118,9 @@ func TestRecordFileInputsAndMarkdown(t *testing.T) {
 	}{
 		{[]string{"init"}, `{"roles":{"ci.yml":"verify"},"stacks":["go"],"window":{"since":"2026-09-01","until":"2026-09-15"},"muda-version":"dev"}`},
 		{[]string{"baseline"}, `{"schema":1,"repo":"o/r","since":"2026-09-01T00:00:00Z","until":"2026-09-15T00:00:00Z","workflows":[]}`},
-		{[]string{"finding", "add"}, `{"waste":"waiting","location":"workflow:ci.yml/job:test","recipe":"slow-step","evidence":[{"kind":"file","path":"ci.yml"}],"basis":"measured","estimate":"2m","risk":"low"}`},
+		{[]string{"finding", "add"}, `{"waste":"W5","location":"workflow:ci.yml/job:test","recipe":"R5","evidence":[{"kind":"file","path":"ci.yml"}],"basis":"measured","estimate":"2m","risk":"low"}`},
 		{[]string{"finding", "set", "F-001"}, `{"status":"approved"}`},
-		{[]string{"exempt"}, `{"id":"E-local","waste":"waiting","location":"workflow:ci.yml/job:test","reason":"deliberate","agreed-by":"owner","date":"2026-09-01","review-by":"2099-01-01"}`},
+		{[]string{"exempt"}, `{"id":"E-local","waste":"W5","location":"workflow:ci.yml/job:test","reason":"deliberate","agreed-by":"owner","date":"2026-09-01","review-by":"2099-01-01"}`},
 		{[]string{"receipt", "F-001"}, `{"pr":"https://github.com/o/r/pull/1","before":"2m","after":"1m","run-links":["https://github.com/o/r/actions/runs/1"],"gate-status":"VERIFIED","gate-result":"unchanged"}`},
 	} {
 		file := filepath.Join(t.TempDir(), "input.json")
@@ -156,7 +156,7 @@ func TestTypedRecordJSONMustBeObject(t *testing.T) {
 	if err := s.Init(record.Settings{Roles: map[string]string{"ci.yml": "verify"}, Stacks: []string{"go"}, Window: record.Window{Since: "2026-09-01", Until: "2026-09-15"}, MudaVersion: "dev"}); err != nil {
 		t.Fatal(err)
 	}
-	if _, err := s.AddFinding(record.Finding{Waste: "waiting", Location: "workflow:ci.yml/job:test", Recipe: "slow-step", Evidence: []record.Evidence{{Kind: "file", Path: "ci.yml"}}, Basis: "suspected", Estimate: "2m", Risk: "low"}); err != nil {
+	if _, err := s.AddFinding(record.Finding{Waste: "W5", Location: "workflow:ci.yml/job:test", Recipe: "R5", Evidence: []record.Evidence{{Kind: "file", Path: "ci.yml"}}, Basis: "suspected", Estimate: "2m", Risk: "low"}); err != nil {
 		t.Fatal(err)
 	}
 	before, err := os.ReadFile(filepath.Join(root, ".muda", "findings.toml"))
@@ -413,7 +413,7 @@ func TestRecordFixedReopenThroughDispatch(t *testing.T) {
 		return out.String() + errs.String()
 	}
 	pr := "https://github.com/o/r/pull/1"
-	run(0, "record", "finding", "add", "--file", writeInput(t, `{"waste":"waiting","location":"workflow:ci.yml/job:test","recipe":"slow-step","evidence":[{"kind":"file","path":"ci.yml"}],"basis":"suspected","estimate":"2m","risk":"low"}`))
+	run(0, "record", "finding", "add", "--file", writeInput(t, `{"waste":"W5","location":"workflow:ci.yml/job:test","recipe":"R5","evidence":[{"kind":"file","path":"ci.yml"}],"basis":"suspected","estimate":"2m","risk":"low"}`))
 	run(0, "record", "finding", "set", "F-001", "--file", writeInput(t, `{"status":"approved"}`))
 	run(0, "record", "finding", "set", "F-001", "--file", writeInput(t, `{"status":"in-pr","pr":"`+pr+`"}`))
 	run(0, "record", "receipt", "F-001", "--file", writeInput(t, `{"pr":"`+pr+`","before":"b","after":"a","run-links":["https://github.com/o/r/actions/runs/1"],"gate-status":"VERIFIED","gate-result":"none"}`))
