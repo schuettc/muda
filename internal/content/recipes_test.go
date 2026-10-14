@@ -18,7 +18,7 @@ import (
 
 func TestRecipesParse(t *testing.T) {
 	rs, err := content.Recipes(muda.Content)
-	if err != nil || len(rs) != 12 {
+	if err != nil || len(rs) != 14 {
 		t.Fatalf("%d recipes: %v", len(rs), err)
 	}
 	for i, r := range rs {

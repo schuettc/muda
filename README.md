@@ -88,8 +88,8 @@ Python, Node and Go.
 | W1 No-op not a no-op | An unchanged deploy still updates stacks or builds images. | R2 Turn off framework version reporting; R3 Keep rotating secrets out of image asset hashes; R4 Isolate images that share a build context |
 | W2 Unpinned toolchain | Floating versions let the same tree build differently. | R1 Pin the toolchain through version files |
 | W3 Emulated builds | Images build under CPU emulation. | R6 Build once, outside deploy; promote by digest |
-| W4 Uncached work | Unchanged installs or layers are rebuilt. | R6; R11 A cache that never warms |
-| W5 Serial where it could be parallel | Independent work runs in a line, or repeats itself. | R5 Find the duplicate before parallelizing tests; R12 Split a service rollout into phases before tuning it |
+| W4 Uncached work | Unchanged installs or layers are rebuilt. | R6; R11 A cache that never warms; R13 Key the dependency layer on third-party dependencies only |
+| W5 Serial where it could be parallel | Independent work runs in a line, or repeats itself. | R5 Find the duplicate before parallelizing tests; R12 Split a service rollout into phases before tuning it; R14 Deploy contracts first, then every stack at once |
 | W6 Re-verification | The same checks run twice on the same tree. | R10 Reuse proven checks without dropping deploy-specific gates |
 | W7 Chain stalls | An automated hand-off fails with no visible outcome. | R7 Automated hand-offs never stall silently |
 | W8 Silent runner-plane failure | Jobs queue because no runner can take them. | R8 Keep runners current and make a refused plane loud |
