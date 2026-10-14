@@ -7,6 +7,7 @@ import (
 	"io"
 	"slices"
 	"sort"
+	"time"
 )
 
 // SecuritySnapshot is a fail-closed comparison seam: Raw retains unknown fields,
@@ -89,6 +90,13 @@ func canonicalize(v any, path []string, ruleType string) {
 	switch x := v.(type) {
 	case map[string]any:
 		for k, val := range x {
+			if s, ok := val.(string); ok && (k == "created_at" || k == "updated_at") {
+				// GitHub renders these in the requester's timezone; compare the instant.
+				if t, err := time.Parse(time.RFC3339Nano, s); err == nil {
+					x[k] = t.UTC().Format(time.RFC3339Nano)
+				}
+				continue
+			}
 			canonicalize(val, append(slices.Clone(path), "k:"+k), ruleType)
 		}
 	case []any:
