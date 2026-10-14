@@ -337,7 +337,7 @@ func GateChanges(a, b *gates.Inventory) *GateDiff {
 			unknown(id, u.Why, "")
 		}
 	}
-	if a.Branch != b.Branch || !protectionProjectionEqual(a, b) || !reflect.DeepEqual(a.Rulesets, b.Rulesets) || !reflect.DeepEqual(a.Environments, b.Environments) {
+	if a.Branch != b.Branch || !protectionProjectionEqual(a, b) || !reflect.DeepEqual(canonicalRulesets(a.Rulesets), canonicalRulesets(b.Rulesets)) || !reflect.DeepEqual(canonicalEnvironments(a.Environments), canonicalEnvironments(b.Environments)) {
 		unknown(record.PolicyInventoryProjection, "inventory identity or security projection changed; cannot certify", "")
 	}
 	am, bm := map[string]gates.Gate{}, map[string]gates.Gate{}
@@ -878,4 +878,32 @@ func rawInventoryEqual(a, b []byte) bool {
 	x, e := decode(a)
 	y, f := decode(b)
 	return e == nil && f == nil && reflect.DeepEqual(x, y)
+}
+
+// canonicalRulesets and canonicalEnvironments put each stored security payload
+// in its comparable form, so a ruleset read from another timezone compares by
+// instant. A payload that does not canonicalize compares byte for byte.
+func canonicalRulesets(in []gh.Ruleset) []gh.Ruleset {
+	out := slices.Clone(in)
+	for i := range out {
+		out[i].RawSecurity = recanonical(out[i].RawSecurity)
+	}
+	return out
+}
+func canonicalEnvironments(in []gh.Environment) []gh.Environment {
+	out := slices.Clone(in)
+	for i := range out {
+		out[i].RawSecurity = recanonical(out[i].RawSecurity)
+	}
+	return out
+}
+func recanonical(raw json.RawMessage) json.RawMessage {
+	if len(bytes.TrimSpace(raw)) == 0 {
+		return raw
+	}
+	c, err := gh.ComparableSecurity(raw)
+	if err != nil {
+		return raw
+	}
+	return c
 }

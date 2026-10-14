@@ -235,3 +235,54 @@ func TestUnknownRuleParametersKeepOrder(t *testing.T) {
 		}
 	}
 }
+
+// #23: the same instant in two timezones is equal; a different instant is not.
+func TestSecurityTimestampsCompareInUTC(t *testing.T) {
+	snap := func(created, updated string) SecuritySnapshot {
+		return SecuritySnapshot{What: "ruleset main", URL: "https://example.test/r/7", Complete: true,
+			Raw: json.RawMessage(`{"name":"main","created_at":"` + created + `","updated_at":"` + updated + `","note":"2026-08-26T15:43:02-05:00"}`)}
+	}
+	a := snap("2026-08-26T15:43:02.920-05:00", "2026-08-26T15:43:02.920-05:00")
+	b := snap("2026-08-26T22:43:02.920+02:00", "2026-08-26T22:43:02.920+02:00")
+	if eq, err := a.Equal(b); err != nil || !eq {
+		t.Fatalf("same instant, other offset: equal=%v err=%v", eq, err)
+	}
+	c := snap("2026-08-26T22:43:02.920+02:00", "2026-08-26T22:43:03.920+02:00")
+	if eq, _ := a.Equal(c); eq {
+		t.Fatal("a different updated_at instant compared equal")
+	}
+	// Only the timestamp fields are rewritten; any other string stays as written.
+	d := a
+	d.Raw = json.RawMessage(`{"name":"main","created_at":"2026-08-26T15:43:02.920-05:00","updated_at":"2026-08-26T15:43:02.920-05:00","note":"2026-08-26T22:43:02+02:00"}`)
+	if eq, _ := a.Equal(d); eq {
+		t.Fatal("a non-timestamp field was normalized")
+	}
+}
+
+// Review findings 2 and 3: only the payload's own and its metadata's
+// timestamps are compared as instants; nested unknown fields and timestamps
+// beyond nanosecond precision compare as written.
+func TestSecurityTimestampNormalizationIsNarrow(t *testing.T) {
+	snap := func(raw string) SecuritySnapshot {
+		return SecuritySnapshot{What: "ruleset:7", URL: "https://example.test/r/7", Complete: true, Raw: json.RawMessage(raw)}
+	}
+	eq := func(a, b string) bool {
+		ok, err := snap(a).Equal(snap(b))
+		if err != nil {
+			t.Fatal(err)
+		}
+		return ok
+	}
+	if !eq(`{"effective_rules":[],"metadata":{"updated_at":"2026-08-26T15:43:02-05:00"}}`, `{"effective_rules":[],"metadata":{"updated_at":"2026-08-26T22:43:02+02:00"}}`) {
+		t.Error("metadata timestamps in two timezones differ")
+	}
+	if eq(`{"rules":[{"type":"x","parameters":{"updated_at":"2026-08-26T15:43:02-05:00"}}]}`, `{"rules":[{"type":"x","parameters":{"updated_at":"2026-08-26T22:43:02+02:00"}}]}`) {
+		t.Error("a nested unknown field was normalized")
+	}
+	if eq(`{"updated_at":"2026-08-26T15:43:02.1234567891Z"}`, `{"updated_at":"2026-08-26T15:43:02.1234567892Z"}`) {
+		t.Error("timestamps beyond nanosecond precision collapsed")
+	}
+	if eq(`{"updated_at":"2026-08-26T15:43:02,1234567891Z"}`, `{"updated_at":"2026-08-26T15:43:02,1234567892Z"}`) {
+		t.Error("comma-fraction timestamps beyond nanosecond precision collapsed")
+	}
+}
