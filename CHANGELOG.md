@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.9
+
+- `muda record finding add`, `finding set` and `exempt` check the `waste` they write against the standard's catalog or its candidate wastes (`candidate:<slug>`, with no recipe), and the `recipe` against the recipes (#21). Stored records are not re-judged, so removing a candidate or recipe later breaks no record. A location may now be `file:PATH`, for code outside workflows (#22).
+
 ## 0.1.0
 
 - First public release. muda finds where delivery pipelines waste time and fixes it with evidence: measure, diagnose, fix, verify.

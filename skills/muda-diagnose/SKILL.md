@@ -103,9 +103,9 @@ Sinks first, then signals, singly:
 3. **Label:** `measured` when cited runs, log lines or files show the waste;
    `suspected` when plausible but unshown, naming the evidence that settles it;
    `not shown` when its Detect ran and the evidence does not show the waste. A
-   Detect not run is never `not shown`. A finding needs a recipe: never file it
-   under the nearest recipe, or under one whose Detect section does not confirm
-   the waste; report it unmatched. On a low-`confidence` sample, `measured`
+   Detect not run is never `not shown`. A W-class finding needs a recipe: never
+   file it under the nearest recipe, or under one whose Detect section does not
+   confirm the waste; report it unmatched. On a low-`confidence` sample, `measured`
    needs same-run or paired evidence; label any extrapolated saving.
 4. **Estimate** saving, risk and effort, each with its basis, or give no
    number.
@@ -126,12 +126,14 @@ One scratch file at a time: check it is absent, write it, run its command and
 pre-existing `expired-exemption` may remain), then write the next. On any
 failure, **STOP** and keep it as evidence; never commit it.
 
-In agreed order, muda-finding.json is one object: `waste` (W-number),
+In agreed order, muda-finding.json is one object: `waste` (W-number, or
+`candidate:<slug>` from the standard's candidate list, with no `recipe`),
 `location`, `recipe` (R-id), `evidence`, `basis`, `estimate` (saving and
 effort) and `risk`. `estimate` and `risk` are strings.
 Each evidence item has a `kind`, run/job/step/file/log/annotation (`file` for
 code or IaC), and a `run_id`, `job_id`, `url` or `path`; optional `step`,
-`line`, `note`. `run_id` and `job_id` are integers. A location is `gate:ID` or
+`line`, `note`. `run_id` and `job_id` are integers. A location is `gate:ID`,
+`file:PATH` for code outside workflows, or
 `workflow:PATH[/job:JOB[/step:STEP]]`, never a numeric step index; encode `/`
 and `%` inside names as %2F and %25.
 

@@ -212,6 +212,11 @@ func TestCompareNoBranchProtection(t *testing.T) {
 		t.Fatalf("present→absent: %+v", d)
 	}
 	today := time.Date(2026, 9, 28, 0, 0, 0, 0, time.UTC)
+	// A file location is never a gate, whatever the file is.
+	ApplyExemptions(d, []record.Exemption{{ID: "E-file", Waste: "W1", Location: "file:infra/branch protection", Reason: "agreed", AgreedBy: "owner", Date: "2026-09-01", ReviewBy: "2099-01-01"}}, today)
+	if d.Passed() || len(d.Exempted) != 0 {
+		t.Fatalf("file exemption covered a gate: %+v", d)
+	}
 	ApplyExemptions(d, []record.Exemption{{ID: "E-bp", Waste: "overprocessing", Location: "gate:" + record.PolicySecurityPrefix + "branch protection", Reason: "agreed", AgreedBy: "owner", Date: "2026-09-01", ReviewBy: "2099-01-01"}}, today)
 	if !d.Passed() || d.Status != record.GateExempted {
 		t.Fatalf("loosened protection exemption: %+v", d)

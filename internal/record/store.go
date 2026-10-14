@@ -15,11 +15,15 @@ import (
 	"time"
 
 	"github.com/BurntSushi/toml"
+	"github.com/schuettc/muda/internal/content"
 	"github.com/schuettc/muda/internal/measure"
 )
 
 type Store struct {
 	Root string
+	// Vocab is what findings and exemptions may name; nil is the shipped
+	// standard's and recipes'. Tests inject a small one.
+	Vocab *content.Vocabulary
 	// A mutation session pins the validated boundary for its entire RMW.
 	dir, parent *os.Root
 	info        os.FileInfo
@@ -178,7 +182,7 @@ func (s *Store) lockBoundary(parent, dir *os.Root, info os.FileInfo) (*Store, fu
 		}
 		return dir.Remove(lockName)
 	}
-	return &Store{Root: s.Root, parent: parent, dir: dir, info: info}, unlock, nil
+	return &Store{Root: s.Root, Vocab: s.Vocab, parent: parent, dir: dir, info: info}, unlock, nil
 }
 
 func safe(r *os.Root, name string) error {

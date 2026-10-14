@@ -6,6 +6,8 @@ import (
 	"strings"
 	"time"
 	"unicode"
+
+	"github.com/schuettc/muda/internal/content"
 )
 
 // now is the record's clock; tests substitute it. Expiry is judged on the
@@ -19,24 +21,24 @@ var exemptionID = regexp.MustCompile(`^E-[A-Za-z0-9][A-Za-z0-9_-]*$`)
 
 // Locations have a full grammar, not a permissive prefix match. Gate IDs are
 // opaque producer identities (colons and workflow-path slashes are significant).
-// Workflow paths are relative slash-separated components; job and step names
-// may contain spaces/colons. Percent escaping represents reserved slashes or
-// percent signs in names; stored identities are not normalized or fuzzy-matched.
+// Workflow and file paths are relative slash-separated components; job and step
+// names may contain spaces/colons. Percent escaping represents reserved slashes
+// or percent signs in names; stored identities are not normalized or
+// fuzzy-matched. A file location names the whole file: no line or anchor.
 func validLocation(v string) bool {
 	if id, ok := strings.CutPrefix(v, "gate:"); ok {
 		return stableText(id) // Do not parse workflow markers inside opaque gate IDs.
+	}
+	if path, ok := strings.CutPrefix(v, "file:"); ok {
+		return validPath(path) && !strings.Contains(path, "#")
 	}
 	rest, ok := strings.CutPrefix(v, "workflow:")
 	if !ok {
 		return false
 	}
 	path, job, hasJob := strings.Cut(rest, "/job:")
-	for _, part := range strings.Split(path, "/") {
-		// Raw colons are reserved for grammar markers in workflow path components.
-		decoded, err := url.PathUnescape(part)
-		if strings.Contains(part, ":") || err != nil || strings.Contains(decoded, "/") || !stableText(decoded) {
-			return false
-		}
+	if !validPath(path) {
+		return false
 	}
 	if !hasJob {
 		return true
@@ -54,6 +56,18 @@ func validLocation(v string) bool {
 	}
 	decoded, err := url.PathUnescape(step)
 	return err == nil && !numericStep.MatchString(strings.TrimSpace(decoded))
+}
+
+// validPath accepts a repo-relative path. Raw colons are reserved for grammar
+// markers in its components.
+func validPath(path string) bool {
+	for _, part := range strings.Split(path, "/") {
+		decoded, err := url.PathUnescape(part)
+		if strings.Contains(part, ":") || err != nil || strings.Contains(decoded, "/") || !stableText(decoded) {
+			return false
+		}
+	}
+	return true
 }
 
 func escapedComponent(v string) bool {
@@ -80,12 +94,20 @@ func stableText(v string) bool {
 	}
 	return true
 }
-func validateExemption(e Exemption) error {
+
+// validateExemption checks an exemption's fields; with a vocabulary (a new
+// exemption being written) its waste must be on muda's current lists.
+func validateExemption(e Exemption, v *content.Vocabulary) error {
 	if !exemptionID.MatchString(e.ID) {
 		return problem("invalid-exemption-id", "exemptions.toml", e.ID)
 	}
 	if e.Waste == "" || e.Location == "" || e.Reason == "" || e.AgreedBy == "" || e.Date == "" || e.ReviewBy == "" {
 		return problem("missing-exemption-fields", "exemptions.toml", e.ID+": waste, location, reason, agreed-by, date and review-by required")
+	}
+	if v != nil {
+		if _, err := checkWaste(*v, "exemptions.toml", e.ID, e.Waste); err != nil {
+			return err
+		}
 	}
 	if !validLocation(e.Location) {
 		return problem("invalid-location", "exemptions.toml", e.ID)
@@ -110,7 +132,11 @@ func (s *Store) Exempt(e Exemption) (err error) {
 			err = releaseErr
 		}
 	}()
-	if err := validateExemption(e); err != nil {
+	v, err := s.vocabulary("exemptions.toml")
+	if err != nil {
+		return err
+	}
+	if err := validateExemption(e, &v); err != nil {
 		return err
 	}
 	// New exemptions bind the full raw-file SHA-256; older records' 12-hex

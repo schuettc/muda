@@ -10,7 +10,7 @@ func settings() Settings {
 	return Settings{Schema: 1, Roles: map[string]string{"ci.yml": "verify"}, Stacks: []string{"go"}, Window: Window{Since: "2026-09-01", Until: "2026-09-15"}, MudaVersion: "dev"}
 }
 func finding() Finding {
-	return Finding{Waste: "waiting", Location: "workflow:ci.yml/job:test", Recipe: "slow-step", Evidence: []Evidence{{Kind: "file", Path: "ci.yml", Note: "observed"}}, Basis: "suspected", Estimate: "2 minutes", Risk: "low"}
+	return Finding{Waste: "W5", Location: "workflow:ci.yml/job:test", Recipe: "R5", Evidence: []Evidence{{Kind: "file", Path: "ci.yml", Note: "observed"}}, Basis: "suspected", Estimate: "2 minutes", Risk: "low"}
 }
 func store(t *testing.T) *Store {
 	t.Helper()
@@ -54,7 +54,7 @@ func TestStatusTransitions(t *testing.T) {
 	}
 }
 func exemption() Exemption {
-	return Exemption{ID: "E-001", Waste: "waiting", Location: "workflow:ci.yml/job:test", Reason: "deliberate", AgreedBy: "owner", Date: "2026-09-01", ReviewBy: "2099-01-01"}
+	return Exemption{ID: "E-001", Waste: "W5", Location: "workflow:ci.yml/job:test", Reason: "deliberate", AgreedBy: "owner", Date: "2026-09-01", ReviewBy: "2099-01-01"}
 }
 func TestExemptRequiresFields(t *testing.T) {
 	for _, field := range []string{"waste", "location", "reason", "agreed-by", "date", "review-by"} {

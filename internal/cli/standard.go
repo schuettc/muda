@@ -47,8 +47,14 @@ func validateStandardArgs(args []string) error {
 	if len(args) > 1 {
 		return usage("expected at most one W-number")
 	}
-	if len(args) == 1 && !content.KnownWaste(args[0]) {
-		return usage("unknown waste: " + args[0])
+	if len(args) == 1 {
+		known, err := content.KnownWaste(muda.Content, args[0])
+		if err != nil {
+			return err
+		}
+		if !known {
+			return usage("unknown waste: " + args[0])
+		}
 	}
 	return nil
 }

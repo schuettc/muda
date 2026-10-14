@@ -460,6 +460,10 @@ func TestDiagnoseSkillContract(t *testing.T) {
 		"`workflow:PATH[/job:JOB[/step:STEP]]`", "%2F", "%25",
 		"muda-patch.json", "muda record finding set F-001 --file muda-patch.json", "confirm the status with `muda record show --format json`",
 		"never file it under the nearest recipe", "Detect section does not confirm",
+		// #21, #22: candidate wastes carry no recipe; a file location for code
+		// outside workflows.
+		"A W-class finding needs a recipe", "`candidate:<slug>` from the standard's candidate list, with no `recipe`",
+		"`file:PATH` for code outside workflows",
 		"`--since`",
 		// Phase D cleanup (q5, q6).
 		"only a pre-existing `expired-exemption` may remain", "whether the renew or decline decision is made now or deferred",
@@ -528,9 +532,10 @@ func TestDiagnoseSkillContract(t *testing.T) {
 	// The guided-message and merging rules (feat/guided) raised 1308 to 1427.
 	// One record PR for the baseline and findings raised 1427 to 1464; the PR
 	// body scratch-file rule to 1475; reading the pipeline's logs first (#13)
-	// to 1485; the recipe-submission offer to 1560.
-	if n := len(strings.Fields(text)); n > 1560 {
-		t.Errorf("muda-diagnose is %d words; keep it at most 1560", n)
+	// to 1485; the recipe-submission offer to 1560; candidate wastes and
+	// `file:` locations (#21, #22) to 1576.
+	if n := len(strings.Fields(text)); n > 1576 {
+		t.Errorf("muda-diagnose is %d words; keep it at most 1576", n)
 	}
 	for _, s := range []string{"**Recipe submission:** for each waste reported unmatched, offer one",
 		"uncommitted scratch file (e.g. `.muda-submission.md`)", "following the entry skill's public-text rule",

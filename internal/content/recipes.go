@@ -140,9 +140,3 @@ func Stacks(fsys fs.FS) ([]string, error) {
 	}
 	return strings.Fields(string(b)), nil
 }
-
-// KnownWaste reports membership of the standard's W1–W10 catalog.
-func KnownWaste(w string) bool {
-	n, err := strconv.Atoi(strings.TrimPrefix(w, "W"))
-	return err == nil && n >= 1 && n <= 10 && w == fmt.Sprintf("W%d", n)
-}

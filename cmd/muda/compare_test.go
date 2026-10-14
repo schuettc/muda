@@ -267,7 +267,7 @@ func TestCompareGatesFileExemptionContract(t *testing.T) {
 		t.Fatal(err)
 	}
 	today := time.Now().UTC()
-	if err := s.Exempt(record.Exemption{ID: "E-policy", Waste: "overprocessing", Location: "gate:policy:security", Reason: "explicit acceptance for test", AgreedBy: "owner", Date: today.Format("2006-01-02"), ReviewBy: today.AddDate(0, 0, 7).Format("2006-01-02")}); err != nil {
+	if err := s.Exempt(record.Exemption{ID: "E-policy", Waste: "W6", Location: "gate:policy:security", Reason: "explicit acceptance for test", AgreedBy: "owner", Date: today.Format("2006-01-02"), ReviewBy: today.AddDate(0, 0, 7).Format("2006-01-02")}); err != nil {
 		t.Fatal(err)
 	}
 	canonical := filepath.Join(root, ".muda", "gates.toml")
