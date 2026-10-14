@@ -73,7 +73,7 @@ W1 and W9 are agent diagnoses from logs and code, not stack-specific CLI parsing
 
 Suspicions stay unnumbered until a measured instance confirms them. Investigate
 or rule out each with evidence, rather than promoting assumptions into rules.
-A finding against a candidate records `candidate:<slug>` as its waste and no recipe.
+A finding against a candidate records `candidate:<slug>` as its waste and no recipe. A candidate can be renamed or removed: findings already recorded against it stay valid.
 
 - `deploy-cancel`: Concurrency groups cancel deploys mid-flight.
 - `build-context`: Oversized container build contexts.

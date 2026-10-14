@@ -2,7 +2,7 @@
 
 ## 0.1.9
 
-- `muda record` checks a finding's or exemption's `waste` against the standard's catalog or its candidate wastes (`candidate:<slug>`, with no recipe), and a finding's `recipe` against the recipes; a location may now be `file:PATH`, for code outside workflows.
+- `muda record finding add`, `finding set` and `exempt` check the `waste` they write against the standard's catalog or its candidate wastes (`candidate:<slug>`, with no recipe), and the `recipe` against the recipes (#21). Stored records are not re-judged, so removing a candidate or recipe later breaks no record. A location may now be `file:PATH`, for code outside workflows (#22).
 
 ## 0.1.0
 

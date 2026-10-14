@@ -24,25 +24,36 @@ func ValidFindingID(id string) bool {
 func allowed(a, b Status) bool {
 	return a == b || a == OpenStatus && b == Approved || a == Approved && (b == InPR || b == Reopened) || a == InPR && (b == Fixed || b == Reopened) || a == Reopened && b == Approved || a != Fixed && b == ExemptStatus
 }
-func validateFinding(f Finding, v content.Vocabulary) error {
+
+// validateFinding checks a finding's fields. With a vocabulary (a value being
+// written), its waste and recipe must be on muda's current lists. Without one
+// (a value already stored), they are not judged against the lists, so a
+// candidate or recipe removed later leaves old records valid.
+func validateFinding(f Finding, v *content.Vocabulary) error {
 	if !ValidFindingID(f.ID) {
 		return problem("invalid-finding-id", "findings.toml", f.ID)
 	}
 	if f.Waste == "" || f.Location == "" || len(f.Evidence) == 0 || f.Estimate == "" || f.Risk == "" {
 		return problem("missing-finding-fields", "findings.toml", f.ID+": waste, location, recipe, evidence, estimate and risk required")
 	}
-	candidate, err := checkWaste(v, "findings.toml", f.ID, f.Waste)
-	if err != nil {
-		return err
-	}
-	// A candidate waste has no recipe yet; a W-class finding needs one.
-	switch {
-	case candidate && f.Recipe != "":
-		return problem("candidate-recipe", "findings.toml", f.ID+": a candidate waste has no recipe")
-	case !candidate && f.Recipe == "":
-		return problem("missing-finding-fields", "findings.toml", f.ID+": waste, location, recipe, evidence, estimate and risk required")
-	case !candidate && !slices.Contains(v.Recipes, f.Recipe):
-		return problem("unknown-recipe", "findings.toml", f.ID+": "+f.Recipe)
+	if v == nil {
+		if f.Recipe == "" && !strings.HasPrefix(f.Waste, candidatePrefix) {
+			return problem("missing-finding-fields", "findings.toml", f.ID+": waste, location, recipe, evidence, estimate and risk required")
+		}
+	} else {
+		candidate, err := checkWaste(*v, "findings.toml", f.ID, f.Waste)
+		if err != nil {
+			return err
+		}
+		// A candidate waste has no recipe yet; a W-class finding needs one.
+		switch {
+		case candidate && f.Recipe != "":
+			return problem("candidate-recipe", "findings.toml", f.ID+": a candidate waste has no recipe")
+		case !candidate && f.Recipe == "":
+			return problem("missing-finding-fields", "findings.toml", f.ID+": waste, location, recipe, evidence, estimate and risk required")
+		case !candidate && !slices.Contains(v.Recipes, f.Recipe):
+			return problem("unknown-recipe", "findings.toml", f.ID+": "+f.Recipe)
+		}
 	}
 	if !validLocation(f.Location) {
 		return problem("invalid-location", "findings.toml", f.ID)
@@ -92,7 +103,7 @@ func (s *Store) AddFinding(f Finding) (id string, err error) {
 	}
 	max := 0
 	for _, old := range doc.Findings {
-		if err := validateFinding(old, v); err != nil {
+		if err := validateFinding(old, nil); err != nil {
 			return "", err
 		}
 		n, _ := strconv.Atoi(old.ID[2:])
@@ -102,7 +113,7 @@ func (s *Store) AddFinding(f Finding) (id string, err error) {
 	}
 	f.ID = fmt.Sprintf("F-%03d", max+1)
 	f.Status = OpenStatus
-	if err := validateFinding(f, v); err != nil {
+	if err := validateFinding(f, &v); err != nil {
 		return "", err
 	}
 	doc.Findings = append(doc.Findings, f)
@@ -136,7 +147,7 @@ func (s *Store) SetFinding(id string, p FindingPatch) (err error) {
 		if f.ID != id {
 			continue
 		}
-		if err := validateFinding(f, v); err != nil {
+		if err := validateFinding(f, nil); err != nil {
 			return err
 		}
 		old, oldExemption := f.Status, f.ExemptionID
@@ -186,7 +197,13 @@ func (s *Store) SetFinding(id string, p FindingPatch) (err error) {
 		case !allowed(old, f.Status):
 			return problem("invalid-status-transition", "findings.toml", fmt.Sprintf("%s: %s -> %s", id, old, f.Status))
 		}
-		if err := validateFinding(f, v); err != nil {
+		// Only a waste or recipe this patch writes is judged against the
+		// lists; a status change leaves an older finding's values as recorded.
+		var written *content.Vocabulary
+		if p.Waste != nil || p.Recipe != nil {
+			written = &v
+		}
+		if err := validateFinding(f, written); err != nil {
 			return err
 		}
 		if old == InPR && f.Status == Fixed {
@@ -207,7 +224,7 @@ func (s *Store) SetFinding(id string, p FindingPatch) (err error) {
 					if err != nil || review.Before(today()) {
 						return problem("expired-exemption", "findings.toml", id)
 					}
-					if err := validateExemption(e, v); err != nil {
+					if err := validateExemption(e, nil); err != nil {
 						return err
 					}
 					if e.Waste != f.Waste || e.Location != f.Location {

@@ -94,15 +94,20 @@ func stableText(v string) bool {
 	}
 	return true
 }
-func validateExemption(e Exemption, v content.Vocabulary) error {
+
+// validateExemption checks an exemption's fields; with a vocabulary (a new
+// exemption being written) its waste must be on muda's current lists.
+func validateExemption(e Exemption, v *content.Vocabulary) error {
 	if !exemptionID.MatchString(e.ID) {
 		return problem("invalid-exemption-id", "exemptions.toml", e.ID)
 	}
 	if e.Waste == "" || e.Location == "" || e.Reason == "" || e.AgreedBy == "" || e.Date == "" || e.ReviewBy == "" {
 		return problem("missing-exemption-fields", "exemptions.toml", e.ID+": waste, location, reason, agreed-by, date and review-by required")
 	}
-	if _, err := checkWaste(v, "exemptions.toml", e.ID, e.Waste); err != nil {
-		return err
+	if v != nil {
+		if _, err := checkWaste(*v, "exemptions.toml", e.ID, e.Waste); err != nil {
+			return err
+		}
 	}
 	if !validLocation(e.Location) {
 		return problem("invalid-location", "exemptions.toml", e.ID)
@@ -131,7 +136,7 @@ func (s *Store) Exempt(e Exemption) (err error) {
 	if err != nil {
 		return err
 	}
-	if err := validateExemption(e, v); err != nil {
+	if err := validateExemption(e, &v); err != nil {
 		return err
 	}
 	// New exemptions bind the full raw-file SHA-256; older records' 12-hex

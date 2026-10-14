@@ -151,19 +151,19 @@ func (s *Store) Check() []Problem {
 	add("findings.toml", s.load("findings.toml", &fs))
 	var es exemptionsFile
 	add("exemptions.toml", s.load("exemptions.toml", &es))
-	v, err := s.vocabulary("findings.toml")
-	add("findings.toml", err)
+	// Stored records are not judged against muda's current lists: a value is
+	// checked when it is written, so a later list change breaks no record.
 	ids := map[string]bool{}
 	exemptions := map[string]Exemption{}
 	for _, e := range es.Exemptions {
-		add("exemptions.toml", validateExemption(e, v))
+		add("exemptions.toml", validateExemption(e, nil))
 		if _, ok := exemptions[e.ID]; ok {
 			add("exemptions.toml", problem("duplicate-exemption", "exemptions.toml", e.ID))
 		}
 		exemptions[e.ID] = e
 	}
 	for _, f := range fs.Findings {
-		add("findings.toml", validateFinding(f, v))
+		add("findings.toml", validateFinding(f, nil))
 		if ids[f.ID] {
 			add("findings.toml", problem("duplicate-finding", "findings.toml", f.ID))
 		}
