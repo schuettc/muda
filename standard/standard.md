@@ -1,7 +1,7 @@
 # The delivery-waste standard
 
 A pipeline should spend time only on work that needs doing. No gate gets weaker
-in exchange for speed. Recipes [R1–R11](../recipes/) give stack-specific fixes;
+in exchange for speed. Recipes [R1–R12](../recipes/) give stack-specific fixes;
 this standard supplies the stopping rule, waste catalog and exemption policy.
 
 ## Principles
