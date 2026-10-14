@@ -21,7 +21,7 @@ func TestShippedVocabulary(t *testing.T) {
 	want := content.Vocabulary{
 		Wastes:     []string{"W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10"},
 		Candidates: []string{"deploy-cancel", "build-context", "unscoped-post-deploy", "network-timeout", "artifact-lifecycle", "stale-automation-pr", "lingering-expand"},
-		Recipes:    []string{"R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "R9", "R10", "R11", "R12"},
+		Recipes:    []string{"R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "R9", "R10", "R11", "R12", "R13", "R14"},
 	}
 	for name, pair := range map[string][2][]string{
 		"wastes": {v.Wastes, want.Wastes}, "candidates": {v.Candidates, want.Candidates}, "recipes": {v.Recipes, want.Recipes},
