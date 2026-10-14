@@ -7,6 +7,7 @@ import (
 	"io"
 	"slices"
 	"sort"
+	"strings"
 	"time"
 )
 
@@ -55,11 +56,11 @@ func (s SecuritySnapshot) Equal(other SecuritySnapshot) (bool, error) {
 	if bytes.TrimSpace(s.Raw)[0] != '{' || bytes.TrimSpace(other.Raw)[0] != '{' {
 		return false, fmt.Errorf("security snapshot unavailable: expected complete objects")
 	}
-	a, err := CanonicalSecurity(s.Raw)
+	a, err := ComparableSecurity(s.Raw)
 	if err != nil {
 		return false, err
 	}
-	b, err := CanonicalSecurity(other.Raw)
+	b, err := ComparableSecurity(other.Raw)
 	if err != nil {
 		return false, err
 	}
@@ -90,13 +91,6 @@ func canonicalize(v any, path []string, ruleType string) {
 	switch x := v.(type) {
 	case map[string]any:
 		for k, val := range x {
-			if s, ok := val.(string); ok && (k == "created_at" || k == "updated_at") {
-				// GitHub renders these in the requester's timezone; compare the instant.
-				if t, err := time.Parse(time.RFC3339Nano, s); err == nil {
-					x[k] = t.UTC().Format(time.RFC3339Nano)
-				}
-				continue
-			}
 			canonicalize(val, append(slices.Clone(path), "k:"+k), ruleType)
 		}
 	case []any:
@@ -183,4 +177,58 @@ func (p *Ruleset) UnmarshalJSON(raw []byte) error {
 	*p = Ruleset(v)
 	p.RawSecurity = canon
 	return nil
+}
+
+// ComparableSecurity is CanonicalSecurity for comparing two payloads, not for
+// storing one. GitHub renders a ruleset's created_at and updated_at in the
+// requester's timezone, so those two fields are compared as UTC instants. Only
+// the payload's own top-level fields and those of its metadata object (the
+// ruleset inside a ruleset snapshot) are rewritten, and only when the value
+// parses as RFC3339 with at most nine fractional digits; anything else
+// compares as written.
+func ComparableSecurity(raw []byte) (json.RawMessage, error) {
+	c, err := CanonicalSecurity(raw)
+	if err != nil {
+		return nil, err
+	}
+	dec := json.NewDecoder(bytes.NewReader(c))
+	dec.UseNumber()
+	var v any
+	if err := dec.Decode(&v); err != nil {
+		return nil, err
+	}
+	top, ok := v.(map[string]any)
+	if !ok {
+		return c, nil
+	}
+	utcTimestamps(top)
+	if meta, ok := top["metadata"].(map[string]any); ok {
+		utcTimestamps(meta)
+	}
+	return json.Marshal(v)
+}
+func utcTimestamps(m map[string]any) {
+	for _, k := range []string{"created_at", "updated_at"} {
+		s, ok := m[k].(string)
+		if !ok || fractionDigits(s) > 9 {
+			continue
+		}
+		if t, err := time.Parse(time.RFC3339Nano, s); err == nil {
+			m[k] = t.UTC().Format(time.RFC3339Nano)
+		}
+	}
+}
+func fractionDigits(s string) int {
+	i := strings.IndexByte(s, '.')
+	if i < 0 {
+		return 0
+	}
+	n := 0
+	for _, r := range s[i+1:] {
+		if r < '0' || r > '9' {
+			break
+		}
+		n++
+	}
+	return n
 }

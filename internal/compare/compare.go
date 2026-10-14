@@ -880,10 +880,9 @@ func rawInventoryEqual(a, b []byte) bool {
 	return e == nil && f == nil && reflect.DeepEqual(x, y)
 }
 
-// canonicalRulesets and canonicalEnvironments re-canonicalize each stored
-// security payload, so a record made before timestamps were normalized to UTC
-// compares by instant, not by the timezone it was read in. A payload that does
-// not canonicalize is kept as stored and still compares byte for byte.
+// canonicalRulesets and canonicalEnvironments put each stored security payload
+// in its comparable form, so a ruleset read from another timezone compares by
+// instant. A payload that does not canonicalize compares byte for byte.
 func canonicalRulesets(in []gh.Ruleset) []gh.Ruleset {
 	out := slices.Clone(in)
 	for i := range out {
@@ -902,7 +901,7 @@ func recanonical(raw json.RawMessage) json.RawMessage {
 	if len(bytes.TrimSpace(raw)) == 0 {
 		return raw
 	}
-	c, err := gh.CanonicalSecurity(raw)
+	c, err := gh.ComparableSecurity(raw)
 	if err != nil {
 		return raw
 	}

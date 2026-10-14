@@ -31,3 +31,27 @@ func TestRulesetTimestampOffsetIsNotASecurityChange(t *testing.T) {
 		t.Fatal("a later updated_at must still read as a change")
 	}
 }
+
+// Review finding 1: a recorded inventory still round-trips byte-for-byte
+// through load and re-marshal, so the raw-inventory check stays quiet for a
+// baseline whose rulesets carry a non-UTC offset.
+func TestRecordedTimezoneSurvivesRawRoundTrip(t *testing.T) {
+	inv := inventory(`{}`)
+	raw := `{"id":7,"name":"main","created_at":"2026-08-26T15:43:02.920-05:00","updated_at":"2026-08-26T15:43:02.920-05:00"}`
+	inv.Rulesets = []gh.Ruleset{{ID: 7, Name: "main", RawSecurity: json.RawMessage(raw)}}
+	recorded, err := json.Marshal(inv)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var loaded gates.Inventory
+	if err := json.Unmarshal(recorded, &loaded); err != nil {
+		t.Fatal(err)
+	}
+	projected, err := json.Marshal(&loaded)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !rawInventoryEqual(recorded, projected) {
+		t.Fatalf("round trip changed the record:\n%s\n%s", recorded, projected)
+	}
+}

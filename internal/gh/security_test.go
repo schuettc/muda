@@ -258,3 +258,28 @@ func TestSecurityTimestampsCompareInUTC(t *testing.T) {
 		t.Fatal("a non-timestamp field was normalized")
 	}
 }
+
+// Review findings 2 and 3: only the payload's own and its metadata's
+// timestamps are compared as instants; nested unknown fields and timestamps
+// beyond nanosecond precision compare as written.
+func TestSecurityTimestampNormalizationIsNarrow(t *testing.T) {
+	snap := func(raw string) SecuritySnapshot {
+		return SecuritySnapshot{What: "ruleset:7", URL: "https://example.test/r/7", Complete: true, Raw: json.RawMessage(raw)}
+	}
+	eq := func(a, b string) bool {
+		ok, err := snap(a).Equal(snap(b))
+		if err != nil {
+			t.Fatal(err)
+		}
+		return ok
+	}
+	if !eq(`{"effective_rules":[],"metadata":{"updated_at":"2026-08-26T15:43:02-05:00"}}`, `{"effective_rules":[],"metadata":{"updated_at":"2026-08-26T22:43:02+02:00"}}`) {
+		t.Error("metadata timestamps in two timezones differ")
+	}
+	if eq(`{"rules":[{"type":"x","parameters":{"updated_at":"2026-08-26T15:43:02-05:00"}}]}`, `{"rules":[{"type":"x","parameters":{"updated_at":"2026-08-26T22:43:02+02:00"}}]}`) {
+		t.Error("a nested unknown field was normalized")
+	}
+	if eq(`{"updated_at":"2026-08-26T15:43:02.1234567891Z"}`, `{"updated_at":"2026-08-26T15:43:02.1234567892Z"}`) {
+		t.Error("timestamps beyond nanosecond precision collapsed")
+	}
+}
