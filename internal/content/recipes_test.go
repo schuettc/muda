@@ -18,7 +18,7 @@ import (
 
 func TestRecipesParse(t *testing.T) {
 	rs, err := content.Recipes(muda.Content)
-	if err != nil || len(rs) != 11 {
+	if err != nil || len(rs) != 12 {
 		t.Fatalf("%d recipes: %v", len(rs), err)
 	}
 	for i, r := range rs {
@@ -444,6 +444,23 @@ func TestProjectFactsAllowMudaHome(t *testing.T) {
 	for _, s := range []string{owner + "/tackle", content.Home + "-private", content.Home + "x", "by " + owner} {
 		if content.ProjectFacts.Find(s) == "" {
 			t.Errorf("%q not flagged", s)
+		}
+	}
+}
+
+// R12: a rollout is judged by its total, phase by phase, and its measured traps stay.
+func TestR12RolloutPhases(t *testing.T) {
+	b, err := fs.ReadFile(muda.Content, "recipes/R12.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := strings.Join(strings.Fields(string(b)), " ")
+	for _, s := range []string{"muda reads no cloud provider", "split the rollout again",
+		"judge each fix by the rollout total, not by its own phase", "the rollout total did not move",
+		"Check for them before lowering it", "drops in-flight work", "must fail the deploy visibly",
+		"Only services on the deploy's critical path matter"} {
+		if !strings.Contains(text, s) {
+			t.Errorf("R12 missing %q", s)
 		}
 	}
 }
