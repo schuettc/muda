@@ -194,3 +194,11 @@ record PR is merged; then load muda-fix for one approved finding.
 If no findings are agreed and every recorded finding is `fixed` or validly
 `exempt`, report this cycle complete, citing the baseline; the
 human decides when to measure again. Do not load muda-measure.
+
+**Recipe submission:** for each waste reported unmatched, offer one. Draft it
+in an uncommitted scratch file (e.g. `.muda-submission.md`) with the recipe
+sections Symptom, Detect, Fix, Traps and Verify, and the numbers so far,
+following the entry skill's public-text rule. On the user's yes, open it with
+`gh issue create -R schuettc/muda --label recipe-submission --body-file .muda-submission.md`
+and a title naming the pattern; without GitHub access, leave the file for the
+user to send. Delete it after.

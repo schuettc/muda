@@ -77,9 +77,18 @@ func TestEntrySkillContract(t *testing.T) {
 	// Release prep P6 raised 1050 to 1052 for the unmerged-fixed reopen offer.
 	// The guided-message and merging rules (feat/guided) raised 1052 to 1171.
 	// The measure-to-diagnose record-branch handoff raised 1171 to 1200; naming the
-	// "no PR in any state" check for a stale merged branch raised it to 1225.
-	if n := len(strings.Fields(text)); n > 1225 {
-		t.Errorf("muda is %d words; keep it at most 1225", n)
+	// "no PR in any state" check for a stale merged branch raised it to 1225;
+	// the public-text rule for recipe submissions to 1285.
+	if n := len(strings.Fields(text)); n > 1285 {
+		t.Errorf("muda is %d words; keep it at most 1285", n)
+	}
+	// Recipe submissions: text posted outside the repo names no project.
+	for _, s := range []string{"**Public text:**", "describes the pattern, never the project",
+		"no organisation, repository, service or team names, run or job ids, URLs, account ids, tracker numbers or log-line content",
+		"Keep durations and ratios", "Show the user the exact text; post only on their yes"} {
+		if !strings.Contains(norm(text), norm(s)) {
+			t.Error("missing", s)
+		}
 	}
 	if strings.Contains(norm(text), "new baseline through record") || strings.Contains(text, "--search \"muda/record\"") {
 		t.Error("stale stopping-rule or record-PR search text")
@@ -519,9 +528,17 @@ func TestDiagnoseSkillContract(t *testing.T) {
 	// The guided-message and merging rules (feat/guided) raised 1308 to 1427.
 	// One record PR for the baseline and findings raised 1427 to 1464; the PR
 	// body scratch-file rule to 1475; reading the pipeline's logs first (#13)
-	// to 1485.
-	if n := len(strings.Fields(text)); n > 1485 {
-		t.Errorf("muda-diagnose is %d words; keep it at most 1485", n)
+	// to 1485; the recipe-submission offer to 1560.
+	if n := len(strings.Fields(text)); n > 1560 {
+		t.Errorf("muda-diagnose is %d words; keep it at most 1560", n)
+	}
+	for _, s := range []string{"**Recipe submission:** for each waste reported unmatched, offer one",
+		"uncommitted scratch file (e.g. `.muda-submission.md`)", "following the entry skill's public-text rule",
+		"On the user's yes, open it with", "gh issue create -R schuettc/muda --label recipe-submission --body-file .muda-submission.md",
+		"without GitHub access, leave the file for the user to send"} {
+		if !strings.Contains(norm(text), norm(s)) {
+			t.Error("missing", s)
+		}
 	}
 	if !strings.Contains(norm(text), norm("Read the real pipeline's logs before building any reproduction")) {
 		t.Error("missing: read the pipeline's logs first (#13)")
@@ -733,9 +750,12 @@ func TestVerifySkillContract(t *testing.T) {
 	// The guided-message and merging rules (feat/guided) raised 1310 to 1429.
 	// The live-run executed-work rule raised 1429 to 1468; the PR body
 	// scratch-file rule to 1483; cheap evidence first and the timebox (#13)
-	// to 1555.
-	if n := len(strings.Fields(text)); n > 1555 {
-		t.Errorf("muda-verify is %d words; keep it at most 1555", n)
+	// to 1555; the recipe-submission offer to 1590.
+	if n := len(strings.Fields(text)); n > 1590 {
+		t.Errorf("muda-verify is %d words; keep it at most 1590", n)
+	}
+	if !strings.Contains(norm(text), norm("is offered as a recipe submission as in muda-diagnose, with this receipt's before and after")) {
+		t.Error("missing: recipe submission offer")
 	}
 	// #13: cheap evidence first, a timebox, and the gate comparison stays.
 	for _, s := range []string{"read the real pipeline's runs and logs before building any proof",

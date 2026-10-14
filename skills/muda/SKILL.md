@@ -40,6 +40,13 @@ hand-edit `.muda/`. Normal reads do not edit code or workflows;
 agent-guided fixes need human approval and a PR. Skill installation is a separate,
 explicitly requested write.
 
+**Public text:** anything posted outside the user's repository (a recipe
+submission, an issue) describes the pattern, never the project: no
+organisation, repository, service or team names, run or job ids, URLs, account
+ids, tracker numbers or log-line content. Keep durations and ratios (for
+example "13.5 min to 6 min on a 4-CPU runner"). Show the user the exact text;
+post only on their yes.
+
 **Messages:** recommend, never survey: decide every answer (order, labels,
 approval). One line per checkpoint item: what, basis, key number,
 recommendation; full evidence and every recipe outcome go to a named,

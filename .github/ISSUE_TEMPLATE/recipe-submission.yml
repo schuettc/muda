@@ -1,0 +1,45 @@
+name: Recipe submission
+description: A pipeline waste muda has no recipe for, or a fix or trap you measured.
+title: "recipe: "
+labels: [recipe-submission]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the pattern, never your project. Leave out organisation, repository, service and team names, run and job ids, URLs, account ids, tracker numbers and pasted log lines. Durations and ratios are what make a recipe useful: "13.5 min to 6 min on a 4-CPU runner".
+  - type: textarea
+    id: symptom
+    attributes:
+      label: Symptom
+      description: What the slow or wasted work looks like in a pipeline run.
+    validations:
+      required: true
+  - type: textarea
+    id: detect
+    attributes:
+      label: Detect
+      description: How to tell this waste is present, and what evidence settles it.
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Fix
+      description: The change that removes the waste, with the stack it applies to (for example CDK, Docker, Python).
+  - type: textarea
+    id: traps
+    attributes:
+      label: Traps
+      description: What goes wrong when applying the fix, or what looks like this waste but is not.
+  - type: textarea
+    id: verify
+    attributes:
+      label: Verify
+      description: How you checked it worked, with before and after numbers if you have them.
+  - type: checkboxes
+    id: private
+    attributes:
+      label: Private details
+      options:
+        - label: This names no organisation, repository, service, person, id or URL from my project.
+          required: true
