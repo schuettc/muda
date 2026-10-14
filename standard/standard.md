@@ -80,6 +80,9 @@ or rule out each with evidence, rather than promoting assumptions into rules.
 - Network steps lack timeouts.
 - Artifact storage grows without lifecycle policies.
 - Automation PRs remain open for many days (distinguish operator approval waits).
+- A superseded resource stays deployed after a rename or replacement, with nothing
+  scheduled to remove it (lingering expand). Until measured, cover a rename with a
+  finding and a dated exemption.
 
 ## Exemptions
 
