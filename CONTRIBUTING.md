@@ -70,7 +70,7 @@ add it to the standard's catalog.
 
 ## Skills and their word guards
 
-The five skills live in `skills/`. The same files are embedded in the binary,
+The six skills live in `skills/`. The same files are embedded in the binary,
 and a test fails if the two copies differ.
 
 - `internal/skills` lints every skill: frontmatter, ownership, checkpoints,

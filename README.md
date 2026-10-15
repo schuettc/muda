@@ -67,7 +67,7 @@ muda recipes                           # the fix library
 
 `muda commands --json` lists every command. `muda help <command>` explains one.
 
-## The five skills
+## The six skills
 
 | Skill | What it does |
 |---|---|
@@ -76,6 +76,7 @@ muda recipes                           # the fix library
 | `muda-diagnose` | Turns the baseline into findings with evidence, an order and any exemptions. |
 | `muda-fix` | Plans an approved finding's change, makes a branch and opens a pull request. |
 | `muda-verify` | Checks the effect and the gate result on the pull request, and again after merge. |
+| `muda-design` | On request, checks a planned pipeline or deploy change against the recipes before code is written. Its advice is expected, not measured. |
 
 ## Waste classes and recipes
 

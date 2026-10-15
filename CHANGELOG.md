@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.11
+
+- A sixth skill, `muda-design`: on request, it checks a planned pipeline or deploy change against the recipes for the stacks it touches, before code is written. It reads each recipe's Symptom, Fix, "After" shape and Traps (not Detect: there are no runs yet), recommends changes labelled expected, not measured, and never writes `.muda/` or weakens a gate. The entry skill routes design requests to it.
+
 ## 0.1.10
 
 - Recipes R13 (key the dependency layer on third-party dependencies only) and R14 (deploy contracts first, then every stack at once), from one adopter's measured deploys.

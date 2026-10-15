@@ -62,6 +62,9 @@ human agreed. A fix PR merges only after Phase 1 verify is shown.
 
 ## Inspect and route
 
+Asked to design or plan a pipeline or deploy change, not measure one: load
+muda-design.
+
 First, a pushed `muda/record-baseline-…` branch for which
 `gh pr list --state all --head <branch>` returns nothing (no PR, open, closed
 or merged) is muda-measure's handoff: switch to it and load muda-diagnose,

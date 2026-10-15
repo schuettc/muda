@@ -14,7 +14,7 @@ import (
 
 func fixture() fstest.MapFS {
 	f := fstest.MapFS{}
-	for _, n := range []string{"muda", "muda-measure", "muda-diagnose", "muda-fix", "muda-verify"} {
+	for _, n := range []string{"muda", "muda-measure", "muda-diagnose", "muda-fix", "muda-verify", "muda-design"} {
 		f["skills/"+n+"/SKILL.md"] = &fstest.MapFile{Data: []byte("---\nname: " + n + "\ndescription: Use when optimizing delivery.\nmuda-version: \">=0.1.0\"\nmuda-owned: " + n + "\n---\n## Preflight\n```sh\nmuda version\nmuda update\n```\n`curl -fsSL https://muda.tools/install.sh | sh`\n**CHECKPOINT:** Wait.\n")}
 	}
 	return f
@@ -27,7 +27,7 @@ func TestInstallTargets(t *testing.T) {
 				t.Fatal(err)
 			}
 			paths, err := skills.Install(fixture(), row.agent, row.scope, home, root)
-			if err != nil || len(paths) != 5 {
+			if err != nil || len(paths) != 6 {
 				t.Fatalf("%v %v", paths, err)
 			}
 			base := home
@@ -228,7 +228,7 @@ func TestInstallSupportFileSortedBeforeSkill(t *testing.T) {
 	f["skills/muda/EXAMPLES.md"] = &fstest.MapFile{Data: []byte("---\nname: muda\nmuda-owned: muda\n---\nexamples\n")}
 	home := t.TempDir()
 	paths, err := skills.Install(f, "pi", "user", home, "")
-	if err != nil || len(paths) != 6 {
+	if err != nil || len(paths) != 7 {
 		t.Fatalf("%v %v", paths, err)
 	}
 	if _, err := os.Stat(filepath.Join(home, ".pi/agent/skills/muda/EXAMPLES.md")); err != nil {
@@ -408,7 +408,7 @@ func TestInstallSymlinkedSkillsRoot(t *testing.T) {
 				t.Fatal(err)
 			}
 			paths, err := skills.Install(fixture(), "pi", row.scope, home, root)
-			if err != nil || len(paths) != 5 {
+			if err != nil || len(paths) != 6 {
 				t.Fatalf("symlinked root refused: %v %v", paths, err)
 			}
 			for _, p := range paths {
