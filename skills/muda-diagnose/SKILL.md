@@ -118,6 +118,10 @@ once another recipe explains the sink. Your move: agree your recommended
 findings, order, approval, exemptions and renewals, each with a reason. Wait
 for explicit answers. A `suspected` finding is approved only as an experiment: its `estimate` starts `Experiment:` and
 states pass criteria. It stays `suspected` and never feeds a saving.
+A fix that changes an asset's identity, or shows only on one kind of change,
+ends its `estimate` with `Observe on:` naming the deploy that can show it
+(e.g. the second after merge, on a code-only change); its saving counts from
+there, not the first rebuild.
 
 ## Record (only after the checkpoint)
 

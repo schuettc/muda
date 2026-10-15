@@ -539,8 +539,15 @@ func TestDiagnoseSkillContract(t *testing.T) {
 	// body scratch-file rule to 1475; reading the pipeline's logs first (#13)
 	// to 1485; the recipe-submission offer to 1560; candidate wastes and
 	// `file:` locations (#21, #22) to 1576.
-	if n := len(strings.Fields(text)); n > 1576 {
-		t.Errorf("muda-diagnose is %d words; keep it at most 1576", n)
+	if !strings.Contains(norm(text), norm("ends its `estimate` with `Observe on:` naming the deploy that can show it")) {
+		t.Error("missing (#8):", "ends its `estimate` with `Observe on:` naming the deploy that can show it")
+	}
+	if !strings.Contains(norm(text), norm("its saving counts from there, not the first rebuild")) {
+		t.Error("missing (#8):", "its saving counts from there, not the first rebuild")
+	}
+	// The Observe on rule (#8) raised 1576 to 1620.
+	if n := len(strings.Fields(text)); n > 1620 {
+		t.Errorf("muda-diagnose is %d words; keep it at most 1620", n)
 	}
 	for _, s := range []string{"**Recipe submission:** for each waste reported unmatched, offer one",
 		"uncommitted scratch file (e.g. `.muda-submission.md`)", "following the entry skill's public-text rule",
@@ -606,8 +613,12 @@ func TestFixSkillContract(t *testing.T) {
 	// The guided-message and merging rules (feat/guided) raised 1000 to 1115;
 	// the PR body scratch-file rule to 1130; proof sized to risk and the
 	// timebox (#13) to 1240.
-	if n := len(strings.Fields(text)); n > 1240 {
-		t.Errorf("muda-fix is %d words; keep it at most 1240", n)
+	if !strings.Contains(norm(text), norm("with an `Observe on:` line, that deploy")) {
+		t.Error("missing (#8):", "with an `Observe on:` line, that deploy")
+	}
+	// The Observe on rule (#8) raised 1240 to 1250.
+	if n := len(strings.Fields(text)); n > 1250 {
+		t.Errorf("muda-fix is %d words; keep it at most 1250", n)
 	}
 	// #13: proof sized to risk, cheap evidence first, a timebox.
 	for _, s := range []string{"the plan names one check, sized to the change's risk",
@@ -773,8 +784,15 @@ func TestVerifySkillContract(t *testing.T) {
 	// (#29) to 1630; the merge-base gate check in both phases (#7) to 1701;
 	// the merge-topology check that stops a multi-commit rebase (#7 review)
 	// to 1735.
-	if n := len(strings.Fields(text)); n > 1735 {
-		t.Errorf("muda-verify is %d words; keep it at most 1735", n)
+	if !strings.Contains(norm(text), norm("take only runs that match it: never the first rebuild or a redeploy of the same commit, and never merge a change only to make one")) {
+		t.Error("missing (#8):", "take only runs that match it: never the first rebuild or a redeploy of the same commit, and never merge a change only to make one")
+	}
+	if !strings.Contains(norm(text), norm("Until one runs, the finding stays `in-pr` with a receipt saying so")) {
+		t.Error("missing (#8):", "Until one runs, the finding stays `in-pr` with a receipt saying so")
+	}
+	// The Observe on rule (#8) raised 1735 to 1780.
+	if n := len(strings.Fields(text)); n > 1780 {
+		t.Errorf("muda-verify is %d words; keep it at most 1780", n)
 	}
 	// #29: an exempt finding whose waste a merged PR removed is verified and fixed.
 	if !strings.Contains(norm(text), norm("or an `exempt` one whose waste a merged PR removed: verify that PR the same way, then patch `fixed` with its `pr`")) {

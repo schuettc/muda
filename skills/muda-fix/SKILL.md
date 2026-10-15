@@ -101,7 +101,8 @@ Present:
 4. the gates it could affect: show the current inventory with
    `muda gates --format md` and name each required check, environment or
    `needs:` edge the change touches;
-5. the one check that proves it, sized to its risk.
+5. the one check that proves it, sized to its risk; with an `Observe on:`
+   line, that deploy.
 
 The expected after-inventory must be the same or stronger than before: a change
 that removes or loosens a gate must name what replaces the guarantee. If it would still be weaker, **STOP**
