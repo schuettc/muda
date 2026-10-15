@@ -68,7 +68,8 @@ If the read fails, **STOP** and report; for `incomplete-baseline-set`, tell the
 human to re-run the exact same `record baseline` command, or do what the
 reported problem says. If check fails for anything but `expired-exemption`,
 **STOP**: do not write on top of a red record. Take one `in-pr` finding with
-its `pr`. Before merge the base shows `approved`: check out the fix
+its `pr`, or an `exempt` one whose waste a merged PR removed: verify that PR
+the same way, then patch `fixed` with its `pr`. Before merge the base shows `approved`: check out the fix
 branch, run `muda record show --format json` there, and return to the
 up-to-date base before Phase 2. Take `--before` from the baseline window; pass
 `--since` as `Nd`, N the whole days in the baseline window (`until` − `since`, from `muda record show --format json`).

@@ -46,7 +46,7 @@ func TestFindingIDsSequential(t *testing.T) {
 func TestStatusTransitions(t *testing.T) {
 	for _, a := range []Status{OpenStatus, Approved, InPR, Fixed, Reopened, ExemptStatus} {
 		for _, b := range []Status{OpenStatus, Approved, InPR, Fixed, Reopened, ExemptStatus} {
-			want := a == b || a == OpenStatus && b == Approved || a == Approved && (b == InPR || b == Reopened) || a == InPR && (b == Fixed || b == Reopened) || a == Reopened && b == Approved || a != Fixed && b == ExemptStatus
+			want := a == b || a == OpenStatus && b == Approved || a == Approved && (b == InPR || b == Reopened) || a == InPR && (b == Fixed || b == Reopened) || a == ExemptStatus && b == Fixed || a == Reopened && b == Approved || a != Fixed && b == ExemptStatus
 			if got := allowed(a, b); got != want {
 				t.Fatalf("%s -> %s", a, b)
 			}

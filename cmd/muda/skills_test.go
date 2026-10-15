@@ -79,9 +79,13 @@ func TestEntrySkillContract(t *testing.T) {
 	// The measure-to-diagnose record-branch handoff raised 1171 to 1200; naming the
 	// "no PR in any state" check for a stale merged branch raised it to 1225;
 	// the public-text rule for recipe submissions to 1285; the muda-design
-	// route to 1300.
-	if n := len(strings.Fields(text)); n > 1300 {
-		t.Errorf("muda is %d words; keep it at most 1300", n)
+	// route to 1300; the exempt -> fixed route (#29) to 1310.
+	if n := len(strings.Fields(text)); n > 1310 {
+		t.Errorf("muda is %d words; keep it at most 1310", n)
+	}
+	// #29: an exempt finding whose waste was removed routes to verify.
+	if !strings.Contains(norm(text), norm("If a merged PR removed its waste, load muda-verify.")) {
+		t.Error("missing: exempt finding with removed waste routes to muda-verify (#29)")
 	}
 	// Recipe submissions: text posted outside the repo names no project.
 	for _, s := range []string{"**Public text:**", "describes the pattern, never the project",
@@ -756,9 +760,14 @@ func TestVerifySkillContract(t *testing.T) {
 	// The guided-message and merging rules (feat/guided) raised 1310 to 1429.
 	// The live-run executed-work rule raised 1429 to 1468; the PR body
 	// scratch-file rule to 1483; cheap evidence first and the timebox (#13)
-	// to 1555; the recipe-submission offer to 1590.
-	if n := len(strings.Fields(text)); n > 1590 {
-		t.Errorf("muda-verify is %d words; keep it at most 1590", n)
+	// to 1555; the recipe-submission offer to 1590; the exempt -> fixed path
+	// (#29) to 1612.
+	if n := len(strings.Fields(text)); n > 1612 {
+		t.Errorf("muda-verify is %d words; keep it at most 1612", n)
+	}
+	// #29: an exempt finding whose waste a merged PR removed is verified and fixed.
+	if !strings.Contains(norm(text), norm("or an `exempt` one whose waste a merged PR removed: verify that PR the same way, then patch `fixed` with its `pr`")) {
+		t.Error("missing: exempt -> fixed path (#29)")
 	}
 	if !strings.Contains(norm(text), norm("a measured fix that adds to its recipe (a stack it lacks, a different fix, a trap it does not name) is offered as a recipe submission as in muda-diagnose, with this receipt's before and after")) {
 		t.Error("missing: recipe submission offer")

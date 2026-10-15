@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.12
+
+- `muda record finding set`: an `exempt` finding whose waste a merged PR removed can become `fixed`, on the same proof as an `in-pr` one (a passing receipt for that PR); its exemption becomes history (#29).
+
 ## 0.1.11
 
 - A sixth skill, `muda-design`: on request, it checks a planned pipeline or deploy change against the recipes for the stacks it touches, before code is written. It reads each recipe's Symptom, Fix, "After" shape and Traps (not Detect: there are no runs yet), recommends changes labelled expected, not measured, and never writes `.muda/` or weakens a gate. The entry skill routes design requests to it.
