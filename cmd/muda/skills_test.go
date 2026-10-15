@@ -761,13 +761,16 @@ func TestVerifySkillContract(t *testing.T) {
 	// The live-run executed-work rule raised 1429 to 1468; the PR body
 	// scratch-file rule to 1483; cheap evidence first and the timebox (#13)
 	// to 1555; the recipe-submission offer to 1590; the exempt -> fixed path
-	// (#29) to 1612.
-	if n := len(strings.Fields(text)); n > 1612 {
-		t.Errorf("muda-verify is %d words; keep it at most 1612", n)
+	// (#29) to 1630.
+	if n := len(strings.Fields(text)); n > 1630 {
+		t.Errorf("muda-verify is %d words; keep it at most 1630", n)
 	}
 	// #29: an exempt finding whose waste a merged PR removed is verified and fixed.
 	if !strings.Contains(norm(text), norm("or an `exempt` one whose waste a merged PR removed: verify that PR the same way, then patch `fixed` with its `pr`")) {
 		t.Error("missing: exempt -> fixed path (#29)")
+	}
+	if !strings.Contains(norm(text), norm("for an `exempt` finding add `\"pr\"`, the removing PR's URL")) {
+		t.Error("missing: exempt -> fixed patch carries the removing PR (#29)")
 	}
 	if !strings.Contains(norm(text), norm("a measured fix that adds to its recipe (a stack it lacks, a different fix, a trap it does not name) is offered as a recipe submission as in muda-diagnose, with this receipt's before and after")) {
 		t.Error("missing: recipe submission offer")
