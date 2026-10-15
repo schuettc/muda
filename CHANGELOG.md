@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.13
+
+- Recipe R13: key the dependency layer on a lock export, not a resolve during the build, and install it with `uv pip install`; measured at one adopter.
+
 ## 0.1.12
 
 - `muda record finding set`: an `exempt` finding whose waste a merged PR removed can become `fixed`, on the same proof as an `in-pr` one (a passing receipt for that PR); its exemption becomes history (#29).
