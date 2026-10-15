@@ -18,7 +18,7 @@ import (
 type Problem = content.Problem
 
 // Names is the final distribution contract, even during partial authoring.
-var names = []string{"muda", "muda-diagnose", "muda-fix", "muda-measure", "muda-verify"}
+var names = []string{"muda", "muda-design", "muda-diagnose", "muda-fix", "muda-measure", "muda-verify"}
 
 const bootstrap = "curl -fsSL https://muda.tools/install.sh | sh"
 
@@ -132,7 +132,7 @@ func jsonOutput(args []string) bool {
 	return true
 }
 
-// Lint always requires the final five-skill set. The callback is a pure
+// Lint always requires the final six-skill set. The callback is a pure
 // CommandChecker built from the real app, never an executing dispatcher.
 func Lint(fsys fs.FS, knownCommand func([]string) bool) []Problem {
 	var ps []Problem

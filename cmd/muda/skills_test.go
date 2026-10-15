@@ -78,9 +78,10 @@ func TestEntrySkillContract(t *testing.T) {
 	// The guided-message and merging rules (feat/guided) raised 1052 to 1171.
 	// The measure-to-diagnose record-branch handoff raised 1171 to 1200; naming the
 	// "no PR in any state" check for a stale merged branch raised it to 1225;
-	// the public-text rule for recipe submissions to 1285.
-	if n := len(strings.Fields(text)); n > 1285 {
-		t.Errorf("muda is %d words; keep it at most 1285", n)
+	// the public-text rule for recipe submissions to 1285; the muda-design
+	// route to 1300.
+	if n := len(strings.Fields(text)); n > 1300 {
+		t.Errorf("muda is %d words; keep it at most 1300", n)
 	}
 	// Recipe submissions: text posted outside the repo names no project.
 	for _, s := range []string{"**Public text:**", "describes the pattern, never the project",
@@ -103,7 +104,7 @@ func TestEntrySkillContract(t *testing.T) {
 	if e != nil {
 		t.Fatal(e)
 	}
-	// All five skills are shipped: full-set lint against the real CLI is clean.
+	// All six skills are shipped: full-set lint against the real CLI is clean.
 	var got []string
 	for _, p := range skills.Lint(muda.Content, check) {
 		got = append(got, p.Path+": "+p.Message)
@@ -111,7 +112,7 @@ func TestEntrySkillContract(t *testing.T) {
 	if len(got) != 0 {
 		t.Errorf("lint = %q, want none", got)
 	}
-	for _, n := range []string{"muda", "muda-measure", "muda-diagnose", "muda-fix", "muda-verify"} {
+	for _, n := range []string{"muda", "muda-measure", "muda-diagnose", "muda-fix", "muda-verify", "muda-design"} {
 		if _, e := muda.Content.ReadFile("skills/" + n + "/SKILL.md"); e != nil {
 			t.Error(e)
 		}
@@ -191,7 +192,7 @@ func TestFullSkillFixtureUsesRealChecker(t *testing.T) {
 		t.Fatal(e)
 	}
 	f := fstest.MapFS{}
-	for _, n := range []string{"muda", "muda-measure", "muda-diagnose", "muda-fix", "muda-verify"} {
+	for _, n := range []string{"muda", "muda-measure", "muda-diagnose", "muda-fix", "muda-verify", "muda-design"} {
 		text := strings.Replace(string(b), "name: muda\n", "name: "+n+"\n", 1)
 		text = strings.Replace(text, "muda-owned: muda\n", "muda-owned: "+n+"\n", 1)
 		f["skills/"+n+"/SKILL.md"] = &fstest.MapFile{Data: []byte(text)}
@@ -223,7 +224,7 @@ func TestPackageManifests(t *testing.T) {
 	if _, e := os.Stat("../../package.json"); !errors.Is(e, fs.ErrNotExist) {
 		t.Fatal("package.json would replace pi's conventional skills/ discovery:", e)
 	}
-	for _, n := range []string{"muda", "muda-measure", "muda-diagnose", "muda-fix", "muda-verify"} {
+	for _, n := range []string{"muda", "muda-measure", "muda-diagnose", "muda-fix", "muda-verify", "muda-design"} {
 		if _, e := os.Stat("../../skills/" + n + "/SKILL.md"); e != nil {
 			t.Fatal(e)
 		}
@@ -282,7 +283,7 @@ func preflight(t *testing.T, text string) string {
 // is part of the byte-identical preflight, so every skill carries it.
 func TestPreflightReplayClause(t *testing.T) {
 	const clause = "Replaying a closed window, add `--ref` with its last commit's full SHA."
-	for _, n := range []string{"muda", "muda-measure", "muda-diagnose", "muda-fix", "muda-verify"} {
+	for _, n := range []string{"muda", "muda-measure", "muda-diagnose", "muda-fix", "muda-verify", "muda-design"} {
 		b, e := muda.Content.ReadFile("skills/" + n + "/SKILL.md")
 		if e != nil {
 			t.Fatal(e)
@@ -785,7 +786,66 @@ func TestVerifySkillContract(t *testing.T) {
 	}
 }
 
-// README describes what actually ships: the five skills and every install route.
+// muda-design checks a planned pipeline or deploy change against the recipes
+// before code exists: on request only, Detect not run (no runs yet), every
+// recommendation expected rather than measured, no `.muda/` write, and the
+// gate always wins.
+func TestDesignSkillContract(t *testing.T) {
+	entry, e := muda.Content.ReadFile("skills/muda/SKILL.md")
+	if e != nil {
+		t.Fatal(e)
+	}
+	b, e := muda.Content.ReadFile("skills/muda-design/SKILL.md")
+	if e != nil {
+		t.Fatal(e)
+	}
+	text := string(b)
+	// The stack names come from the catalog; the skill's copy is pinned to it.
+	stacks, err := content.Stacks(muda.Content)
+	if err != nil {
+		t.Fatal(err)
+	}
+	quoted := make([]string, len(stacks))
+	for i, st := range stacks {
+		quoted[i] = "`" + st + "`"
+	}
+	if list := "which stacks the design touches: " + strings.Join(quoted[:len(quoted)-1], ", ") + " or " + quoted[len(quoted)-1] + "."; !strings.Contains(norm(text), norm(list)) {
+		t.Errorf("design skill's stack list differs from the catalog; want %q", list)
+	}
+	if preflight(t, text) != preflight(t, string(entry)) {
+		t.Error("preflight must be the entry skill's text verbatim")
+	}
+	for _, s := range []string{"name: muda-design", "muda-owned: muda-design", "description: Use when", "muda-version: \">=0.1.0\"",
+		"on request only", "muda recipes --stack", "muda recipe R13 --stack docker",
+		"Symptom", "Fix", "After", "Traps",
+		"Do not run Detect sections", "no runs or logs exist yet",
+		"Never recommend anything that weakens a gate or check", "the gate wins",
+		"**expected, not measured**", "`.muda-design.md`", "`applies` or `does not apply`",
+		"never stretch a recipe to fit", "say so plainly",
+		"It never writes `.muda/`", "edits no code, opens no PR and needs no recorded baseline",
+		"a change already written", "**CHECKPOINT:**"} {
+		if !strings.Contains(norm(text), norm(s)) {
+			t.Error("missing", s)
+		}
+	}
+	for _, s := range []string{"muda record ", "gh pr create", "`measured`", "provisional"} {
+		if strings.Contains(text, s) {
+			t.Error("forbidden", s)
+		}
+	}
+	// 697 words at its first release.
+	if n := len(strings.Fields(text)); n > 700 {
+		t.Errorf("muda-design is %d words; keep it at most 700", n)
+	}
+	// The entry skill routes a design request here, before any record state.
+	e2 := norm(string(entry))
+	route := norm("Asked to design or plan a pipeline or deploy change, not measure one: load muda-design.")
+	if i, j := strings.Index(e2, route), strings.Index(e2, "First, a pushed"); i < 0 || j < i {
+		t.Error("muda: the design route must open Inspect and route")
+	}
+}
+
+// README describes what actually ships: the six skills and every install route.
 func TestReadmeSkillsStatus(t *testing.T) {
 	b, e := os.ReadFile("../../README.md")
 	if e != nil {
@@ -797,7 +857,7 @@ func TestReadmeSkillsStatus(t *testing.T) {
 			t.Error("stale README text:", stale)
 		}
 	}
-	for _, want := range []string{"## The five skills", "`muda`", "`muda-measure`", "`muda-diagnose`", "`muda-fix`", "`muda-verify`",
+	for _, want := range []string{"## The six skills", "`muda`", "`muda-measure`", "`muda-diagnose`", "`muda-fix`", "`muda-verify`", "`muda-design`",
 		"curl -fsSL https://muda.tools/install.sh | sh", "muda update", "muda skills install", "/plugin marketplace add schuettc/muda", "pi install git:github.com/schuettc/muda", "not the binary"} {
 		if !strings.Contains(text, norm(want)) {
 			t.Error("README missing:", want)
@@ -815,7 +875,7 @@ func TestReadmeSkillsStatus(t *testing.T) {
 			t.Error("stale skills/README.md text:", stale)
 		}
 	}
-	for _, want := range []string{"five skills", "`muda`", "`muda-measure`", "`muda-diagnose`", "`muda-fix`", "`muda-verify`", "embedded in the muda binary", "muda skills install", "Claude Code plugin", "pi package", "not the binary"} {
+	for _, want := range []string{"six skills", "`muda`", "`muda-measure`", "`muda-diagnose`", "`muda-fix`", "`muda-verify`", "`muda-design`", "embedded in the muda binary", "muda skills install", "Claude Code plugin", "pi package", "not the binary"} {
 		if !strings.Contains(text, norm(want)) {
 			t.Error("skills/README.md missing:", want)
 		}
@@ -1003,7 +1063,7 @@ func TestUnmergedFixedReopenRoute(t *testing.T) {
 
 // Court's live-run direction: every stop for the human ends with one concrete
 // "Your move" ask, and the agent may offer to merge, never bypassing a gate.
-// Both rules close every skill's Rules section, byte-identical in all five.
+// Both rules close every skill's Rules section, byte-identical in all six.
 const guidedRules = `**Messages:** recommend, never survey: decide every answer (order, labels,
 approval). One line per checkpoint item: what, basis, key number,
 recommendation; full evidence and every recipe outcome go to a named,
@@ -1033,7 +1093,7 @@ func rulesSection(t *testing.T, text string) string {
 
 func TestGuidedMessageAndMergeRules(t *testing.T) {
 	var first string
-	for _, n := range []string{"muda", "muda-measure", "muda-diagnose", "muda-fix", "muda-verify"} {
+	for _, n := range []string{"muda", "muda-measure", "muda-diagnose", "muda-fix", "muda-verify", "muda-design"} {
 		b, e := muda.Content.ReadFile("skills/" + n + "/SKILL.md")
 		if e != nil {
 			t.Fatal(e)

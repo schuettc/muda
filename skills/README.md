@@ -1,7 +1,8 @@
 # Skills
 
-This directory holds the five skills: `muda` (entry and routing),
-`muda-measure`, `muda-diagnose`, `muda-fix` and `muda-verify`. The same files
+This directory holds the six skills: `muda` (entry and routing),
+`muda-measure`, `muda-diagnose`, `muda-fix`, `muda-verify` and `muda-design`
+(checks a planned change against the recipes, on request). The same files
 are embedded in the muda binary, which installs them explicitly:
 
 ```sh
