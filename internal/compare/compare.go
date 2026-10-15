@@ -92,6 +92,8 @@ type GateDiff struct {
 	// BeforeRef and BeforeSettings are set for a historical baseline: the
 	// recorded inventory read workflows at BeforeRef, while its repository
 	// settings were read later and are current (record.SettingsLabel).
+	// With --gates-base, BeforeRef is that ref and BeforeSettings is empty:
+	// both sides were derived now, settings included.
 	BeforeRef string `json:"before_ref,omitempty"`
 	// BeforeRepo is the name the baseline was recorded under, when GitHub has
 	// since renamed or transferred the repository to the one compared.
@@ -141,13 +143,18 @@ type Options struct {
 	// Gates verifies GatesFile; a GatesFile also enables it.
 	Gates     bool
 	GatesFile string
+	// GatesBase, when set, is the before side of the gate check instead of
+	// GatesFile: an inventory derived now with workflows read at it (a
+	// branch, tag or SHA). It enables the check; Record supplies exemptions.
+	GatesBase string
 	// Scan compares the record's scan.json with a fresh scan.
 	Scan bool
 	// Ref is the after side of --gates and --scan: workflows are read at it.
 	// "" means the default branch.
 	Ref string
 	// Record is the repository root holding the .muda record whose scan.json
-	// --scan reads (as found by record.Discover); "" means none was found.
+	// --scan reads, and whose exemptions --gates-base applies (as found by
+	// record.Discover); "" means none was found.
 	Record string
 	// Since and Until bound the fresh scan's run history to [Since, Until), as
 	// muda scan --since and --until do. Timing phases use their own windows.
@@ -197,7 +204,9 @@ func Run(ctx context.Context, c *gh.Client, repo string, before, after Window, o
 		return nil, err
 	}
 	r := Deltas(a, b, before, after)
-	if o.Gates || o.GatesFile != "" {
+	if o.GatesBase != "" {
+		r.Gates = verifyGatesBase(ctx, c, repo, o.GatesBase, o.Ref, o.Record)
+	} else if o.Gates || o.GatesFile != "" {
 		if o.GatesFile == "" {
 			r.Gates = UnavailableGates("no recorded gates inventory selected")
 		} else {
@@ -859,6 +868,41 @@ func verifyGates(ctx context.Context, c *gh.Client, repo, path, ref string) *Gat
 		d.BeforeRef, d.BeforeSettings = hist.Ref, hist.Settings
 	}
 	d.BeforeRepo = from
+	return d
+}
+
+// verifyGatesBase compares the inventory derived at ref with one derived at
+// base, so the before side is what a pull request starts from rather than a
+// recorded baseline. Exemptions come from the record at root, read through
+// the same guarded snapshot as verifyGates; with no record there are none.
+func verifyGatesBase(ctx context.Context, c *gh.Client, repo, base, ref, root string) *GateDiff {
+	var es []record.Exemption
+	if root != "" {
+		s, err := record.Open(root)
+		if err != nil {
+			return UnavailableGates(err.Error())
+		}
+		snap, err := s.Snapshot()
+		if err != nil {
+			return UnavailableGates(err.Error())
+		}
+		es, _ = snap["exemptions"].([]record.Exemption)
+	}
+	a, err := gates.Derive(ctx, c, repo, base)
+	if err != nil {
+		return UnavailableGates(err.Error())
+	}
+	b, err := gates.Derive(ctx, c, repo, ref)
+	if err != nil {
+		return UnavailableGates(err.Error())
+	}
+	// Both sides are fresh derives of the same producer, so there is no
+	// recorded raw inventory whose fields could drift on load: the
+	// rawInventoryEqual round-trip does not apply, and a repository rename
+	// needs no handling since both sides are read under repo.
+	d := GateChanges(a, b)
+	ApplyExemptions(d, es, time.Now().UTC())
+	d.BeforeRef = base
 	return d
 }
 

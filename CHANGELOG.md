@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.14
+
+- `muda compare --gates-base REF`: the gate check's before side is derived at REF instead of read from the recorded inventory, so a fix PR's gate proof shows only what it changes; the record's exemptions still apply, and `before_ref` names REF. It conflicts with `--gates-file`. muda-verify uses the PR's merge base in both phases, so a workflow changed only by another merged PR no longer reads UNVERIFIED (#7).
+
 ## 0.1.13
 
 - Recipe R13: key the dependency layer on a lock export, not a resolve during the build, and install it with `uv pip install`; measured at one adopter.

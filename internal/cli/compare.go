@@ -60,8 +60,13 @@ evidence behind a removed signal makes the scan comparison unavailable with a
 reason, never "no changes". Signal changes never change the exit code.
 --ref REF reads workflows at REF for --gates and --scan (the after side;
 repository settings still come from the default branch); the default is the
-default branch. It requires --gates, --gates-file or --scan. Timing phases
+default branch. It requires --gates, --gates-file, --gates-base or --scan. Timing phases
 are unaffected.
+--gates-base REF derives the before side of the gate check at REF (a
+branch, tag or SHA), as --ref does for the after side, instead of reading
+the recorded inventory, so only what changed between the two refs is
+compared; the record's exemptions still apply. It enables gate checking,
+conflicts with --gates-file, and before_ref names REF.
 A historical baseline (record baseline --ref) is compared from its recorded
 commit: before_ref names it for --gates and --scan, and a recorded inventory or
 scan read at another ref is unavailable. before_settings labels the recorded
@@ -73,9 +78,9 @@ for muda scan. --until is likewise ignored by the timing phases and validated
 scan reads run history in [since, until), so a past window can be diffed.`
 
 type compareOptions struct {
-	common                                               *Common
-	before, after, beforeRuns, afterRuns, gatesFile, ref string
-	gates, scan                                          bool
+	common                                                          *Common
+	before, after, beforeRuns, afterRuns, gatesFile, gatesBase, ref string
+	gates, scan                                                     bool
 }
 
 func compareFlags() (*flag.FlagSet, *compareOptions) {
@@ -87,9 +92,10 @@ func compareFlags() (*flag.FlagSet, *compareOptions) {
 	fs.StringVar(&o.afterRuns, "after-runs", "", "after positive run IDs (CSV)")
 	fs.BoolVar(&o.gates, "gates", false, "verify recorded .muda/gates.toml")
 	fs.StringVar(&o.gatesFile, "gates-file", "", "verify a schema-1 recorded TOML gates inventory (enables --gates)")
+	fs.StringVar(&o.gatesBase, "gates-base", "", "derive the gate check's before side at this branch, tag or SHA (enables --gates)")
 	fs.BoolVar(&o.scan, "scan", false, "compare recorded .muda/scan.json with a fresh scan")
 	fs.StringVar(&o.ref, "ref", "", "read workflows at this branch, tag or SHA for --gates and --scan (default: the default branch)")
-	tools.SetUsage(fs, "muda compare --before WINDOW --after WINDOW [--gates] [--gates-file F] [--scan] [--ref REF] [--repo OWNER/NAME] [--format json|md]", compareHelp)
+	tools.SetUsage(fs, "muda compare --before WINDOW --after WINDOW [--gates] [--gates-file F] [--gates-base REF] [--scan] [--ref REF] [--repo OWNER/NAME] [--format json|md]", compareHelp)
 	return fs, o
 }
 func parsePhase(window, ids string) (compare.Window, error) {
@@ -130,7 +136,7 @@ func parsePhase(window, ids string) (compare.Window, error) {
 	return w, w.Validate()
 }
 func Compare(env Env) tools.Command {
-	return tools.Command{Name: "compare", Summary: "before/after timings and fail-closed gate proof", Synopsis: "--before WINDOW --after WINDOW [--gates] [--gates-file F] [--scan] [--ref REF]", Help: compareHelp, NewFlags: func() *flag.FlagSet { fs, _ := compareFlags(); return fs }, Run: func(args []string, out, _ io.Writer) error {
+	return tools.Command{Name: "compare", Summary: "before/after timings and fail-closed gate proof", Synopsis: "--before WINDOW --after WINDOW [--gates] [--gates-file F] [--gates-base REF] [--scan] [--ref REF]", Help: compareHelp, NewFlags: func() *flag.FlagSet { fs, _ := compareFlags(); return fs }, Run: func(args []string, out, _ io.Writer) error {
 		fs, o := compareFlags()
 		if err := tools.ParseFlags(fs, args, out); err != nil {
 			return err
@@ -151,13 +157,21 @@ func Compare(env Env) tools.Command {
 		if err != nil {
 			return tools.UsageError{Msg: "after: " + err.Error()}
 		}
+		if seen["gates-base"] {
+			if strings.TrimSpace(o.gatesBase) == "" {
+				return tools.UsageError{Msg: "--gates-base must name a branch, tag or SHA"}
+			}
+			if o.gatesFile != "" {
+				return tools.UsageError{Msg: "--gates-base and --gates-file each select the before side; use one"}
+			}
+		}
 		if seen["ref"] {
 			if strings.TrimSpace(o.ref) == "" {
 				// An explicit empty ref would silently mean the default branch.
 				return tools.UsageError{Msg: "--ref must name a branch, tag or SHA"}
 			}
-			if !o.gates && o.gatesFile == "" && !o.scan {
-				return tools.UsageError{Msg: "--ref applies only to --gates, --gates-file or --scan"}
+			if !o.gates && o.gatesFile == "" && o.gatesBase == "" && !o.scan {
+				return tools.UsageError{Msg: "--ref applies only to --gates, --gates-file, --gates-base or --scan"}
 			}
 		}
 		if err = o.common.Resolve(env.GitRemote, env.Now); err != nil {
@@ -166,7 +180,9 @@ func Compare(env Env) tools.Command {
 		var proofError, recordError error
 		path := o.gatesFile
 		root := ""
-		if (o.gates && path == "") || o.scan {
+		// --gates-base reads the record only for its exemptions; without
+		// one there are none, so a missing record is not a proof error.
+		if (o.gates && path == "") || o.gatesBase != "" || o.scan {
 			cwd, e := os.Getwd()
 			if e != nil {
 				return e
@@ -175,7 +191,7 @@ func Compare(env Env) tools.Command {
 			if recordError != nil {
 				root = ""
 			}
-			if o.gates && path == "" {
+			if o.gates && path == "" && o.gatesBase == "" {
 				if recordError != nil {
 					proofError = recordError
 				} else {
@@ -187,7 +203,7 @@ func Compare(env Env) tools.Command {
 		if err != nil {
 			return err
 		}
-		opts := compare.Options{Gates: o.gates || o.gatesFile != "", GatesFile: path, Scan: o.scan, Ref: o.ref, Record: root, Since: o.common.Since, Until: o.common.Until}
+		opts := compare.Options{Gates: o.gates || o.gatesFile != "" || o.gatesBase != "", GatesFile: path, GatesBase: o.gatesBase, Scan: o.scan, Ref: o.ref, Record: root, Since: o.common.Since, Until: o.common.Until}
 		r, err := compare.Run(context.Background(), c, o.common.Repo, before, after, opts)
 		if err != nil {
 			return err
