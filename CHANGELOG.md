@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.16
+
+- muda-diagnose splits a slow step that builds images into BuildKit phases (install, layer export, cache export, publish) before matching recipes, whatever stacks were confirmed (#12).
+
 ## 0.1.15
 
 - Skills: a fix that changes an asset's identity, or shows only on one kind of change, records `Observe on:` in its estimate; muda-fix plans that deploy as its check and muda-verify judges only matching deploys (#8). R4 names the first-deploy rebuild.

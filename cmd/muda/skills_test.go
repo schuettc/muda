@@ -546,8 +546,12 @@ func TestDiagnoseSkillContract(t *testing.T) {
 		t.Error("missing (#8):", "its saving counts from there, not the first rebuild")
 	}
 	// The Observe on rule (#8) raised 1576 to 1620.
-	if n := len(strings.Fields(text)); n > 1620 {
-		t.Errorf("muda-diagnose is %d words; keep it at most 1620", n)
+	if !strings.Contains(norm(text), norm("A slow step that builds images, whatever stacks were confirmed (a deploy step that builds them too), is split into install, layer export, cache export and publish from BuildKit's `DONE` times before any recipe is matched")) {
+		t.Error("missing: image-build phase split (#12)")
+	}
+	// The image-build phase split (#12) raised 1620 to 1660.
+	if n := len(strings.Fields(text)); n > 1660 {
+		t.Errorf("muda-diagnose is %d words; keep it at most 1660", n)
 	}
 	for _, s := range []string{"**Recipe submission:** for each waste reported unmatched, offer one",
 		"uncommitted scratch file (e.g. `.muda-submission.md`)", "following the entry skill's public-text rule",
