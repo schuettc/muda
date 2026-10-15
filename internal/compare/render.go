@@ -68,7 +68,9 @@ func RenderMarkdown(r *Result) string {
 	}
 	if d := r.Gates; d != nil {
 		fmt.Fprintf(&b, "\n## Gates: %s\n\n", d.Status)
-		if d.BeforeRef != "" {
+		if d.BeforeRef != "" && d.BeforeSettings == "" {
+			fmt.Fprintf(&b, "Before side: derived now, workflows at `%s`.\n\n", d.BeforeRef)
+		} else if d.BeforeRef != "" {
 			fmt.Fprintf(&b, "Before side: workflows at `%s`; %s.\n\n", d.BeforeRef, d.BeforeSettings)
 		}
 		if d.BeforeRepo != "" {

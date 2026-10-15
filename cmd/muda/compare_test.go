@@ -575,6 +575,33 @@ func TestCompareRefUsage(t *testing.T) {
 	}
 }
 
+// Issue #7: --gates-base derives the before side at REF; it needs no record,
+// names the before side in the report, and is one before side, so it
+// conflicts with --gates-file.
+func TestCompareGatesBase(t *testing.T) {
+	t.Chdir(t.TempDir())
+	var out, errs bytes.Buffer
+	args := []string{"compare", "--before-runs", "36606519472", "--after-runs", "36606519472", "--gates-base", "main", "--ref", "feature", "--no-cache"}
+	if code := newApp(absFixtureEnv(t, nil)).Dispatch(args, &out, &errs); code != 0 {
+		t.Fatalf("exit %d %s %s", code, out.String(), errs.String())
+	}
+	var r compare.Result
+	if err := json.Unmarshal(out.Bytes(), &r); err != nil {
+		t.Fatal(err)
+	}
+	if r.Gates == nil || r.Gates.Status != record.GateVerified || r.Gates.BeforeRef != "main" {
+		t.Fatalf("gates against the merge base: %s", out.String())
+	}
+	for _, extra := range [][]string{{"--gates-base", "main", "--gates-file", filepath.Join(t.TempDir(), "gates.toml")}, {"--gates-base", " "}} {
+		out.Reset()
+		errs.Reset()
+		args := append([]string{"compare", "--before-runs", "1", "--after-runs", "2"}, extra...)
+		if code := newApp(fixtureEnv(t)).Dispatch(args, &out, &errs); code != 2 || !strings.Contains(errs.String(), "--gates-base") || out.Len() != 0 {
+			t.Errorf("%v: exit %d %q", extra, code, errs.String())
+		}
+	}
+}
+
 func TestCompareHelpNamesScanAndRef(t *testing.T) {
 	var help, errs bytes.Buffer
 	if code := newApp(fixtureEnv(t)).Dispatch([]string{"compare", "--help"}, &help, &errs); code != 0 {

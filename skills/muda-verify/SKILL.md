@@ -90,10 +90,13 @@ the same PR, or **STOP**.
 ## Phase 1: the PR's real pipeline
 
 Take the PR's completed runs and confirm their jobs ran. Run Phase 1's
-compare from the up-to-date base, at the PR branch:
+compare from the up-to-date base, at the PR branch. The gate check's before
+side is the PR's merge base, so it shows only what the PR changes:
+`gh api repos/OWNER/REPO/compare/BASE...muda/F-001-YYYY-MM-DD-HHMM --jq .merge_base_commit.sha`,
+BASE the PR's base branch.
 
 ```sh
-muda compare --before 2026-09-01..2026-09-29 --after-runs 1111,2222 --gates --scan --ref muda/F-001-YYYY-MM-DD-HHMM --since 28d > muda-compare-pr.json
+muda compare --before 2026-09-01..2026-09-29 --after-runs 1111,2222 --gates-base MERGE_BASE_SHA --scan --ref muda/F-001-YYYY-MM-DD-HHMM --since 28d > muda-compare-pr.json
 ```
 
 Any non-zero exit with an empty or missing report is an error;
@@ -103,7 +106,7 @@ before side is not an improvement. Report the measured effect against the
 finding's estimate, and the gate and scan results (read as in Phase 2), before
 the merge ask. A PR that edits a workflow reads `UNVERIFIED`
 before merge (the file's hash changed). Only changed workflow files need an
-exemption. If the human accepts a changed file, read its `workflow_diffs`
+exemption; a file changed only on the base branch is identical on both sides. If the human accepts a changed file, read its `workflow_diffs`
 entry, then agree an exact `gate:` exemption for that hash through
 muda-diagnose before merging; its `reason` cites that diff. Never merge on `WEAKENED`.
 
@@ -116,13 +119,16 @@ unmerged leaves the base `approved`: record nothing; load the entry skill.
 ## Phase 2: after merge
 
 Pull the base (now `in-pr`, or still `exempt`). Take post-merge runs on the
-default branch, confirm their jobs ran, then compare:
+default branch and confirm their jobs ran. Compare at the squash commit
+(`gh pr view N --json mergeCommit --jq .mergeCommit.oid`) against its merge
+base, its first parent
+(`gh api repos/OWNER/REPO/commits/MERGE_SHA --jq '.parents[0].sha'`):
 
 ```sh
-muda compare --before 2026-09-01..2026-09-29 --after-runs 3333,4444 --gates --scan --since 28d > muda-compare-merged.json
+muda compare --before 2026-09-01..2026-09-29 --after-runs 3333,4444 --gates-base PARENT_SHA --scan --ref MERGE_SHA --since 28d > muda-compare-merged.json
 ```
 
-With `--gates`, compare exits 1 after its report when a gate is removed,
+With `--gates` or `--gates-base`, compare exits 1 after its report when a gate is removed,
 weakened or unverified without exemption. Present the `removed`, `loosened`,
 `unverified` and `exempted` lists. The gate status
 (`UNVERIFIED` outranks `WEAKENED`) is:
