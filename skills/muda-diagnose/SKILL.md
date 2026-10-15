@@ -100,6 +100,11 @@ Sinks first, then signals, singly:
    muda logs 1234 --job 5678 --step "Build image" --grep "CACHED|exporting"
    ```
 
+   A slow step that builds images, whatever stacks were confirmed (a deploy
+   step that builds them too), is split into install, layer export, cache
+   export and publish from BuildKit's `DONE` times before any recipe is
+   matched; read R13 for the image phases.
+
 3. **Label:** `measured` when cited runs, log lines or files show the waste;
    `suspected` when plausible but unshown, naming the evidence that settles it;
    `not shown` when its Detect ran and the evidence does not show the waste. A
