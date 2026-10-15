@@ -696,6 +696,9 @@ func TestVerifySkillContract(t *testing.T) {
 		// #7: both phases take the gate check's before side from the PR's
 		// merge base (--gates-base), not the recorded inventory, so a
 		// workflow changed only by another merged PR is not UNVERIFIED.
+		// #7 review: the first parent is the base only when it changed exactly
+		// the PR's files; a PR rebased as several commits stops.
+		"only when the files changed between them", "are exactly the PR's", "A PR rebased as several commits fails this: **STOP** and ask",
 		"muda compare --before", "--after-runs", "--gates-base MERGE_BASE_SHA --scan --ref muda/F-001-YYYY-MM-DD-HHMM --since 28d > muda-compare-pr.json", "muda compare --before 2026-09-01..2026-09-29 --after-runs 3333,4444 --gates-base PARENT_SHA --scan --ref MERGE_SHA --since 28d > muda-compare-merged.json",
 		"`gh api repos/OWNER/REPO/compare/BASE...muda/F-001-YYYY-MM-DD-HHMM --jq .merge_base_commit.sha`", "BASE the PR's base branch",
 		"`gh pr view N --json mergeCommit --jq .mergeCommit.oid`", "`gh api repos/OWNER/REPO/commits/MERGE_SHA --jq '.parents[0].sha'`",
@@ -767,9 +770,11 @@ func TestVerifySkillContract(t *testing.T) {
 	// The live-run executed-work rule raised 1429 to 1468; the PR body
 	// scratch-file rule to 1483; cheap evidence first and the timebox (#13)
 	// to 1555; the recipe-submission offer to 1590; the exempt -> fixed path
-	// (#29) to 1630; the merge-base gate check in both phases (#7) to 1701.
-	if n := len(strings.Fields(text)); n > 1701 {
-		t.Errorf("muda-verify is %d words; keep it at most 1701", n)
+	// (#29) to 1630; the merge-base gate check in both phases (#7) to 1701;
+	// the merge-topology check that stops a multi-commit rebase (#7 review)
+	// to 1735.
+	if n := len(strings.Fields(text)); n > 1735 {
+		t.Errorf("muda-verify is %d words; keep it at most 1735", n)
 	}
 	// #29: an exempt finding whose waste a merged PR removed is verified and fixed.
 	if !strings.Contains(norm(text), norm("or an `exempt` one whose waste a merged PR removed: verify that PR the same way, then patch `fixed` with its `pr`")) {
@@ -800,7 +805,7 @@ func TestVerifySkillContract(t *testing.T) {
 	// the fix branch. #7 gives it --ref MERGE_SHA, the squash commit on the
 	// default branch, so the guard now forbids only another ref.
 	for _, line := range strings.Split(text, "\n") {
-		if strings.Contains(line, "muda-compare-merged.json") && strings.Contains(line, "--ref") && !strings.Contains(line, "--ref MERGE_SHA ") {
+		if strings.Contains(line, "muda-compare-merged.json") && strings.Contains(line, "--ref") && (!strings.Contains(line, "--ref MERGE_SHA ") || strings.Count(line, "--ref") != 1) {
 			t.Error("post-merge compare must read the merge commit, not another ref:", line)
 		}
 	}

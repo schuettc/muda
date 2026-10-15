@@ -119,10 +119,13 @@ unmerged leaves the base `approved`: record nothing; load the entry skill.
 ## Phase 2: after merge
 
 Pull the base (now `in-pr`, or still `exempt`). Take post-merge runs on the
-default branch and confirm their jobs ran. Compare at the squash commit
-(`gh pr view N --json mergeCommit --jq .mergeCommit.oid`) against its merge
-base, its first parent
-(`gh api repos/OWNER/REPO/commits/MERGE_SHA --jq '.parents[0].sha'`):
+default branch and confirm their jobs ran. Compare at the merge commit
+(`gh pr view N --json mergeCommit --jq .mergeCommit.oid`) against its first
+parent (`gh api repos/OWNER/REPO/commits/MERGE_SHA --jq '.parents[0].sha'`),
+only when the files changed between them
+(`gh api repos/OWNER/REPO/compare/PARENT_SHA...MERGE_SHA --jq '.files[].filename'`)
+are exactly the PR's (`gh pr view N --json files --jq '.files[].path'`). A
+PR rebased as several commits fails this: **STOP** and ask.
 
 ```sh
 muda compare --before 2026-09-01..2026-09-29 --after-runs 3333,4444 --gates-base PARENT_SHA --scan --ref MERGE_SHA --since 28d > muda-compare-merged.json
