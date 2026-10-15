@@ -112,6 +112,10 @@ muda-diagnose before merging; its `reason` cites that diff. Never merge on `WEAK
 
 An experiment (a `suspected` finding) is judged by its `estimate`'s pass
 criteria. Met: the `fixed` patch adds `"basis": "measured"`, citing the receipt.
+Missed but accepted: the gates pass and the human accepts the measured saving
+at the checkpoint; the `fixed` patch adds `"basis": "measured"` and an
+`estimate` stating the bar, the measured result, who accepted it and why.
+Never assumed: without that explicit yes it is not met.
 Not met: the human closes the PR; from the base, patch `reopened` and the new
 `evidence` (still `suspected`) through a record PR. Any other fix PR closed
 unmerged leaves the base `approved`: record nothing; load the entry skill.
@@ -194,7 +198,8 @@ muda record check
 ```
 
 Then write muda-patch.json: `{"status": "fixed"}` (`pr` is kept; for an
-`exempt` finding add `"pr"`, the removing PR's URL) or `{"status": "reopened"}`. For `in-pr` with a receipt, skip the patch.
+`exempt` finding add `"pr"`, the removing PR's URL; for an experiment add the
+`basis` and `estimate` its outcome names) or `{"status": "reopened"}`. For `in-pr` with a receipt, skip the patch.
 
 ```sh
 muda record finding set F-001 --file muda-patch.json

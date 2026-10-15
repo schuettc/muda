@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.17
+
+- muda-verify: an experiment that misses its pass bar but whose saving the human explicitly accepts (gates passing) is marked fixed, with the bar, the result, who accepted it and why in its estimate (#9).
+
 ## 0.1.16
 
 - muda-diagnose splits a slow step that builds images into BuildKit phases (install, layer export, cache export, publish) before matching recipes, whatever stacks were confirmed (#12).

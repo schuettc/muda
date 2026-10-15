@@ -795,8 +795,9 @@ func TestVerifySkillContract(t *testing.T) {
 		t.Error("missing (#8):", "whose gate fields are this comparison's and whose `after` says the effect awaits the `Observe on:` deploy")
 	}
 	// The Observe on rule (#8) raised 1735 to 1780, and the review fix keeping the gate check immediate to 1810.
-	if n := len(strings.Fields(text)); n > 1810 {
-		t.Errorf("muda-verify is %d words; keep it at most 1810", n)
+	// The missed-but-accepted outcome (#9) raised 1810 to 1875.
+	if n := len(strings.Fields(text)); n > 1875 {
+		t.Errorf("muda-verify is %d words; keep it at most 1875", n)
 	}
 	// #29: an exempt finding whose waste a merged PR removed is verified and fixed.
 	if !strings.Contains(norm(text), norm("or an `exempt` one whose waste a merged PR removed: verify that PR the same way, then patch `fixed` with its `pr`")) {
@@ -1003,6 +1004,12 @@ func TestSuspectedExperimentRules(t *testing.T) {
 	for _, s := range []string{
 		"An experiment (a `suspected` finding) is judged by its `estimate`'s pass criteria",
 		"Met: the `fixed` patch adds `\"basis\": \"measured\"`, citing the receipt",
+		// #9: a missed bar the human explicitly accepts is fixed, with the
+		// bar, result, who and why in the estimate.
+		"Missed but accepted: the gates pass and the human accepts the measured saving at the checkpoint",
+		"an `estimate` stating the bar, the measured result, who accepted it and why",
+		"Never assumed: without that explicit yes it is not met",
+		"for an experiment add the `basis` and `estimate` its outcome names",
 		"Not met: the human closes the PR; from the base, patch `reopened` and the new `evidence` (still `suspected`) through a record PR",
 		"Any other fix PR closed unmerged leaves the base `approved`: record nothing; load the entry skill.",
 	} {
