@@ -622,7 +622,7 @@ func TestFixSkillContract(t *testing.T) {
 	}
 	// #13: proof sized to risk, cheap evidence first, a timebox.
 	for _, s := range []string{"the plan names one check, sized to the change's risk",
-		"the PR's real CI and the first post-merge run are that check", "only for a risk CI cannot show",
+		"the PR's real CI and the first post-merge run (or the `Observe on:` deploy) are that check", "only for a risk CI cannot show",
 		"Read the real pipeline's logs before building any proof", "never replaces muda-verify's gate comparison",
 		"no single command over 10 minutes", "never invent a new experiment", "Every subagent brief carries this timebox",
 		"the one check that proves it, sized to its risk"} {
