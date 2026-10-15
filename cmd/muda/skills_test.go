@@ -800,6 +800,18 @@ func TestDesignSkillContract(t *testing.T) {
 		t.Fatal(e)
 	}
 	text := string(b)
+	// The stack names come from the catalog; the skill's copy is pinned to it.
+	stacks, err := content.Stacks(muda.Content)
+	if err != nil {
+		t.Fatal(err)
+	}
+	quoted := make([]string, len(stacks))
+	for i, st := range stacks {
+		quoted[i] = "`" + st + "`"
+	}
+	if list := "which stacks the design touches: " + strings.Join(quoted[:len(quoted)-1], ", ") + " or " + quoted[len(quoted)-1] + "."; !strings.Contains(norm(text), norm(list)) {
+		t.Errorf("design skill's stack list differs from the catalog; want %q", list)
+	}
 	if preflight(t, text) != preflight(t, string(entry)) {
 		t.Error("preflight must be the entry skill's text verbatim")
 	}
