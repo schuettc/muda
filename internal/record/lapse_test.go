@@ -111,7 +111,8 @@ func TestReopenRequiresLapsedExemption(t *testing.T) {
 	if err := s.SetFinding(id, FindingPatch{Status: &st, ExemptionID: &eid}); err == nil {
 		t.Fatal("reopened kept an exemption-id")
 	}
-	// Every other exit from exempt stays forbidden, even after expiry.
+	// Every other exit from exempt stays forbidden, even after expiry; fixed
+	// needs its proof (see TestExemptBecomesFixedWithProof).
 	for _, b := range []Status{OpenStatus, Approved, InPR, Fixed} {
 		if err := s.SetFinding(id, FindingPatch{Status: &b}); err == nil {
 			t.Fatalf("exempt -> %s", b)

@@ -121,7 +121,7 @@ Choose the next phase from the validated record, not time pressure:
 | `in-pr` finding whose receipt shows `UNVERIFIED` or `WEAKENED` | If the human accepts the policy proof gap, load muda-diagnose for an exact `gate:` exemption, then muda-verify. |
 | `reopened` finding | Load muda-diagnose: revisit diagnosis and approval before another fix, including after a declined renewal. |
 | Fixed finding | Inspect receipt/run evidence; no second fix for it. |
-| Exempt finding | Inspect reason/agreed-by/review-by; if its review-by has passed, raise it and load muda-diagnose to renew or reopen. |
+| Exempt finding | Inspect reason/agreed-by/review-by; if its review-by has passed, raise it and load muda-diagnose to renew or reopen. If a merged PR removed its waste, load muda-verify. |
 | All findings fixed or validly exempt, the recorded baseline window's `until` is later than every fixed finding's PR merge time (`gh pr view <pr> --json mergedAt`, compared as full timestamps), and no exemption `date` is after `until`'s UTC date (the same day counts as not later) | A new cycle's baseline is recorded, not yet diagnosed: load muda-diagnose. If a merge time can't be read, **STOP** and ask. |
 | All findings fixed or validly exempt, otherwise | Stopping rule: report the program complete, citing each finding's receipt, then load muda-measure for the next cycle's baseline. |
 

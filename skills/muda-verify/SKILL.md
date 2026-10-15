@@ -68,7 +68,8 @@ If the read fails, **STOP** and report; for `incomplete-baseline-set`, tell the
 human to re-run the exact same `record baseline` command, or do what the
 reported problem says. If check fails for anything but `expired-exemption`,
 **STOP**: do not write on top of a red record. Take one `in-pr` finding with
-its `pr`. Before merge the base shows `approved`: check out the fix
+its `pr`, or an `exempt` one whose waste a merged PR removed: verify that PR
+the same way, then patch `fixed` with its `pr`. Before merge the base shows `approved`: check out the fix
 branch, run `muda record show --format json` there, and return to the
 up-to-date base before Phase 2. Take `--before` from the baseline window; pass
 `--since` as `Nd`, N the whole days in the baseline window (`until` − `since`, from `muda record show --format json`).
@@ -114,7 +115,7 @@ unmerged leaves the base `approved`: record nothing; load the entry skill.
 
 ## Phase 2: after merge
 
-Pull the base (now `in-pr`). Take post-merge runs on the
+Pull the base (now `in-pr`, or still `exempt`). Take post-merge runs on the
 default branch, confirm their jobs ran, then compare:
 
 ```sh
@@ -155,7 +156,7 @@ human. A scan comparison `unavailable` means **STOP** and ask the human, never
 cited), the jobs confirmed run and their work, gate lists and status, and
 signal lists.
 Your move: confirm them and decide `fixed`, `reopened`, or that it stays `in-pr`
-with a receipt saying why. Wait for an explicit answer. Time pressure changes none
+with a receipt saying why (an exempt one stays `exempt`). Wait for an explicit answer. Time pressure changes none
 of this.
 
 ## Record (only after the checkpoint)
@@ -177,8 +178,8 @@ muda record receipt F-001 --file muda-receipt.json
 muda record check
 ```
 
-Then write muda-patch.json: `{"status": "fixed"}` (`pr` is kept)
-or `{"status": "reopened"}`. For `in-pr` with a receipt, skip the patch.
+Then write muda-patch.json: `{"status": "fixed"}` (`pr` is kept; for an
+`exempt` finding add `"pr"`, the removing PR's URL) or `{"status": "reopened"}`. For `in-pr` with a receipt, skip the patch.
 
 ```sh
 muda record finding set F-001 --file muda-patch.json

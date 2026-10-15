@@ -22,7 +22,7 @@ func ValidFindingID(id string) bool {
 	return err == nil && n > 0 && fmt.Sprintf("F-%03d", n) == id
 }
 func allowed(a, b Status) bool {
-	return a == b || a == OpenStatus && b == Approved || a == Approved && (b == InPR || b == Reopened) || a == InPR && (b == Fixed || b == Reopened) || a == Reopened && b == Approved || a != Fixed && b == ExemptStatus
+	return a == b || a == OpenStatus && b == Approved || a == Approved && (b == InPR || b == Reopened) || a == InPR && (b == Fixed || b == Reopened) || a == ExemptStatus && b == Fixed || a == Reopened && b == Approved || a != Fixed && b == ExemptStatus
 }
 
 // validateFinding checks a finding's fields. With a vocabulary (a value being
@@ -206,7 +206,11 @@ func (s *Store) SetFinding(id string, p FindingPatch) (err error) {
 		if err := validateFinding(f, written); err != nil {
 			return err
 		}
-		if old == InPR && f.Status == Fixed {
+		if old == ExemptStatus && f.Status == Fixed {
+			// The waste was removed: the exemption that kept it is history.
+			f.ExemptionID = ""
+		}
+		if (old == InPR || old == ExemptStatus) && f.Status == Fixed {
 			body, readErr := s.read("receipts/" + id + ".md")
 			if err := fixProblem(f, body, readErr); err != nil {
 				return err
