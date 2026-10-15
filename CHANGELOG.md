@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.15
+
+- Skills: a fix that changes an asset's identity, or shows only on one kind of change, records `Observe on:` in its estimate; muda-fix plans that deploy as its check and muda-verify judges only matching deploys (#8). R4 names the first-deploy rebuild.
+
 ## 0.1.14
 
 - `muda compare --gates-base REF`: the gate check's before side is derived at REF instead of read from the recorded inventory, so a fix PR's gate proof shows only what it changes; the record's exemptions still apply, and `before_ref` names REF. It conflicts with `--gates-file`. muda-verify uses the PR's merge base in both phases, so a workflow changed only by another merged PR no longer reads UNVERIFIED (#7).
