@@ -112,6 +112,10 @@ muda-diagnose before merging; its `reason` cites that diff. Never merge on `WEAK
 
 An experiment (a `suspected` finding) is judged by its `estimate`'s pass
 criteria. Met: the `fixed` patch adds `"basis": "measured"`, citing the receipt.
+Missed but accepted: the gates pass and the human accepts the measured saving
+at the checkpoint; the `fixed` patch adds `"basis": "measured"` and an
+`estimate` stating the bar, the measured result, who accepted it and why.
+Never assumed: without that explicit yes it is not met.
 Not met: the human closes the PR; from the base, patch `reopened` and the new
 `evidence` (still `suspected`) through a record PR. Any other fix PR closed
 unmerged leaves the base `approved`: record nothing; load the entry skill.
