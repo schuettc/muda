@@ -43,7 +43,7 @@ skipped or "trusting…" check is a defect, never a pass.
 
 **Proof sized to risk:** the plan names one check, sized to the change's risk.
 For a small change (a flag, a pin, a one-line edit), the PR's real CI and the
-first post-merge run are that check; reproduce locally or offline only for a
+first post-merge run (or the `Observe on:` deploy) are that check; reproduce locally or offline only for a
 risk CI cannot show. Read the real pipeline's logs before building any proof.
 This never replaces muda-verify's gate comparison.
 

@@ -120,9 +120,12 @@ unmerged leaves the base `approved`: record nothing; load the entry skill.
 
 Pull the base (now `in-pr`, or still `exempt`). Take post-merge runs on the
 default branch and confirm their jobs ran. If the `estimate` has an
-`Observe on:` line, take only runs that match it: never the first rebuild or a
-redeploy of the same commit, and never merge a change only to make one. Until
-one runs, the finding stays `in-pr` with a receipt saying so. Compare at the merge commit
+`Observe on:` line, the gate comparison below still runs now, on the first
+post-merge runs; only the measured effect waits for runs that match it: never
+the first rebuild or a redeploy of the same commit, and never merge a change
+only to make one. Until one runs, the finding stays `in-pr` with a receipt
+whose gate fields are this comparison's and whose `after` says the effect
+awaits the `Observe on:` deploy. Compare at the merge commit
 (`gh pr view N --json mergeCommit --jq .mergeCommit.oid`) against its first
 parent (`gh api repos/OWNER/REPO/commits/MERGE_SHA --jq '.parents[0].sha'`),
 only when the files changed between them

@@ -784,15 +784,15 @@ func TestVerifySkillContract(t *testing.T) {
 	// (#29) to 1630; the merge-base gate check in both phases (#7) to 1701;
 	// the merge-topology check that stops a multi-commit rebase (#7 review)
 	// to 1735.
-	if !strings.Contains(norm(text), norm("take only runs that match it: never the first rebuild or a redeploy of the same commit, and never merge a change only to make one")) {
-		t.Error("missing (#8):", "take only runs that match it: never the first rebuild or a redeploy of the same commit, and never merge a change only to make one")
+	if !strings.Contains(norm(text), norm("the gate comparison below still runs now, on the first post-merge runs; only the measured effect waits for runs that match it")) {
+		t.Error("missing (#8):", "the gate comparison below still runs now, on the first post-merge runs; only the measured effect waits for runs that match it")
 	}
-	if !strings.Contains(norm(text), norm("Until one runs, the finding stays `in-pr` with a receipt saying so")) {
-		t.Error("missing (#8):", "Until one runs, the finding stays `in-pr` with a receipt saying so")
+	if !strings.Contains(norm(text), norm("whose gate fields are this comparison's and whose `after` says the effect awaits the `Observe on:` deploy")) {
+		t.Error("missing (#8):", "whose gate fields are this comparison's and whose `after` says the effect awaits the `Observe on:` deploy")
 	}
-	// The Observe on rule (#8) raised 1735 to 1780.
-	if n := len(strings.Fields(text)); n > 1780 {
-		t.Errorf("muda-verify is %d words; keep it at most 1780", n)
+	// The Observe on rule (#8) raised 1735 to 1780, and the review fix keeping the gate check immediate to 1810.
+	if n := len(strings.Fields(text)); n > 1810 {
+		t.Errorf("muda-verify is %d words; keep it at most 1810", n)
 	}
 	// #29: an exempt finding whose waste a merged PR removed is verified and fixed.
 	if !strings.Contains(norm(text), norm("or an `exempt` one whose waste a merged PR removed: verify that PR the same way, then patch `fixed` with its `pr`")) {
