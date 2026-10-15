@@ -198,7 +198,8 @@ muda record check
 ```
 
 Then write muda-patch.json: `{"status": "fixed"}` (`pr` is kept; for an
-`exempt` finding add `"pr"`, the removing PR's URL) or `{"status": "reopened"}`. For `in-pr` with a receipt, skip the patch.
+`exempt` finding add `"pr"`, the removing PR's URL; for an experiment add the
+`basis` and `estimate` its outcome names) or `{"status": "reopened"}`. For `in-pr` with a receipt, skip the patch.
 
 ```sh
 muda record finding set F-001 --file muda-patch.json
