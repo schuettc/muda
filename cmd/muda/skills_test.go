@@ -740,8 +740,11 @@ func TestVerifySkillContract(t *testing.T) {
 		// changed one needs an exemption, whose reason cites its diff.
 		"A changed workflow file reports `UNVERIFIED` without an exact accepted exemption",
 		"a byte-identical one (equal full SHA-256) is `VERIFIED`",
-		// Only comments changed (equal comment-free hashes): VERIFIED, listed.
-		"A `comments-only` `workflow_diffs` entry is `VERIFIED` too",
+		// Only comments changed (equal comment-free hashes), or only hosted
+		// runner labels at jobs.<id>.runs-on: VERIFIED, listed.
+		"A `comments-only` or `runner-label-only` `workflow_diffs` entry is `VERIFIED` too",
+		// #39 review: the rule checks a label's form, not who hosts the runner.
+		"the latter checks a label's form, so confirm the repo has no self-hosted runner carrying that label",
 		"Only changed workflow files need an exemption",
 		"read its `workflow_diffs` entry", "its `reason` cites that diff",
 		// Final round: VERIFIED covers the workflow files themselves, not
@@ -801,9 +804,11 @@ func TestVerifySkillContract(t *testing.T) {
 		t.Error("missing (#8):", "whose gate fields are this comparison's and whose `after` says the effect awaits the `Observe on:` deploy")
 	}
 	// The Observe on rule (#8) raised 1735 to 1780, and the review fix keeping the gate check immediate to 1810.
-	// The missed-but-accepted outcome (#9) raised 1810 to 1875.
-	if n := len(strings.Fields(text)); n > 1875 {
-		t.Errorf("muda-verify is %d words; keep it at most 1875", n)
+	// The missed-but-accepted outcome (#9) raised 1810 to 1875, and
+	// runner-label-only beside comments-only to 1880; the label-form caveat
+	// (#39 review) to 1895.
+	if n := len(strings.Fields(text)); n > 1895 {
+		t.Errorf("muda-verify is %d words; keep it at most 1895", n)
 	}
 	// #29: an exempt finding whose waste a merged PR removed is verified and fixed.
 	if !strings.Contains(norm(text), norm("or an `exempt` one whose waste a merged PR removed: verify that PR the same way, then patch `fixed` with its `pr`")) {

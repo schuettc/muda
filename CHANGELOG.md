@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.21
+
+- `muda compare --gates-base`: a workflow edit that only swaps GitHub-hosted runner labels at `jobs.<id>.runs-on` (for example `ubuntu-latest` to `ubuntu-24.04`, as recipe R1 asks) reads `VERIFIED`. Both sides are derived fresh, so muda compares their YAML trees directly; when every differing path is a job's `runs-on` and both values are plain hosted labels (`ubuntu`, `windows` or `macos` followed by `latest` or a version, optionally `-arm`), and neither side uses YAML anchors, the file is listed in `workflow_diffs` as `runner-label-only` with each change. A self-hosted runner, a runner group, a list, an expression, another suffix or any other change stays `UNVERIFIED`. The rule checks the label's form, not who hosts the runner. Nothing new is recorded, and a comparison against a recorded inventory is unchanged.
+
 ## 0.1.20
 
 - Recipe R14: removing the old parameters waits for every environment, and readers are ruled out from live stack templates, not an audit-log search (from one adopter's measured cleanup, #18).
