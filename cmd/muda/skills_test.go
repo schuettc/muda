@@ -549,9 +549,13 @@ func TestDiagnoseSkillContract(t *testing.T) {
 	if !strings.Contains(norm(text), norm("A slow step that builds images, whatever stacks were confirmed (a deploy step that builds them too), is split into install, layer export, cache export and publish from BuildKit's `DONE` times before any recipe is matched")) {
 		t.Error("missing: image-build phase split (#12)")
 	}
-	// The image-build phase split (#12) raised 1620 to 1660.
-	if n := len(strings.Fields(text)); n > 1660 {
-		t.Errorf("muda-diagnose is %d words; keep it at most 1660", n)
+	if !strings.Contains(norm(text), norm("If muda is wrong (the change is shown not to weaken anything), also draft a muda issue under the public-text rule, as for a recipe submission.")) {
+		t.Error("missing: a muda false alarm is reported, not only exempted")
+	}
+	// The image-build phase split (#12) raised 1620 to 1660; reporting a muda
+	// false alarm to 1690.
+	if n := len(strings.Fields(text)); n > 1690 {
+		t.Errorf("muda-diagnose is %d words; keep it at most 1690", n)
 	}
 	for _, s := range []string{"**Recipe submission:** for each waste reported unmatched, offer one",
 		"uncommitted scratch file (e.g. `.muda-submission.md`)", "following the entry skill's public-text rule",

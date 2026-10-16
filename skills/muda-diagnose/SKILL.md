@@ -174,7 +174,9 @@ muda record finding set F-001 --file muda-patch.json
 
 A gate exemption is `record exempt` alone: location `gate:ID` from the compare
 report's `unverified`, `removed` or `loosened` IDs, not the finding's location,
-same fields and `review-by` rule; no `finding set`.
+same fields and `review-by` rule; no `finding set`. If muda is wrong (the
+change is shown not to weaken anything), also draft a muda issue under the
+public-text rule, as for a recipe submission.
 It covers the exact file as it is now; any later edit needs a new exemption.
 A removed workflow is exempted by the exact file removed. Exemptions recorded
 before raw-file hashes must be re-attested once; a gates record from before
