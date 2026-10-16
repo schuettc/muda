@@ -2,12 +2,14 @@
 package gates
 
 import (
+	"bytes"
 	"context"
 	"crypto/sha256"
 	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"regexp"
 	"sort"
 	"strings"
@@ -50,8 +52,12 @@ type WorkflowSource struct {
 	Name     string `json:"name"`
 	// SHA256 is the lowercase hex SHA-256 of the raw workflow file bytes as
 	// read at the inventory's ref, before any parsing.
-	SHA256 string      `json:"sha256"`
-	Jobs   []JobSource `json:"jobs"`
+	SHA256 string `json:"sha256"`
+	// CommentFreeSHA256 is the lowercase hex SHA-256 of the file's YAML
+	// documents re-encoded with every comment removed (commentFreeSHA256).
+	// "" in a record made before it existed.
+	CommentFreeSHA256 string      `json:"comment_free_sha256,omitempty"`
+	Jobs              []JobSource `json:"jobs"`
 }
 type StepSource struct {
 	// ContinueOnError keeps the YAML literal (including expressions). "" is
@@ -292,6 +298,11 @@ func Derive(ctx context.Context, c *gh.Client, repo, ref string) (*Inventory, er
 				inv.Unavailable = append(inv.Unavailable, Unavailable{What: path, Why: "unparseable workflow: " + err.Error(), SHA256: digest})
 				continue
 			}
+			// A file whose comments cannot be stripped keeps only its raw
+			// hash, so compare falls back to it.
+			if cf, err := commentFreeSHA256(data); err == nil {
+				source.CommentFreeSHA256 = cf
+			}
 			inv.Workflows = append(inv.Workflows, f)
 			source.Env = yamlLiteral(literal.Env)
 			for _, id := range f.JobOrder {
@@ -348,4 +359,44 @@ func yamlLiteral(node yaml.Node) string {
 	}
 	raw, _ := yaml.Marshal(&node)
 	return strings.TrimSpace(string(raw))
+}
+
+// commentFreeSHA256 hashes every YAML document in data re-encoded with its
+// comments cleared. Everything else in the node tree is kept: keys, values,
+// order, anchors, aliases, tags, scalar styles and block scalar text (a # in
+// a run: block is text, not a comment). Two files hash the same only when
+// their trees, comments aside, encode the same. It never hashes muda's own
+// parsed projection, which is partial and carries line numbers.
+func commentFreeSHA256(data []byte) (string, error) {
+	var out bytes.Buffer
+	dec := yaml.NewDecoder(bytes.NewReader(data))
+	enc := yaml.NewEncoder(&out)
+	for {
+		var doc yaml.Node
+		err := dec.Decode(&doc)
+		if errors.Is(err, io.EOF) {
+			break
+		}
+		if err != nil {
+			return "", err
+		}
+		stripComments(&doc)
+		if err := enc.Encode(&doc); err != nil {
+			return "", err
+		}
+	}
+	if err := enc.Close(); err != nil {
+		return "", err
+	}
+	sum := sha256.Sum256(out.Bytes())
+	return hex.EncodeToString(sum[:]), nil
+}
+
+// stripComments clears every comment in the tree. An alias's target is
+// reached where it is defined, so Alias is not followed.
+func stripComments(n *yaml.Node) {
+	n.HeadComment, n.LineComment, n.FootComment = "", "", ""
+	for _, c := range n.Content {
+		stripComments(c)
+	}
 }

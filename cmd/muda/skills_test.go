@@ -736,6 +736,8 @@ func TestVerifySkillContract(t *testing.T) {
 		// changed one needs an exemption, whose reason cites its diff.
 		"A changed workflow file reports `UNVERIFIED` without an exact accepted exemption",
 		"a byte-identical one (equal full SHA-256) is `VERIFIED`",
+		// Only comments changed (equal comment-free hashes): VERIFIED, listed.
+		"A `comments-only` `workflow_diffs` entry is `VERIFIED` too",
 		"Only changed workflow files need an exemption",
 		"read its `workflow_diffs` entry", "its `reason` cites that diff",
 		// Final round: VERIFIED covers the workflow files themselves, not

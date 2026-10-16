@@ -86,8 +86,9 @@ type GateDiff struct {
 	Unverified   []gates.Gate      `json:"unverified"`
 	Exempted     []string          `json:"exempted"`
 	Evidence     []signal.Evidence `json:"evidence"`
-	// WorkflowDiffs explains each UNVERIFIED workflow file; a byte-identical
-	// file is VERIFIED and absent here.
+	// WorkflowDiffs explains each changed workflow file; a byte-identical
+	// file is VERIFIED and absent here, and a comments-only one is VERIFIED
+	// and listed.
 	WorkflowDiffs []WorkflowDiff `json:"workflow_diffs"`
 	// BeforeRef and BeforeSettings are set for a historical baseline: the
 	// recorded inventory read workflows at BeforeRef, while its repository
@@ -462,7 +463,9 @@ func GateChanges(a, b *gates.Inventory) *GateDiff {
 	// actions on moving refs. None of those is compared here. Any other file
 	// lacks a completeness attestation in the current producer: retain its
 	// evidence, refuse to certify omitted execution policy, and explain the
-	// change in WorkflowDiffs.
+	// change in WorkflowDiffs. A file whose comment-free hashes are equal on
+	// both parsed sides changed only its comments, which carry no meaning to
+	// Actions: it is VERIFIED, still listed in WorkflowDiffs with its evidence.
 	// The proof ID binds the after-side raw file hash, so an exemption covers
 	// exactly the attested file; any edit needs a fresh decision. A path the
 	// after side shows is gone (deleted or renamed away) binds the before-side
@@ -496,6 +499,9 @@ func GateChanges(a, b *gates.Inventory) *GateDiff {
 			continue
 		}
 		d.WorkflowDiffs = append(d.WorkflowDiffs, diff)
+		if diff.Change == WorkflowCommentsOnly {
+			continue
+		}
 		what := "workflow file " + diff.Change
 		if diff.Change == WorkflowSameHash {
 			what = "workflow file hash equal but a side not parsed"

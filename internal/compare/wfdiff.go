@@ -9,8 +9,8 @@ import (
 	"github.com/schuettc/muda/internal/record"
 )
 
-// WorkflowDiff explains one UNVERIFIED workflow file: how its raw file
-// changed and, where both sides were parsed, which parsed keys changed. It
+// WorkflowDiff explains one changed workflow file, UNVERIFIED unless only
+// its comments changed (WorkflowCommentsOnly): how its raw file changed and, where both sides were parsed, which parsed keys changed. It
 // never claims more than the parsed projection (gates.WorkflowSource) shows.
 type WorkflowDiff struct {
 	Path string `json:"path"`
@@ -19,7 +19,8 @@ type WorkflowDiff struct {
 	ProofID string `json:"proof_id"`
 	// Change is WorkflowChanged, WorkflowAdded, WorkflowRemoved or
 	// WorkflowUnproven (a side lacks a recorded full SHA-256) or
-	// WorkflowSameHash (equal full hashes, but a side was not parsed).
+	// WorkflowSameHash (equal full hashes, but a side was not parsed) or
+	// WorkflowCommentsOnly (VERIFIED: equal comment-free hashes).
 	Change string `json:"change"`
 	// Structure is StructureCompared, StructureRawOnly, StructureUnparsed or
 	// StructureNone (added or removed: one side only).
@@ -48,6 +49,10 @@ const (
 	StructureNone     = "none"
 )
 
+// WorkflowCommentsOnly is a raw change whose comment-free hashes are equal:
+// only comments (or layout) changed, and the file is VERIFIED.
+const WorkflowCommentsOnly = "comments-only"
+
 const unparsedKeys = "keys muda does not parse (for example triggers, permissions and runs-on), comments and formatting are not compared"
 
 // workflowSide is what one inventory shows for one workflow path.
@@ -55,6 +60,7 @@ type workflowSide struct {
 	sources int                  // parsed sources at the path
 	source  gates.WorkflowSource // the source when sources == 1
 	hash    string               // full recorded SHA-256, or ""
+	bare    string               // full comment-free SHA-256 of a parsed source, or ""
 	named   bool                 // listed as a source or unavailable
 	unread  bool                 // the workflow directory was unreadable
 	broken  *gates.Unavailable   // an unavailable entry at the path
@@ -81,6 +87,7 @@ func sideOf(inv *gates.Inventory, path string) workflowSide {
 	switch {
 	case s.sources == 1 && s.broken == nil:
 		s.hash = fileDigest(s.source.SHA256)
+		s.bare = fileDigest(s.source.CommentFreeSHA256)
 	case s.sources == 0 && s.broken != nil:
 		s.hash = fileDigest(s.broken.SHA256)
 	}
@@ -89,7 +96,10 @@ func sideOf(inv *gates.Inventory, path string) workflowSide {
 
 // workflowDiff classifies one workflow path present as a source on either
 // side. It returns identical=true only when both sides carry exactly one
-// parsed source with an equal, full recorded SHA-256.
+// parsed source with an equal, full recorded SHA-256. Raw hashes that differ
+// with equal comment-free hashes on both parsed sides are WorkflowCommentsOnly;
+// a side without a comment-free hash (an older record) falls through to the
+// raw comparison.
 func workflowDiff(a, b *gates.Inventory, path, proofID string, bound bool) (WorkflowDiff, bool) {
 	x, y := sideOf(a, path), sideOf(b, path)
 	d := WorkflowDiff{Path: path, ProofID: proofID, Fields: []FieldChange{}}
@@ -97,6 +107,16 @@ func workflowDiff(a, b *gates.Inventory, path, proofID string, bound bool) (Work
 	switch {
 	case parsed && x.hash != "" && x.hash == y.hash:
 		return d, true
+	case parsed && x.hash != "" && y.hash != "" && x.bare != "" && x.bare == y.bare:
+		d.Change = WorkflowCommentsOnly
+		d.Note = "only comments (or layout, such as blank lines) changed: the file with its comments removed, re-encoded, hashes the same on both sides"
+		d.Fields = sourceFields(x.source, y.source)
+		d.Structure = StructureRawOnly
+		if len(d.Fields) > 0 {
+			d.Structure = StructureCompared
+			d.Note += "; the listed keys differ only in comments their literal text carries"
+		}
+		return d, false
 	case x.named && !y.named && !y.unread:
 		d.Change, d.Structure = WorkflowRemoved, StructureNone
 		d.Note = "file removed or renamed away; the proof binds the before-side hash"
