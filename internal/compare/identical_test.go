@@ -273,7 +273,9 @@ func TestDerivedInventoryIdenticalAndEdited(t *testing.T) {
 	if ids := workflowProofIDs(GateChanges(a, b)); len(ids) != 0 {
 		t.Fatalf("identical derived workflows unverified: %v", ids)
 	}
+	// An edit outside comments changes both hashes.
 	b.Sources[0].SHA256 = rawHash("one byte")
+	b.Sources[0].CommentFreeSHA256 = rawHash("one byte, comments removed")
 	d := GateChanges(a, b)
 	if ids := workflowProofIDs(d); len(ids) != 1 || workflowEntries(d, b.Sources[0].Path) != 1 {
 		t.Fatalf("edit of one file: %v", ids)
