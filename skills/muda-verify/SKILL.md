@@ -155,7 +155,7 @@ weakened or unverified without exemption. Present the `removed`, `loosened`,
 Never mark `fixed` on `UNVERIFIED` or `WEAKENED`.
 A changed workflow file reports `UNVERIFIED` without an exact accepted
 exemption; a byte-identical one (equal full SHA-256) is `VERIFIED`.
-A `comments-only` `workflow_diffs` entry is `VERIFIED` too.
+A `comments-only` or `runner-label-only` `workflow_diffs` entry is `VERIFIED` too.
 `VERIFIED` covers `.github/workflows` files only, not local composite actions
 (`uses: ./…`), scripts a step runs or remote actions on moving refs. A gate
 exemption covers the exact file as it is now; any later edit needs a new

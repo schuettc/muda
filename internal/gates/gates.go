@@ -58,7 +58,16 @@ type WorkflowSource struct {
 	// "" in a record made before it existed.
 	CommentFreeSHA256 string      `json:"comment_free_sha256,omitempty"`
 	Jobs              []JobSource `json:"jobs"`
+	// raw is the file's bytes as read, kept in memory only so that compare
+	// can walk both sides' YAML trees when both were derived fresh. It is
+	// never serialized: a recorded inventory has none.
+	raw []byte
 }
+
+// Raw returns the workflow file's bytes when this source was derived in this
+// process, or nil when it was loaded from a record.
+func (w WorkflowSource) Raw() []byte { return w.raw }
+
 type StepSource struct {
 	// ContinueOnError keeps the YAML literal (including expressions). "" is
 	// absent, distinct from explicitly declared "false", "true" or "null".
@@ -279,7 +288,7 @@ func Derive(ctx context.Context, c *gh.Client, repo, ref string) (*Inventory, er
 				continue
 			}
 			fileURL := gh.BlobURL(repo, ref, path)
-			source := WorkflowSource{Defaults: f.Defaults, URL: fileURL, Path: path, Name: f.Name, SHA256: digest, Jobs: []JobSource{}}
+			source := WorkflowSource{Defaults: f.Defaults, URL: fileURL, Path: path, Name: f.Name, SHA256: digest, Jobs: []JobSource{}, raw: data}
 			var literal struct {
 				Env  yaml.Node `yaml:"env"`
 				Jobs map[string]struct {

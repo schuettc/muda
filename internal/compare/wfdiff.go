@@ -10,7 +10,8 @@ import (
 )
 
 // WorkflowDiff explains one changed workflow file, UNVERIFIED unless only
-// its comments changed (WorkflowCommentsOnly): how its raw file changed and, where both sides were parsed, which parsed keys changed. It
+// its comments changed (WorkflowCommentsOnly) or only its jobs' hosted runner
+// labels (WorkflowRunnerLabelOnly): how its raw file changed and, where both sides were parsed, which parsed keys changed. It
 // never claims more than the parsed projection (gates.WorkflowSource) shows.
 type WorkflowDiff struct {
 	Path string `json:"path"`
@@ -20,7 +21,8 @@ type WorkflowDiff struct {
 	// Change is WorkflowChanged, WorkflowAdded, WorkflowRemoved or
 	// WorkflowUnproven (a side lacks a recorded full SHA-256) or
 	// WorkflowSameHash (equal full hashes, but a side was not parsed) or
-	// WorkflowCommentsOnly (VERIFIED: equal comment-free hashes).
+	// WorkflowCommentsOnly (VERIFIED: equal comment-free hashes) or
+	// WorkflowRunnerLabelOnly (VERIFIED: only hosted runs-on labels differ).
 	Change string `json:"change"`
 	// Structure is StructureCompared, StructureRawOnly, StructureUnparsed or
 	// StructureNone (added or removed: one side only).
@@ -52,6 +54,11 @@ const (
 // WorkflowCommentsOnly is a raw change whose comment-free hashes are equal:
 // only comments (or layout) changed, and the file is VERIFIED.
 const WorkflowCommentsOnly = "comments-only"
+
+// WorkflowRunnerLabelOnly is a change, found by comparing both sides' YAML
+// trees, in which every differing path is a job's runs-on swapped between
+// GitHub-hosted runner labels (hostedRunnerLabel). The file is VERIFIED.
+const WorkflowRunnerLabelOnly = "runner-label-only"
 
 const unparsedKeys = "keys muda does not parse (for example triggers, permissions and runs-on), comments and formatting are not compared"
 
@@ -131,6 +138,15 @@ func workflowDiff(a, b *gates.Inventory, path, proofID string, bound bool) (Work
 			d.Note = "file added; no full recorded SHA-256 on the after side, so the proof binds no hash and cannot be exempted"
 		}
 		return d, false
+	}
+	// Both sides derived in this process carry their bytes; a recorded side
+	// has none and keeps the raw comparison below.
+	if parsed && x.hash != "" && y.hash != "" && x.hash != y.hash && x.bare != "" && y.bare != "" && x.source.Raw() != nil && y.source.Raw() != nil {
+		if fields, ok := runnerLabelChanges(x.source.Raw(), y.source.Raw()); ok {
+			d.Change, d.Structure, d.Fields = WorkflowRunnerLabelOnly, StructureCompared, fields
+			d.Note = "only jobs.<id>.runs-on changed, each between GitHub-hosted runner labels: both sides' YAML trees, comments aside, differ nowhere else"
+			return d, false
+		}
 	}
 	var notes []string
 	if !parsed && x.hash != "" && x.hash == y.hash {

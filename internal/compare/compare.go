@@ -87,8 +87,8 @@ type GateDiff struct {
 	Exempted     []string          `json:"exempted"`
 	Evidence     []signal.Evidence `json:"evidence"`
 	// WorkflowDiffs explains each changed workflow file; a byte-identical
-	// file is VERIFIED and absent here, and a comments-only one is VERIFIED
-	// and listed.
+	// file is VERIFIED and absent here, and a comments-only or
+	// runner-label-only one is VERIFIED and listed.
 	WorkflowDiffs []WorkflowDiff `json:"workflow_diffs"`
 	// BeforeRef and BeforeSettings are set for a historical baseline: the
 	// recorded inventory read workflows at BeforeRef, while its repository
@@ -466,6 +466,9 @@ func GateChanges(a, b *gates.Inventory) *GateDiff {
 	// change in WorkflowDiffs. A file whose comment-free hashes are equal on
 	// both parsed sides changed only its comments, which carry no meaning to
 	// Actions: it is VERIFIED, still listed in WorkflowDiffs with its evidence.
+	// So is a file whose two freshly derived YAML trees differ only in jobs'
+	// runs-on, each between GitHub-hosted runner labels: where it runs
+	// changed, not what it runs or which gates guard it.
 	// The proof ID binds the after-side raw file hash, so an exemption covers
 	// exactly the attested file; any edit needs a fresh decision. A path the
 	// after side shows is gone (deleted or renamed away) binds the before-side
@@ -499,7 +502,7 @@ func GateChanges(a, b *gates.Inventory) *GateDiff {
 			continue
 		}
 		d.WorkflowDiffs = append(d.WorkflowDiffs, diff)
-		if diff.Change == WorkflowCommentsOnly {
+		if diff.Change == WorkflowCommentsOnly || diff.Change == WorkflowRunnerLabelOnly {
 			continue
 		}
 		what := "workflow file " + diff.Change
