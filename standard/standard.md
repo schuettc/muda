@@ -90,7 +90,10 @@ A finding against a candidate records `candidate:<slug>` as its waste and no rec
 ## Exemptions
 
 Prefer a fix. Keep waste only when removal would weaken a gate or the cost is
-justified work. The user approves an exemption in `.muda/exemptions.toml`, with
+justified work. When muda itself is wrong (it reads a change as unverified or
+weaker that a person can show is not), fix muda rather than exempt it again:
+report it as a muda issue, and treat any exemption it needs meanwhile as a
+bridge until the fix ships. The user approves an exemption in `.muda/exemptions.toml`, with
 all six fields:
 
 | Field | Meaning |

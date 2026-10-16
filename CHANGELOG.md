@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.19
+
+- The standard and muda-diagnose: when muda itself is wrong, fix muda rather than exempt it again; an exemption for a muda false alarm also drafts a muda issue.
+
 ## 0.1.18
 
 - `muda compare`: a workflow file whose edit changed only its comments reads `VERIFIED`. The inventory records `comment_free_sha256`, the SHA-256 of the file's YAML re-encoded with comments removed; when both sides carry it and it is equal, the file is listed in `workflow_diffs` as `comments-only` and needs no exemption. Proof IDs still bind the raw hash, and an inventory recorded without the new hash compares as before.
