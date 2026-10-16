@@ -7,9 +7,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/schuettc/muda/internal/gates"
-	"github.com/schuettc/muda/internal/gh"
-	"github.com/schuettc/muda/internal/record"
+	"github.com/subaud-tools/muda/internal/gates"
+	"github.com/subaud-tools/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/record"
 )
 
 // Drift guard: every synthetic proof ID compare emits must be accepted by

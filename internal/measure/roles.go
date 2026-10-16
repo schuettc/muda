@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"regexp"
 
-	"github.com/schuettc/muda/internal/workflow"
+	"github.com/subaud-tools/muda/internal/workflow"
 )
 
 // Candidate workflow roles, for the user to confirm.

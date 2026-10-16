@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/schuettc/muda/internal/signal"
+	"github.com/subaud-tools/muda/internal/signal"
 )
 
 // CacheSite is the unit an uncached-install claim is about: a job in a

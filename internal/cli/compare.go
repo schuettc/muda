@@ -11,9 +11,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/schuettc/muda/internal/compare"
-	"github.com/schuettc/muda/internal/record"
-	tools "github.com/schuettc/tools-common"
+	"github.com/subaud-tools/muda/internal/compare"
+	"github.com/subaud-tools/muda/internal/record"
+	tools "github.com/subaud-tools/tools-common"
 )
 
 const compareHelp = `Compares completed final-attempt workflow and step samples with evidence.

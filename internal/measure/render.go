@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/schuettc/muda/internal/signal"
+	"github.com/subaud-tools/muda/internal/signal"
 )
 
 // RenderMarkdown renders the report for people. It carries the same numbers

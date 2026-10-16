@@ -7,7 +7,7 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/schuettc/muda/internal/content"
+	"github.com/subaud-tools/muda/internal/content"
 )
 
 // now is the record's clock; tests substitute it. Expiry is judged on the

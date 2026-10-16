@@ -11,9 +11,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/schuettc/muda/internal/gh"
-	"github.com/schuettc/muda/internal/ghtest"
-	"github.com/schuettc/muda/internal/scan"
+	"github.com/subaud-tools/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/ghtest"
+	"github.com/subaud-tools/muda/internal/scan"
 )
 
 type scanTransport struct {

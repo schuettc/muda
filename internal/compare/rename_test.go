@@ -12,9 +12,9 @@ import (
 	"testing"
 
 	"github.com/BurntSushi/toml"
-	"github.com/schuettc/muda/internal/gates"
-	"github.com/schuettc/muda/internal/gh"
-	"github.com/schuettc/muda/internal/ghtest"
+	"github.com/subaud-tools/muda/internal/gates"
+	"github.com/subaud-tools/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/ghtest"
 )
 
 // renamed answers GitHub's repository endpoint for old names: a rename

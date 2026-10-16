@@ -8,8 +8,8 @@ import (
 	"os"
 	ossignal "os/signal"
 
-	"github.com/schuettc/muda/internal/scan"
-	tools "github.com/schuettc/tools-common"
+	"github.com/subaud-tools/muda/internal/scan"
+	tools "github.com/subaud-tools/tools-common"
 )
 
 const scanHelp = `Static analysis of .github/workflows/*.yml at the given ref (default: repo

@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/schuettc/muda/internal/signal"
-	"github.com/schuettc/muda/internal/workflow"
+	"github.com/subaud-tools/muda/internal/signal"
+	"github.com/subaud-tools/muda/internal/workflow"
 )
 
 // ── helpers ──────────────────────────────────────────────────────────────────

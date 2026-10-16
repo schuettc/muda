@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/schuettc/muda/internal/signal"
+	"github.com/subaud-tools/muda/internal/signal"
 )
 
 func TestStatsPercentiles(t *testing.T) {

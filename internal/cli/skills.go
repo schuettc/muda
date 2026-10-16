@@ -6,10 +6,10 @@ import (
 	"io"
 	"os"
 
-	"github.com/schuettc/muda"
-	"github.com/schuettc/muda/internal/record"
-	"github.com/schuettc/muda/internal/skills"
-	tools "github.com/schuettc/tools-common"
+	"github.com/subaud-tools/muda"
+	"github.com/subaud-tools/muda/internal/record"
+	"github.com/subaud-tools/muda/internal/skills"
+	tools "github.com/subaud-tools/tools-common"
 )
 
 func skillsFlags() *flag.FlagSet {

@@ -1,7 +1,7 @@
 package notices
 
 import (
-	"github.com/schuettc/muda/internal/pyfmt"
+	"github.com/subaud-tools/muda/internal/pyfmt"
 	"strings"
 	"unicode/utf8"
 )

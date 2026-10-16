@@ -14,13 +14,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/schuettc/muda/internal/cli"
-	"github.com/schuettc/muda/internal/compare"
-	"github.com/schuettc/muda/internal/gh"
-	"github.com/schuettc/muda/internal/ghtest"
-	"github.com/schuettc/muda/internal/record"
-	"github.com/schuettc/muda/internal/scan"
-	"github.com/schuettc/muda/internal/signal"
+	"github.com/subaud-tools/muda/internal/cli"
+	"github.com/subaud-tools/muda/internal/compare"
+	"github.com/subaud-tools/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/ghtest"
+	"github.com/subaud-tools/muda/internal/record"
+	"github.com/subaud-tools/muda/internal/scan"
+	"github.com/subaud-tools/muda/internal/signal"
 )
 
 // compareReplay supplies bounded listing/direct run responses using only the

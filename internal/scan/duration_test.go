@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/schuettc/muda/internal/gh"
-	"github.com/schuettc/muda/internal/workflow"
+	"github.com/subaud-tools/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/workflow"
 )
 
 func TestFinalAttemptAndLast20(t *testing.T) {

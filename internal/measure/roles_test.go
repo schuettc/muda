@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/schuettc/muda/internal/workflow"
+	"github.com/subaud-tools/muda/internal/workflow"
 )
 
 func TestRoles(t *testing.T) {

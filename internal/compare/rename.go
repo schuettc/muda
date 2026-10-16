@@ -8,7 +8,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/schuettc/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/gh"
 )
 
 // renamedFrom accepts a record made under another repository name only when

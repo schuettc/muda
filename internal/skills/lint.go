@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/schuettc/muda/internal/content"
+	"github.com/subaud-tools/muda/internal/content"
 	"gopkg.in/yaml.v3"
 )
 

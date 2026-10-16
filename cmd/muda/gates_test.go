@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/schuettc/muda/internal/cli"
+	"github.com/subaud-tools/muda/internal/cli"
 )
 
 // Final review M3: `muda gates` (the skills' preflight probe) still exits 0

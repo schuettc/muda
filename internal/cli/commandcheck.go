@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"strings"
 
-	tools "github.com/schuettc/tools-common"
+	tools "github.com/subaud-tools/tools-common"
 )
 
 // CommandChecker snapshots the assembled app's commands metadata. It never

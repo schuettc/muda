@@ -7,10 +7,10 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/schuettc/muda"
-	"github.com/schuettc/muda/internal/content"
-	"github.com/schuettc/muda/internal/signal"
-	tools "github.com/schuettc/tools-common"
+	"github.com/subaud-tools/muda"
+	"github.com/subaud-tools/muda/internal/content"
+	"github.com/subaud-tools/muda/internal/signal"
+	tools "github.com/subaud-tools/tools-common"
 )
 
 func recipesFlags() *flag.FlagSet {

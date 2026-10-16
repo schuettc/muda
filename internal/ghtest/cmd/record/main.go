@@ -14,7 +14,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/schuettc/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/gh"
 )
 
 func main() {

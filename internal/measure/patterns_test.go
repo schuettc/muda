@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/schuettc/muda/internal/gh"
-	"github.com/schuettc/muda/internal/workflow"
+	"github.com/subaud-tools/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/workflow"
 )
 
 func analyze(t *testing.T, runs []RunData, defs map[string]Definition) *Report {

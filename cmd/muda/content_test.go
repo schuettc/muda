@@ -5,9 +5,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/schuettc/muda"
-	"github.com/schuettc/muda/internal/cli"
-	"github.com/schuettc/muda/internal/content"
+	"github.com/subaud-tools/muda"
+	"github.com/subaud-tools/muda/internal/cli"
+	"github.com/subaud-tools/muda/internal/content"
 )
 
 func TestShippedContentIsClean(t *testing.T) {

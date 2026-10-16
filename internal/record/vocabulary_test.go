@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/schuettc/muda/internal/content"
+	"github.com/subaud-tools/muda/internal/content"
 )
 
 // vocab is a small injected vocabulary, so these tests do not follow the

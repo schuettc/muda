@@ -5,7 +5,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/schuettc/muda/internal/signal"
+	"github.com/subaud-tools/muda/internal/signal"
 )
 
 // Signal thresholds.

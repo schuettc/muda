@@ -20,7 +20,7 @@ gate:
     set -euo pipefail
     v="$(grep -oE 'go-ci@v[0-9]+\.[0-9]+\.[0-9]+' .github/workflows/ci.yml | head -1 | cut -d@ -f2)"
     f="${XDG_CACHE_HOME:-$HOME/.cache}/tools-actions/$v/go-ci/local.sh"
-    [ -f "$f" ] || { mkdir -p "$(dirname "$f")"; curl -fsSL "https://raw.githubusercontent.com/schuettc/tools-actions/$v/go-ci/local.sh" -o "$f"; }
+    [ -f "$f" ] || { mkdir -p "$(dirname "$f")"; curl -fsSL "https://raw.githubusercontent.com/subaud-tools/tools-actions/$v/go-ci/local.sh" -o "$f"; }
     bash "$f"
 
 fmt:
@@ -54,4 +54,4 @@ verify-extra:
 
 # A local binary stamped the way a release is.
 build:
-    go build -ldflags "-X github.com/schuettc/muda/internal/version.version=$(cat VERSION) -X github.com/schuettc/muda/internal/version.commit=$(git rev-parse --short HEAD) -X github.com/schuettc/muda/internal/version.date=$(date -u +%Y-%m-%d)" -o muda ./cmd/muda
+    go build -ldflags "-X github.com/subaud-tools/muda/internal/version.version=$(cat VERSION) -X github.com/subaud-tools/muda/internal/version.commit=$(git rev-parse --short HEAD) -X github.com/subaud-tools/muda/internal/version.date=$(date -u +%Y-%m-%d)" -o muda ./cmd/muda

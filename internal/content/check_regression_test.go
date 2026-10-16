@@ -6,8 +6,8 @@ import (
 	"testing"
 	"testing/fstest"
 
-	"github.com/schuettc/muda"
-	"github.com/schuettc/muda/internal/content"
+	"github.com/subaud-tools/muda"
+	"github.com/subaud-tools/muda/internal/content"
 )
 
 func libraryFixture(t *testing.T) fstest.MapFS {

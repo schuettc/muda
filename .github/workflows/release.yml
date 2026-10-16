@@ -1,7 +1,7 @@
 name: release
 
 # Merge to main = release, through the family release actions
-# (schuettc/tools-actions: release-version + go-release). The VERSION file is
+# (subaud-tools/tools-actions: release-version + go-release). The VERSION file is
 # the knob: when a merge lands on main and no tag v<VERSION> exists yet, the
 # release is cut, signed and notarized (Developer ID), stamp-checked, published
 # to GitHub and to muda.tools/dl (moving /dl/muda/latest). A merge that doesn't
@@ -41,19 +41,19 @@ jobs:
         with:
           ref: ${{ inputs.tag }}
       - id: rel
-        uses: schuettc/tools-actions/release-version@v0.10.4
+        uses: subaud-tools/tools-actions/release-version@v0.11.0
         with:
           mode: version-file
           dispatch-tag: ${{ inputs.tag }}
       - if: steps.rel.outputs.skip != 'true'
-        uses: schuettc/tools-actions/go-release@v0.10.4
+        uses: subaud-tools/tools-actions/go-release@v0.11.0
         with:
           binaries: |
             muda=./cmd/muda
           ldflags: >-
-            -X github.com/schuettc/muda/internal/version.version={version}
-            -X github.com/schuettc/muda/internal/version.commit={commit}
-            -X github.com/schuettc/muda/internal/version.date={date}
+            -X github.com/subaud-tools/muda/internal/version.version={version}
+            -X github.com/subaud-tools/muda/internal/version.commit={commit}
+            -X github.com/subaud-tools/muda/internal/version.date={date}
           stamp-check: muda
           tag: ${{ steps.rel.outputs.tag }}
           version: ${{ steps.rel.outputs.version }}

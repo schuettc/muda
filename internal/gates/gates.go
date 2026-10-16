@@ -14,9 +14,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/schuettc/muda/internal/gh"
-	"github.com/schuettc/muda/internal/measure"
-	"github.com/schuettc/muda/internal/workflow"
+	"github.com/subaud-tools/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/measure"
+	"github.com/subaud-tools/muda/internal/workflow"
 	"gopkg.in/yaml.v3"
 )
 

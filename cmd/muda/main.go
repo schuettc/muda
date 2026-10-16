@@ -3,9 +3,9 @@ package main
 import (
 	"os"
 
-	"github.com/schuettc/muda/internal/cli"
-	"github.com/schuettc/muda/internal/version"
-	tools "github.com/schuettc/tools-common"
+	"github.com/subaud-tools/muda/internal/cli"
+	"github.com/subaud-tools/muda/internal/version"
+	tools "github.com/subaud-tools/tools-common"
 )
 
 // NewApp registers the family commands and the delivery-waste commands that

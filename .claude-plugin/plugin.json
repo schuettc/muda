@@ -1,8 +1,8 @@
 {
   "name": "muda",
-  "version": "0.1.21",
+  "version": "0.3.0",
   "description": "Find where delivery pipelines waste time and fix it with evidence",
   "license": "MIT",
-  "repository": "https://github.com/schuettc/muda",
+  "repository": "https://github.com/subaud-tools/muda",
   "skills": "./skills/"
 }

@@ -14,7 +14,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/schuettc/muda/internal/scan"
+	"github.com/subaud-tools/muda/internal/scan"
 )
 
 // BaselineSet is one `record baseline` run. A nil field was not supplied;

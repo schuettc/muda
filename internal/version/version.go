@@ -1,6 +1,6 @@
 package version
 
-import tools "github.com/schuettc/tools-common"
+import tools "github.com/subaud-tools/tools-common"
 
 // The release workflow stamps these at build time. Local builds are dev.
 var (

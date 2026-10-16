@@ -6,14 +6,14 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"github.com/schuettc/muda/internal/ghtest"
+	"github.com/subaud-tools/muda/internal/ghtest"
 	"net/http"
 	"net/http/httptest"
 	"strings"
 	"testing"
 
-	"github.com/schuettc/muda/internal/gh"
-	"github.com/schuettc/muda/internal/workflow"
+	"github.com/subaud-tools/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/workflow"
 )
 
 func derive(t *testing.T, forbidden bool, yaml string) *Inventory {
