@@ -17,8 +17,11 @@ import (
 // ubuntu-24.04, ubuntu-24.04-arm, macos-15 or windows-2025. It is narrow on
 // purpose: a self-hosted runner, a runner group or an expression changes
 // where the code and its secrets run, so any of those keeps the file
-// UNVERIFIED.
-var hostedRunnerLabel = regexp.MustCompile(`^(ubuntu|windows|macos)-(latest|[0-9]+(\.[0-9]+)?)(-[a-z0-9]+)*$`)
+// UNVERIFIED. The only suffix allowed is -arm: any other (-gpu, -large, a
+// team's own) can name a self-hosted or larger paid runner. This is a check of
+// the label's form, not of who hosts the runner: a self-hosted runner given
+// exactly a hosted label would still match.
+var hostedRunnerLabel = regexp.MustCompile(`^(ubuntu|windows|macos)-(latest|[0-9]+(\.[0-9]+)?)(-arm)?$`)
 
 // treeSeg is one step from a document root: a mapping key or a sequence
 // index.
@@ -59,6 +62,12 @@ func (c treeChange) where() string {
 // differences and every old and new value is a plain hosted runner label.
 // Anything else, including a file that does not decode, returns false.
 func runnerLabelChanges(a, b []byte) ([]FieldChange, bool) {
+	// An anchor or alias anywhere can carry a runs-on value (or the job
+	// holding it) to another place, so a label change there is more than a
+	// label change. Refuse the rule for such files.
+	if usesAnchors(a) || usesAnchors(b) {
+		return nil, false
+	}
 	changes, err := treeChanges(a, b)
 	if err != nil || len(changes) == 0 {
 		return nil, false
@@ -227,4 +236,21 @@ func walkMappings(out *[]treeChange, at treeChange, x, y *yaml.Node) {
 		}
 		walkTrees(out, child(k), x.Content[xi[k]+1], y.Content[yi[k]+1])
 	}
+}
+
+// usesAnchors reports whether any document of data defines an anchor or uses
+// an alias; a file that does not decode counts as using them.
+func usesAnchors(data []byte) bool {
+	docs, err := decodeDocs(data)
+	if err != nil {
+		return true
+	}
+	var walk func(*yaml.Node) bool
+	walk = func(n *yaml.Node) bool {
+		if n.Anchor != "" || n.Kind == yaml.AliasNode {
+			return true
+		}
+		return slices.ContainsFunc(n.Content, walk)
+	}
+	return slices.ContainsFunc(docs, walk)
 }

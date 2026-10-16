@@ -144,7 +144,7 @@ func workflowDiff(a, b *gates.Inventory, path, proofID string, bound bool) (Work
 	if parsed && x.hash != "" && y.hash != "" && x.hash != y.hash && x.bare != "" && y.bare != "" && x.source.Raw() != nil && y.source.Raw() != nil {
 		if fields, ok := runnerLabelChanges(x.source.Raw(), y.source.Raw()); ok {
 			d.Change, d.Structure, d.Fields = WorkflowRunnerLabelOnly, StructureCompared, fields
-			d.Note = "only jobs.<id>.runs-on changed, each between GitHub-hosted runner labels: both sides' YAML trees, comments aside, differ nowhere else"
+			d.Note = "only jobs.<id>.runs-on changed, each between labels in GitHub-hosted form (the label's form, not who hosts the runner): both sides' YAML trees, comments aside, differ nowhere else, and neither uses anchors"
 			return d, false
 		}
 	}

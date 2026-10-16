@@ -153,3 +153,26 @@ func TestWorkflowBytesAreNotSerialized(t *testing.T) {
 }
 
 func mustJSON(v any) string { b, _ := json.Marshal(v); return string(b) }
+
+// #39 review: an anchor anywhere lets a runs-on change reach another place
+// (here a matrix value a step reads), and a label suffix other than -arm can
+// name a self-hosted runner. Both stay UNVERIFIED.
+func TestRunnerLabelRuleRefusesAnchorsAndUnknownSuffixes(t *testing.T) {
+	wf := func(label, extra string) []byte {
+		return []byte("on: push\njobs:\n  test: &test\n    runs-on: " + label + "\n    steps:\n      - run: echo test\n  deploy:\n    runs-on: ubuntu-24.04\n    strategy:\n      matrix:\n        config: [*test]\n    steps:\n      - run: ./deploy.sh '${{ matrix.config.runs-on }}'\n" + extra)
+	}
+	if _, ok := runnerLabelChanges(wf("ubuntu-latest", ""), wf("ubuntu-24.04", "")); ok {
+		t.Error("a runs-on change reachable through an alias passed as runner-label-only")
+	}
+	plain := func(label string) []byte {
+		return []byte("on: push\njobs:\n  test:\n    runs-on: " + label + "\n    steps:\n      - run: echo test\n")
+	}
+	for _, label := range []string{"ubuntu-24.04-private", "ubuntu-24.04-gpu", "windows-2025-large"} {
+		if _, ok := runnerLabelChanges(plain("ubuntu-latest"), plain(label)); ok {
+			t.Errorf("ubuntu-latest -> %s passed as runner-label-only", label)
+		}
+	}
+	if _, ok := runnerLabelChanges(plain("ubuntu-latest"), plain("ubuntu-24.04-arm")); !ok {
+		t.Error("ubuntu-latest -> ubuntu-24.04-arm should pass")
+	}
+}
