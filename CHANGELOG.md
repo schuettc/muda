@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.21
+
+- Recipe R14: removing the old parameters waits for every environment, and readers are ruled out from live stack templates, not an audit-log search (from one adopter's measured cleanup, #18).
+
 ## 0.1.19
 
 - The standard and muda-diagnose: when muda itself is wrong, fix muda rather than exempt it again; an exemption for a muda false alarm also drafts a muda issue.
