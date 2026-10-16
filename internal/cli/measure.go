@@ -12,9 +12,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/schuettc/muda/internal/gh"
-	"github.com/schuettc/muda/internal/measure"
-	tools "github.com/schuettc/tools-common"
+	"github.com/subaud-tools/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/measure"
+	tools "github.com/subaud-tools/tools-common"
 )
 
 // Env is what a GitHub-reading command takes from its surroundings. Tests

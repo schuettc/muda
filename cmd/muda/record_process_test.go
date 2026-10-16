@@ -12,7 +12,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/schuettc/muda/internal/record"
+	"github.com/subaud-tools/muda/internal/record"
 )
 
 func TestConcurrentRecordCLIProcesses(t *testing.T) {

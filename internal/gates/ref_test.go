@@ -14,8 +14,8 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/schuettc/muda/internal/gh"
-	"github.com/schuettc/muda/internal/ghtest"
+	"github.com/subaud-tools/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/ghtest"
 )
 
 const tackleFixtures = "../ghtest/testdata/tackle"

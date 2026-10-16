@@ -3,7 +3,7 @@ package scan
 import (
 	"strings"
 
-	"github.com/schuettc/muda/internal/signal"
+	"github.com/subaud-tools/muda/internal/signal"
 )
 
 // driftSummaryPrefix and expressionPinWhat are the producer's only wording

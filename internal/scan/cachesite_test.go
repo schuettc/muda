@@ -3,8 +3,8 @@ package scan
 import (
 	"testing"
 
-	"github.com/schuettc/muda/internal/signal"
-	"github.com/schuettc/muda/internal/workflow"
+	"github.com/subaud-tools/muda/internal/signal"
+	"github.com/subaud-tools/muda/internal/workflow"
 )
 
 // The (file, job, manager) of an uncached-install claim and of an unknown

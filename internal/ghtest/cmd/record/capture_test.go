@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/schuettc/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/gh"
 )
 
 // fullCaptureHandler returns a handler that serves a minimal valid fixture for

@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/schuettc/muda/internal/ghtest"
+	"github.com/subaud-tools/muda/internal/ghtest"
 )
 
 // This public snapshot exercises GitHub's real envelopes, pagination and

@@ -8,8 +8,8 @@ import (
 	"testing"
 	"testing/fstest"
 
-	"github.com/schuettc/muda"
-	"github.com/schuettc/muda/internal/skills"
+	"github.com/subaud-tools/muda"
+	"github.com/subaud-tools/muda/internal/skills"
 )
 
 func fixture() fstest.MapFS {

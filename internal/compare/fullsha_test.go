@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/schuettc/muda/internal/gates"
-	"github.com/schuettc/muda/internal/record"
+	"github.com/subaud-tools/muda/internal/gates"
+	"github.com/subaud-tools/muda/internal/record"
 )
 
 // Final review m-10: compare emits the full raw-file SHA-256 in workflow and

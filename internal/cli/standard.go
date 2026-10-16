@@ -6,9 +6,9 @@ import (
 	"io/fs"
 	"strings"
 
-	"github.com/schuettc/muda"
-	"github.com/schuettc/muda/internal/content"
-	tools "github.com/schuettc/tools-common"
+	"github.com/subaud-tools/muda"
+	"github.com/subaud-tools/muda/internal/content"
+	tools "github.com/subaud-tools/tools-common"
 )
 
 // Standard prints the standard, or one W-number's catalog entry. The approved

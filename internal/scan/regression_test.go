@@ -2,8 +2,8 @@ package scan_test
 
 import (
 	"bytes"
-	"github.com/schuettc/muda/internal/scan"
-	"github.com/schuettc/muda/internal/workflow"
+	"github.com/subaud-tools/muda/internal/scan"
+	"github.com/subaud-tools/muda/internal/workflow"
 	"testing"
 	"time"
 )

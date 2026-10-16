@@ -9,7 +9,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/schuettc/muda/internal/signal"
+	"github.com/subaud-tools/muda/internal/signal"
 )
 
 // Problem identifies invalid reference content. Messages are deterministic.

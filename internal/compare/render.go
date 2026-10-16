@@ -3,8 +3,8 @@ package compare
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/schuettc/muda/internal/gates"
-	"github.com/schuettc/muda/internal/signal"
+	"github.com/subaud-tools/muda/internal/gates"
+	"github.com/subaud-tools/muda/internal/signal"
 	"io"
 	"strings"
 	"time"

@@ -11,8 +11,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/schuettc/muda/internal/cli"
-	"github.com/schuettc/muda/internal/ghtest"
+	"github.com/subaud-tools/muda/internal/cli"
+	"github.com/subaud-tools/muda/internal/ghtest"
 )
 
 type layered []http.RoundTripper

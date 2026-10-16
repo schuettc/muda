@@ -13,8 +13,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/schuettc/muda/internal/gh"
-	"github.com/schuettc/muda/internal/signal"
+	"github.com/subaud-tools/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/signal"
 )
 
 const testRepo = "o/r"

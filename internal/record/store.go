@@ -15,8 +15,8 @@ import (
 	"time"
 
 	"github.com/BurntSushi/toml"
-	"github.com/schuettc/muda/internal/content"
-	"github.com/schuettc/muda/internal/measure"
+	"github.com/subaud-tools/muda/internal/content"
+	"github.com/subaud-tools/muda/internal/measure"
 )
 
 type Store struct {

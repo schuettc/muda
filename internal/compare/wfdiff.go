@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/schuettc/muda/internal/gates"
-	"github.com/schuettc/muda/internal/record"
+	"github.com/subaud-tools/muda/internal/gates"
+	"github.com/subaud-tools/muda/internal/record"
 )
 
 // WorkflowDiff explains one changed workflow file, UNVERIFIED unless only

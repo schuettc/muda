@@ -4,11 +4,11 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
-	"github.com/schuettc/muda"
-	"github.com/schuettc/muda/internal/cli"
-	"github.com/schuettc/muda/internal/content"
-	"github.com/schuettc/muda/internal/skills"
-	tools "github.com/schuettc/tools-common"
+	"github.com/subaud-tools/muda"
+	"github.com/subaud-tools/muda/internal/cli"
+	"github.com/subaud-tools/muda/internal/content"
+	"github.com/subaud-tools/muda/internal/skills"
+	tools "github.com/subaud-tools/tools-common"
 	"io"
 	"io/fs"
 	"os"
@@ -32,7 +32,7 @@ func TestPluginVersionMatchesVERSION(t *testing.T) {
 	if e = json.Unmarshal(b2, &p); e != nil {
 		t.Fatal(e)
 	}
-	if p.Name != "muda" || p.Version != strings.TrimSpace(string(b)) || p.License != "MIT" || p.Repository != "https://github.com/schuettc/muda" {
+	if p.Name != "muda" || p.Version != strings.TrimSpace(string(b)) || p.License != "MIT" || p.Repository != "https://github.com/subaud-tools/muda" {
 		t.Fatal(p)
 	}
 }
@@ -559,7 +559,7 @@ func TestDiagnoseSkillContract(t *testing.T) {
 	}
 	for _, s := range []string{"**Recipe submission:** for each waste reported unmatched, offer one",
 		"uncommitted scratch file (e.g. `.muda-submission.md`)", "following the entry skill's public-text rule",
-		"On the user's yes, open it with", "gh issue create -R schuettc/muda --label recipe-submission --body-file .muda-submission.md",
+		"On the user's yes, open it with", "gh issue create -R subaud-tools/muda --label recipe-submission --body-file .muda-submission.md",
 		"without GitHub access, leave the file for the user to send"} {
 		if !strings.Contains(norm(text), norm(s)) {
 			t.Error("missing", s)
@@ -917,7 +917,7 @@ func TestReadmeSkillsStatus(t *testing.T) {
 		}
 	}
 	for _, want := range []string{"## The six skills", "`muda`", "`muda-measure`", "`muda-diagnose`", "`muda-fix`", "`muda-verify`", "`muda-design`",
-		"curl -fsSL https://muda.tools/install.sh | sh", "muda update", "muda skills install", "/plugin marketplace add schuettc/muda", "pi install git:github.com/schuettc/muda", "not the binary"} {
+		"curl -fsSL https://muda.tools/install.sh | sh", "muda update", "muda skills install", "/plugin marketplace add subaud-tools/muda", "pi install git:github.com/subaud-tools/muda", "not the binary"} {
 		if !strings.Contains(text, norm(want)) {
 			t.Error("README missing:", want)
 		}

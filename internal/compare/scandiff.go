@@ -8,10 +8,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/schuettc/muda/internal/gh"
-	"github.com/schuettc/muda/internal/record"
-	"github.com/schuettc/muda/internal/scan"
-	"github.com/schuettc/muda/internal/signal"
+	"github.com/subaud-tools/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/record"
+	"github.com/subaud-tools/muda/internal/scan"
+	"github.com/subaud-tools/muda/internal/signal"
 )
 
 // ScanDiff statuses.

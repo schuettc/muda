@@ -9,12 +9,12 @@ import (
 	"net/url"
 	"os"
 
-	"github.com/schuettc/muda/internal/ghtest"
+	"github.com/subaud-tools/muda/internal/ghtest"
 	"strconv"
 	"strings"
 	"time"
 
-	tools "github.com/schuettc/tools-common"
+	tools "github.com/subaud-tools/tools-common"
 )
 
 type Options struct {

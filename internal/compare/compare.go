@@ -16,11 +16,11 @@ import (
 	"time"
 
 	"github.com/BurntSushi/toml"
-	"github.com/schuettc/muda/internal/gates"
-	"github.com/schuettc/muda/internal/gh"
-	"github.com/schuettc/muda/internal/measure"
-	"github.com/schuettc/muda/internal/record"
-	"github.com/schuettc/muda/internal/signal"
+	"github.com/subaud-tools/muda/internal/gates"
+	"github.com/subaud-tools/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/measure"
+	"github.com/subaud-tools/muda/internal/record"
+	"github.com/subaud-tools/muda/internal/signal"
 )
 
 type Window struct {

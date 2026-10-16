@@ -1,8 +1,8 @@
-module github.com/schuettc/muda
+module github.com/subaud-tools/muda
 
 go 1.26.4
 
-require github.com/schuettc/tools-common v0.11.0
+require github.com/subaud-tools/tools-common v0.12.0
 
 require gopkg.in/yaml.v3 v3.0.1
 

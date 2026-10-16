@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/schuettc/muda/internal/gh"
-	"github.com/schuettc/muda/internal/signal"
-	"github.com/schuettc/muda/internal/workflow"
+	"github.com/subaud-tools/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/signal"
+	"github.com/subaud-tools/muda/internal/workflow"
 )
 
 // otherFileEvents run a workflow file from another branch, so the file at the

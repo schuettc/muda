@@ -4,7 +4,7 @@ package logs
 import (
 	"context"
 	"fmt"
-	"github.com/schuettc/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/gh"
 	"regexp"
 	"strings"
 	"time"

@@ -11,7 +11,7 @@ import (
 
 // Home is muda's own repository, where recipe submissions go. Shipped content
 // may name it exactly; any other use of its owner is still a project fact.
-const Home = "schuettc/muda"
+const Home = "subaud-tools/muda"
 
 var homeRef = regexp.MustCompile(`(?i)\b` + regexp.QuoteMeta(Home) + `(?:$|[^A-Za-z0-9_-])`)
 
@@ -27,6 +27,7 @@ var shippedFactHashes = []string{
 	"0bda61a54af46aaba244fa8773128e07b5b12a1ad4f65b985698f668542c97d7",
 	"8c268e28807bd7672f203082152060e8ea43f3475b6318aa6536b3cf30525e36",
 	"8575e43e52cfebdcf89f5f0fd05d8291b5aa3847836edde2705b86b4ca9f524f",
+	"9d372c3e496366825b71d5192ceaf6b8e00cbe0b6f33e882b78948597bdb39e1",
 }
 
 // ShippedFactHashes returns a copy of the shipped digest set.

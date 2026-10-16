@@ -5,8 +5,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/schuettc/muda"
-	"github.com/schuettc/muda/internal/content"
+	"github.com/subaud-tools/muda"
+	"github.com/subaud-tools/muda/internal/content"
 )
 
 // candidatePrefix marks a waste from the standard's candidate list.

@@ -11,9 +11,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/schuettc/muda/internal/gates"
-	"github.com/schuettc/muda/internal/gh"
-	"github.com/schuettc/muda/internal/ghtest"
+	"github.com/subaud-tools/muda/internal/gates"
+	"github.com/subaud-tools/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/ghtest"
 )
 
 func TestExistingLockRejectsEveryMutation(t *testing.T) {

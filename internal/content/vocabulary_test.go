@@ -6,8 +6,8 @@ import (
 	"testing"
 	"testing/fstest"
 
-	"github.com/schuettc/muda"
-	"github.com/schuettc/muda/internal/content"
+	"github.com/subaud-tools/muda"
+	"github.com/subaud-tools/muda/internal/content"
 )
 
 // The record checks a finding against these lists, so they are pinned here:

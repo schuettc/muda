@@ -10,8 +10,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/schuettc/muda/internal/record"
-	tools "github.com/schuettc/tools-common"
+	"github.com/subaud-tools/muda/internal/record"
+	tools "github.com/subaud-tools/tools-common"
 )
 
 const recordHelp = `Local, reviewed pipeline facts; no GitHub authentication or network access.

@@ -3,7 +3,7 @@ package record
 
 import (
 	"fmt"
-	"github.com/schuettc/muda/internal/signal"
+	"github.com/subaud-tools/muda/internal/signal"
 )
 
 const Schema = 1

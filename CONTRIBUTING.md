@@ -1,7 +1,7 @@
 # Contributing to muda
 
-muda is a Go module, `github.com/schuettc/muda`, built on
-[tools-common](https://github.com/schuettc/tools-common). It follows the
+muda is a Go module, `github.com/subaud-tools/muda`, built on
+[tools-common](https://github.com/subaud-tools/tools-common). It follows the
 `.tools` family layout: one binary, one gate, one release workflow.
 
 ## Setup
@@ -50,7 +50,7 @@ standard or docs. Examples describe general patterns, not someone's pipeline.
 
 Recorded test fixtures are the one exception. They may name their source, and
 the fixtures under `testdata/tackle` are recorded from the public
-[schuettc/tackle](https://github.com/schuettc/tackle) repository. Record new
+[subaud-tools/tackle](https://github.com/subaud-tools/tackle) repository. Record new
 fixtures with `go run ./internal/ghtest/cmd/record`, and review every file it
 writes for secrets and private data before you commit it.
 

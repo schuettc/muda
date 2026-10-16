@@ -7,9 +7,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/schuettc/muda/internal/gh"
-	"github.com/schuettc/muda/internal/signal"
-	"github.com/schuettc/muda/internal/workflow"
+	"github.com/subaud-tools/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/signal"
+	"github.com/subaud-tools/muda/internal/workflow"
 )
 
 // treeProvenEvents check out the run's head commit, so head_commit.tree_id is

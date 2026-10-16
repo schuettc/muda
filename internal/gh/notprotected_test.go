@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/schuettc/muda/internal/ghtest"
+	"github.com/subaud-tools/muda/internal/ghtest"
 )
 
 // Final review I2: GitHub's recorded "Branch not protected" 404 is an explicit

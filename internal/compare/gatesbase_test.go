@@ -13,10 +13,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/schuettc/muda/internal/gates"
-	"github.com/schuettc/muda/internal/gh"
-	"github.com/schuettc/muda/internal/ghtest"
-	"github.com/schuettc/muda/internal/record"
+	"github.com/subaud-tools/muda/internal/gates"
+	"github.com/subaud-tools/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/ghtest"
+	"github.com/subaud-tools/muda/internal/record"
 )
 
 // editAtRef serves raw as the content of one workflow path at one ref, and

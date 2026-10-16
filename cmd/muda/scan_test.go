@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/schuettc/muda/internal/scan"
-	"github.com/schuettc/muda/internal/signal"
+	"github.com/subaud-tools/muda/internal/scan"
+	"github.com/subaud-tools/muda/internal/signal"
 )
 
 // TestScanHelpNamesEveryScanSignal keeps `muda scan --help` in step with the

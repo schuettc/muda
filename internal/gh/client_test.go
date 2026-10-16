@@ -13,7 +13,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/schuettc/muda/internal/ghtest"
+	"github.com/subaud-tools/muda/internal/ghtest"
 )
 
 func TestResolveTokenOrder(t *testing.T) {

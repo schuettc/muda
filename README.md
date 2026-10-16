@@ -38,9 +38,9 @@ Agents are `claude`, `pi` and `codex`. Scopes are `user` (the default) and
 
 You can also get the skills from this repository:
 
-- **Claude Code plugin:** `/plugin marketplace add schuettc/muda`, then
+- **Claude Code plugin:** `/plugin marketplace add subaud-tools/muda`, then
   `/plugin install muda@muda`.
-- **pi package:** `pi install git:github.com/schuettc/muda`.
+- **pi package:** `pi install git:github.com/subaud-tools/muda`.
 
 A plugin or package brings the skills, not the binary. Install the binary
 first. Each skill checks for a compatible muda before it starts.
@@ -103,7 +103,7 @@ Read them with `muda standard`, `muda standard W4`, `muda recipes` and
 ### Submitting a recipe
 
 Found a waste no recipe covers, or a fix or trap you measured? Open a
-[recipe submission](https://github.com/schuettc/muda/issues/new?template=recipe-submission.yml).
+[recipe submission](https://github.com/subaud-tools/muda/issues/new?template=recipe-submission.yml).
 The diagnose and verify skills offer to draft one for you, and post it only
 after you approve the text. Describe the pattern, never your project: no
 organisation, repository or service names, ids, URLs or pasted logs. Durations

@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/schuettc/muda/internal/content"
+	"github.com/subaud-tools/muda/internal/content"
 )
 
 var findingID = regexp.MustCompile(`^F-[0-9]{3,}$`)

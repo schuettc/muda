@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/schuettc/muda/internal/gh"
+	"github.com/subaud-tools/muda/internal/gh"
 )
 
 // TestConfidenceBoundaries: the label is by sample size only, low below 10,

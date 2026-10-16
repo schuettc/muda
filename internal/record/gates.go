@@ -3,7 +3,7 @@ package record
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/schuettc/muda/internal/gates"
+	"github.com/subaud-tools/muda/internal/gates"
 )
 
 func (s *Store) SetGates(inv *gates.Inventory) error {
