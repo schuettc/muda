@@ -68,6 +68,6 @@ jobs:
           apple-notary-key-id: ${{ secrets.APPLE_NOTARY_KEY_ID }}
           apple-notary-issuer-id: ${{ secrets.APPLE_NOTARY_ISSUER_ID }}
           dl-tool: muda
-          dl-role-arn: ${{ secrets.MUDA_RELEASE_ROLE_ARN }}
-          dl-bucket: ${{ secrets.MUDA_DOWNLOADS_BUCKET }}
-          dl-distribution-id: ${{ secrets.MUDA_DISTRIBUTION_ID }}
+          dl-role-arn: ${{ vars.MUDA_RELEASE_ROLE_ARN }}
+          dl-bucket: ${{ vars.MUDA_DOWNLOADS_BUCKET }}
+          dl-distribution-id: ${{ vars.MUDA_DISTRIBUTION_ID }}
